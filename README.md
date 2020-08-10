@@ -32,3 +32,4 @@ MVP 5: Add a chat functionality to Friends List.
 
 MVP 6: Tournament functionality (Receives up to 16 players, or auto starts after a given time limit has been exceeded, generates a tournament table)
 
+MVP 7: Add graphical interface.
