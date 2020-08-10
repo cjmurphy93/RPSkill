@@ -3,7 +3,7 @@ const Schema = mongoose.Schema;
 
 const LeaderboardSchema = new Schema(
     {
-        users: [{ type: Schema.Types.ObjectId, ref: "users"}]
+        users: [{ type: Schema.Types.ObjectId, ref: "users" }]
     },
     {
         timestamps: true,
