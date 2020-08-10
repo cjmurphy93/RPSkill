@@ -29,9 +29,6 @@ const game = async() => {
     var answer1 = await question1()
     var answer2 = await question2()
     result(answer1, answer2)
-    // question1().then(answer1 => {
-    //     return (answer1, question2())
-    // }).then((response) => cb(response))
 }
 
 const result = (answer1, answer2) => {
