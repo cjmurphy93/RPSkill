@@ -15,14 +15,12 @@ const UserSchema = new Schema(
       type: String,
       required: true,
     },
-    ranking: {
-        elo: {
-            type: Number,
-        },
-        rank: {
-            type: Number,
-        },
+    rank: {
+      type: Number
     },
+    elo: {
+      type: Number
+    }
   },
   {
     timestamps: true,
