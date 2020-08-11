@@ -14,7 +14,7 @@ class MainPage extends React.Component {
                         <h1>Rock, Paper, Scissors!</h1>
                         <div className='flex-container'>
                             <button className='play-btn'>Play</button>
-                            <Link className='hiscores-btn'>Hiscores</Link>
+                            <Link to='/hiscores' className='hiscores-btn'>Hiscores</Link>
                         </div>
                     </div>
                 </section>
