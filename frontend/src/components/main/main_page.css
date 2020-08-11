@@ -96,7 +96,7 @@ h1{
     transition: ease-in 0.2s;
 }
 
-.login{
+.login-btn{
     position: absolute;
     margin-top: 2%;
     margin-left: 85%;
@@ -104,7 +104,7 @@ h1{
     text-decoration: none;
 }
 
-.login:hover{
+.login-btn:hover{
     background: black;
     color: white;
     transition: ease-in 0.2s;
