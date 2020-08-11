@@ -5,7 +5,7 @@ const navBar = () => {
     
         const display = (
         <div>
-            <Link className="white-btn login" to="/login">Log In</Link>
+            <Link className="white-btn login-btn" to="/login">Log In</Link>
         </div>
         )
     return <>
