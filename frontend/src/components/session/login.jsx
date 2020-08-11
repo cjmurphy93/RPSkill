@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-// import { login, remove } from '../../actions/session';
+import { login, remove } from '../../actions/session_actions';
 import { Link } from 'react-router-dom'
 import './login.css';
 
@@ -26,19 +26,19 @@ class Login extends React.Component {
             this.setState({[type]: e.currentTarget.value})
         }
     }
-    // renderErrors() {
-        // return (
-        //     <ul>
-        //         {this.props.errors.map((error, i) => (
-        //             <li key={`error-${i}`}>
-        //                 {error}
-        //             </li>
-        //         ))}
-        //     </ul>
-        // );
-    // }
+    renderErrors() {
+        return (
+            <ul>
+                {Object.values(this.props.errors).map((error, i) => (
+                    <li className="error-message" key={`error-${i}`}>
+                        {error}
+                    </li>
+                ))}
+            </ul>
+        );
+    }
     componentWillUnmount(){
-        // this.props.removeErrors();
+        this.props.removeErrors();
     }
     render() {
         return (
@@ -67,7 +67,7 @@ class Login extends React.Component {
                                             onChange={this.update('password')}
                                         />
                                     <input className="submit-button" type="submit" value="Log In"/>
-                                    {/* {this.renderErrors()} */}
+                                    {this.renderErrors()}
                                 </form>
                             </div>
                         </div>
@@ -77,16 +77,17 @@ class Login extends React.Component {
     }
 }
 
-const msp = state => {
+const msp = ({errors}) => {
     return {
+        errors: errors.session,
         signup: <Link to="/signup">Sign Up</Link>
     }
 }
 
 const mdp = dispatch => {
     return {
-        // login: user => dispatch(login(user)),
-        // removeErrors: () => dispatch(remove())
+        login: user => dispatch(login(user)),
+        removeErrors: () => dispatch(remove())
     }
 }
 
