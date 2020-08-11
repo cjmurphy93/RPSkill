@@ -13,12 +13,12 @@ router.get("/test", (req, res) => {
 });
 
 const users = [
-    { id: 1, handle: "hurricanenara", email: "hello@hello.com", password: "password1234", performance: [], friends: [] },
-    { id: 2, handle: "blue", email: "hello2@hello.com", password: "password1234", performance: [], friends: [] },
-    { id: 3, handle: "yellow", email: "hello3@hello.com", password: "password1234", performance: [], friends: [] },
-    { id: 4, handle: "red", email: "hello3@hello.com", password: "password1234", performance: [], friends: [] },
-    { id: 5, handle: "orange", email: "hello3@hello.com", password: "password1234", performance: [], friends: [] },
-    { id: 6, handle: "orange", email: "hello3@hello.com", password: "password1234", performance: [], friends: [] },
+    { id: 1, username: "hurricanenara", email: "hello@hello.com", password: "password1234", performance: [], friends: [] },
+    { id: 2, username: "blue", email: "hello2@hello.com", password: "password1234", performance: [], friends: [] },
+    { id: 3, username: "yellow", email: "hello3@hello.com", password: "password1234", performance: [], friends: [] },
+    { id: 4, username: "red", email: "hello3@hello.com", password: "password1234", performance: [], friends: [] },
+    { id: 5, username: "orange", email: "hello3@hello.com", password: "password1234", performance: [], friends: [] },
+    { id: 6, username: "orange", email: "hello3@hello.com", password: "password1234", performance: [], friends: [] },
 ]
 
 // get all users
@@ -76,18 +76,18 @@ router.post("/login", (req, res) => {
     return res.status(400).json(errors);
   }
 
-  const handle = req.body.handle;
+  const username = req.body.username;
   const password = req.body.password;
 
-  User.findOne({ handle }).then((user) => {
+  User.findOne({ username }).then((user) => {
     if (!user) {
-      errors.handle = "This user does not exist";
+      errors.username = "This user does not exist";
       return res.status(400).json(errors);
     }
 
     bcrypt.compare(password, user.password).then((isMatch) => {
       if (isMatch) {
-        const payload = { id: user.id, handle: user.handle };
+        const payload = { id: user.id, username: user.username };
 
         jwt.sign(
           payload,
@@ -116,13 +116,13 @@ router.post("/register", (req, res) => {
     return res.status(400).json(errors);
   }
 
-  User.findOne({ handle: req.body.handle }).then((user) => {
+  User.findOne({ username: req.body.username }).then((user) => {
     if (user) {
-      errors.handle = "User already exists";
+      errors.username = "User already exists";
       return res.status(400).json(errors);
     } else {
       const newUser = new User({
-        handle: req.body.handle,
+        username: req.body.username,
         email: req.body.email,
         password: req.body.password,
       });
@@ -134,7 +134,7 @@ router.post("/register", (req, res) => {
           newUser
             .save()
             .then((user) => {
-              const payload = { id: user.id, handle: user.handle };
+              const payload = { id: user.id, username: user.username };
 
               jwt.sign(
                 payload,
