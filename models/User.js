@@ -48,10 +48,7 @@ userSchema.statics.leaderboardTop = function(callback, num) {
 
 //document methods
 
-<<<<<<< HEAD
-=======
 // working on it
->>>>>>> master
 userSchema.statics
 
 const User = mongoose.model("User", userSchema);
