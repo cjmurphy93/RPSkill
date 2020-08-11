@@ -22,6 +22,10 @@ const gameSchema = new Schema(
   }
 );
 
+<<<<<<< HEAD
+=======
+// still working on it
+>>>>>>> master
 gameSchema.statics.leaderboardTop = function(callback, num) {
     const sorted = this.find({}).sort({})
 }

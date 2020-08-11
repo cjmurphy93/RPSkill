@@ -10,4 +10,5 @@ const LeaderboardSchema = new Schema(
     }
 );
 
+//will build out friends model if we need
 module.exports = Leaderboard = mongoose.model("Leaderboard", LeaderboardSchema);

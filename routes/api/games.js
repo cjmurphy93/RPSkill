@@ -33,7 +33,7 @@ router.post('/', (req, res) => {
           playerOne: req.params.playerOne,
           playerTwo: req.params.playerTwo,
           winner: null,
-        }; // how game document will be created
+        };
     }
     games.push(newGame);
     res.status(200).send(newGame);
