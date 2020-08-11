@@ -41,9 +41,10 @@ userSchema.statics.all = function(callback) {
 
 userSchema.statics.leaderboardTop = function(callback, num) {
   this.aggregate([
-    {$unwind: "performance"},
-    {$group: {}}
-  ]).limit(num)
+    { $unwind: "$performance" },
+    { $group: { _id: "$performance", count: { $sum: 1 } } },
+    { $sort: { _id: 1 } },
+  ]);
 }
 
 //document methods
