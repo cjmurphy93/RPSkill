@@ -5,6 +5,7 @@ const db = require("./config/keys").mongoURI;
 const bodyParser = require("body-parser");
 const users = require("./routes/api/users");
 const leaderboard = require("./routes/api/leaderboard");
+const games = require("./routes/api/games");
 
 app.get("/", (req, res) => res.send("Hello World"));
 
@@ -23,3 +24,4 @@ app.listen(port, () => console.log(`Server is running on port ${port}`));
 
 app.use("/api/users/", users);
 app.use("/api/leaderboard/", leaderboard);
+app.use("/api/games/", games);
