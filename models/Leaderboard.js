@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-const LeaderboardSchema = new Schema(
+const leaderboardSchema = new Schema(
     {
         users: [{ type: Schema.Types.ObjectId, ref: "users"}]
     },
@@ -10,4 +10,4 @@ const LeaderboardSchema = new Schema(
     }
 );
 
-module.exports = Leaderboard = mongoose.model("Leaderboard", LeaderboardSchema);
+module.exports = Leaderboard = mongoose.model("Leaderboard", leaderboardSchema);
