@@ -11,7 +11,7 @@
     margin-left: 3%;
 }
 
-.login{
+.login, .logout-btn{
     position: relative;
     color: white;
     text-decoration: none;
@@ -19,4 +19,8 @@
 }
 .login:visited{
     color: white;
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> fd91803cdb8ad9d3c42c9d97af3b909623ffc773

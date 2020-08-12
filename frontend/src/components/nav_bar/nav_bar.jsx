@@ -23,9 +23,8 @@ class NavBar extends React.Component {
           </div>
         ) : (
           <div className="navbar">
-            <button onClick={this.logoutUser} className="white-btn login-btn">
-              Logout
-            </button>
+            <Link className="white-btn home-btn" to="/">Home</Link>
+            <button onClick={this.logoutUser} className="white-btn logout-btn">Logout</button>
           </div>
         );
     return <>
@@ -45,7 +44,7 @@ const msp = (state) => {
 
 const mdp = (dispatch) => {
   return {
-
+    logout: () => dispatch(logout())
   }
 }
 
