@@ -1,7 +1,6 @@
 import React from 'react';
 import './main_page.css';
 import { Link } from 'react-router-dom';
-import NavBarContainer from "../nav_bar/nav_bar_container";
 
 class MainPage extends React.Component {
 
