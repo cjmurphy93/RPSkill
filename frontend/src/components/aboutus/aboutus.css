@@ -25,3 +25,11 @@
 .austin {
   background-image: url('https://www.ccsj.edu/cms/shavings/wp-content/uploads/sites/52/2014/12/2014.12.09-An.Indian.jpg');
 }
+
+.about-title {
+    font-size: 30px;
+    text-align: center;
+    margin-bottom: 10px;
+    font-weight: lighter;
+    letter-spacing: 2px;
+}
