@@ -9,9 +9,11 @@ router.get("/test", (req, res) => {
 
 router.get('/', (req, res) => {
     User.find()
+    .sort( {score: -1} )
     .then(users => {
-      
+      res.json(users)
     })
+    .catch(err => res.status(404).json({ msg: "No leader board found" }));
 })
 
 module.exports = router;
