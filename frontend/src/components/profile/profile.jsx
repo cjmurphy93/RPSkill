@@ -44,7 +44,6 @@ const msp = state => {
 }
 
 const mdp = dispatch => {
-    debugger
     return {
         getUser: username => dispatch(getUser(username)),
         getScores: () => dispatch(scores()),
