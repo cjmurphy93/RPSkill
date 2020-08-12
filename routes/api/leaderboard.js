@@ -1,5 +1,6 @@
 const express = require("express");
 const router = express.Router();
+const User = require('../../models/User')
 
 router.get("/test", (req, res) => {
   // debugger
@@ -7,7 +8,12 @@ router.get("/test", (req, res) => {
 });
 
 router.get('/', (req, res) => {
-    
+    User.find()
+    .sort( {score: -1} )
+    .then(users => {
+      res.json(users)
+    })
+    .catch(err => res.status(404).json({ msg: "No leader board found" }));
 })
 
 module.exports = router;
