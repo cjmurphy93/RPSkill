@@ -5,7 +5,8 @@
     align-items: center;
 }
 
-.h1 {
+#username {
+    /* border: none; */
     border-bottom: 3px solid white;
 }
 

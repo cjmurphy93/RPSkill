@@ -18,7 +18,7 @@ class Profile extends React.Component {
             <div>
                 <section>
                     <div className="profile-container">
-                        <h1>{user.username}</h1>
+                        <h1 id="username">{user.username}</h1>
                             <div className="user-info">
                                 <li>Rank:</li>
                                 <li>ELO: {user.elo}</li>
