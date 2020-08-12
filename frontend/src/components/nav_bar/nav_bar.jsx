@@ -1,19 +1,40 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const navBar = () => {
+class NavBar extends React.Component {
+    constructor(props) {
+        super(props);
+        this.logoutUser = this.logoutUser.bind(this);
+    };
+
+    logoutUser(e) {
+        e.preventDefault();
+        this.props.logout();
+    }
     
-        const display = (
-        <div>
-            <Link className="white-btn login-btn" to="/login">Log In</Link>
-        </div>
-        )
+    render() {
+        const display = !this.props.loggedIn ? (
+          <div>
+            <Link className="white-btn login-btn" to="/login">
+              Log In
+            </Link>
+          </div>
+        ) : (
+          <div>
+            <button onClick={this.logoutUser} className="white-btn login-btn">
+              Logout
+            </button>
+          </div>
+        );
+        
+        
+    
     return <>
         <div>
             {display}
         </div> 
     </>
-        
+    } 
 }
 
-export default navBar;
+export default NavBar;
