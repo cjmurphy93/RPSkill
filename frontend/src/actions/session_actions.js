@@ -34,9 +34,12 @@ export const removeErrors = () => ({
         type: REMOVE_ERRORS,
 });
 
-export const receiveUsers = () => ({
-    type: RECEIVE_USERS,
-});
+export const receiveUsers = (users) => {
+    return{
+        type: RECEIVE_USERS,
+        users
+    }
+};
 
 export const signup = (user) => dispatch => (
     APIUtil.signup(user).then(
@@ -70,7 +73,7 @@ export const remove = () => dispatch => {
 export const scores = () => dispatch => (
     LeaderboardUtil.users()
         .then((res) => {
-            dispatch(receiveUsers(res));
+            dispatch(receiveUsers(res.data));
         }).catch((err) => {
             dispatch(receiveErrors(err.response.data));
         })
