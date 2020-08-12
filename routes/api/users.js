@@ -9,7 +9,7 @@ const validateRegisterInput = require("../../validation/register");
 const validateLoginInput = require("../../validation/login");
 
 router.get("/test", (req, res) => {
-  // debugger
+  //  
   res.json({ msg: "This is the users route" });
 });
 
@@ -26,7 +26,7 @@ router.get('/current', passport.authenticate('jwt', { session: false }), (req, r
 router.get('/', (req, res) => {
     User.find()
       .then(users => {
-        // debugger
+        //  
         res.json(users)
       })
       .catch(err => res.status(404).json({ nousersfound: "No users found"}))
@@ -34,11 +34,11 @@ router.get('/', (req, res) => {
 })
 
 // get specific user
-router.get('/:username', (req, res) => {
-  debugger
-  User.findOne({ username: req.params.username })
+router.get('/:id', (req, res) => {
+   
+  User.findOne({ _id: req.params.id })
     .then((user) => {
-      debugger;
+       ;
       res.json(user);
     })
     .catch((err) => res.status(404).json({ nouserfound: "No user found" }));

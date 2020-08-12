@@ -84,7 +84,7 @@ const User = mongoose.model("User", userSchema);
 
 // User.insertMany(usersArr, function(err) {
 //     if (err) {
-//         debugger
+//          
 //         console.log(err)
 //     } else {
 //         console.log("user docs inserted")
