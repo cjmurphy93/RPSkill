@@ -1,11 +1,16 @@
 import jwt_decode from 'jwt-decode';
 import * as APIUtil from "../util/session_api_util";
+import * as LeaderboardUtil from "../util/leaderboard_api_util";
+
 
 export const RECEIVE_USER_SIGN_IN = "RECEIVE_USER_SIGN_IN";
 export const RECEIVE_USER_LOGOUT = "RECEIVE_USER_LOGOUT";
 export const RECEIVE_CURRENT_USER = "RECEIVE_CURRENT_USER";
 export const RECEIVE_SESSION_ERRORS = "RECEIVE_SESSION_ERRORS";
 export const REMOVE_ERRORS = "REMOVE_ERRORS";
+export const RECEIVE_USERS = "RECEIVE_USERS";
+
+
 
 export const receiveCurrentUser = (currentUser) => ({
     type: RECEIVE_CURRENT_USER,
@@ -29,11 +34,25 @@ export const removeErrors = () => ({
         type: REMOVE_ERRORS,
 });
 
+export const receiveUsers = (users) => {
+    return{
+        type: RECEIVE_USERS,
+        users
+    }
+};
+
 export const signup = (user) => dispatch => (
-    APIUtil.signup(user).then(
-    () => dispatch(receiveUserSignIn()),
-    (err) => dispatch(receiveErrors(err.response.data))
-));
+    APIUtil.signup(user).then((res) => {
+        const { token } = res.data;
+        localStorage.setItem("jwtToken", token);
+        APIUtil.setAuthToken(token);
+        const decoded = jwt_decode(token);
+        dispatch(receiveUserSignIn());
+        dispatch(receiveCurrentUser(decoded));
+    }).catch((err) => {
+        dispatch(receiveErrors(err.response.data));
+    })
+);
 
 export const login = (user) => dispatch => (
     APIUtil.login(user)
@@ -57,3 +76,12 @@ export const logout = () => dispatch => {
 export const remove = () => dispatch => {
     dispatch(removeErrors())
 }
+
+export const scores = () => dispatch => (
+    LeaderboardUtil.users()
+        .then((res) => {
+            dispatch(receiveUsers(res.data));
+        }).catch((err) => {
+            dispatch(receiveErrors(err.response.data));
+        })
+);

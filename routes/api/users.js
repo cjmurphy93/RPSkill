@@ -13,6 +13,15 @@ router.get("/test", (req, res) => {
   res.json({ msg: "This is the users route" });
 });
 
+router.get('/current', passport.authenticate('jwt', { session: false }), (req, res) => {
+  res.json({
+    id: req.user.id,
+    username: req.user.username,
+    email: req.user.email,
+    elo: req.user.elo
+  });
+})
+
 // get all users
 router.get('/', (req, res) => {
     User.find()
@@ -146,7 +155,7 @@ router.post("/register", (req, res) => {
           newUser
             .save()
             .then((user) => {
-              const payload = { id: user.id, username: user.username };
+              const payload = { id: user.id, email: user.email };
 
               jwt.sign(
                 payload,
@@ -167,8 +176,5 @@ router.post("/register", (req, res) => {
   });
 });
 
-router.get('/current', passport.authenticate('jwt', {session: false}), (req, res) => {
-  res.json({msg: 'Success'});
-})
 
 module.exports = router;
