@@ -35,14 +35,20 @@ router.get('/:id', (req, res) => {
     .catch((err) => res.status(404).json({ nouserfound: "No user found" }));
 })
 
+// get friend list of specific user
+// router.get('/:id/friends', (req, res) => {
+
+// })
+
 // update attribute (performance or friend)
 router.patch("/:id/", (req, res) => {
     User.updateOne({ _id: req.params.id },
-      { $inc: { elo: req.query.perf }} // query string to be requested as ?perf=score
+      { $inc: { elo: req.query.score }} // query string to be requested as ?score=score
     )
     .then(() => {
-      res.status(200).send();
-    });
+      res.status(200).json({msg: "points added to user"})
+    })
+    .catch((err) => res.status(404).json({ msg: "update errors"}))
     // else if (req.params.friend) {
     //   User.updateOne(
     //     { _id: req.params.id },
@@ -67,7 +73,7 @@ router.patch("/:id/", (req, res) => {
 // remove friend route
 router.delete('/:id/', (req, res) => {
   User.deleteOne({_id: req.params.id},
-    { $pull: { friends: req.query.friend}}
+    { $pull: { friends: req.query.friend}} // ?friend=userId
     )
     .then(() => {
       res.status(200).send();
