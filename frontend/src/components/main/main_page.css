@@ -79,13 +79,6 @@ h1{
     height: 100px;
     background-color: black;
 }
-.login{
-    position: absolute;
-    margin-top: 2%;
-    margin-left: 85%;
-    color: white;
-    text-decoration: none;
-}
 
 .white-btn{
     font-size: 1.5rem;
@@ -96,20 +89,6 @@ h1{
     padding: 2rem 4rem;
 }
 .white-btn:hover{
-    background: black;
-    color: white;
-    transition: ease-in 0.2s;
-}
-
-.login-btn{
-    position: absolute;
-    margin-top: 2%;
-    margin-left: 85%;
-    color: white;
-    text-decoration: none;
-}
-
-.login-btn:hover{
     background: black;
     color: white;
     transition: ease-in 0.2s;
