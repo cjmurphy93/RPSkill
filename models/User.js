@@ -22,7 +22,7 @@ const userSchema = new Schema(
       default: [],
     },
     friends: {
-      type: [Schema.Types.ObjectId],
+      type: [],
       default: [],
     },
     elo: {
@@ -33,6 +33,45 @@ const userSchema = new Schema(
     timestamps: true,
   }
 );
+
+const usersArr = [
+  {
+    username: "hurricanenara",
+    email: "hello@hello.com",
+    password: "password1234",
+    performance: [1, 1, 1, 1],
+  },
+  {
+    username: "blue",
+    email: "hello2@hello.com",
+    password: "password1234",
+    performance: [0, 0, 0, 0],
+  },
+  {
+    username: "yellow",
+    email: "hello3@hello.com",
+    password: "password1234",
+    performance: [0, 0, 1, 1],
+  },
+  {
+    username: "red",
+    email: "hello4@hello.com",
+    password: "password1234",
+    performance: [1, 1, 0, 0],
+  },
+  {
+    username: "green",
+    email: "hello5@hello.com",
+    password: "password1234",
+    performance: [1, 0, 1, 0],
+  },
+  {
+    username: "grey",
+    email: "hello6@hello.com",
+    password: "password1234",
+    performance: [0, 1, 0, 1],
+  },
+];
 
 //model methods
 userSchema.statics.all = function(callback) {
@@ -53,4 +92,27 @@ userSchema.statics.leaderboardTop = function(callback, num) {
 userSchema.statics
 
 const User = mongoose.model("User", userSchema);
+
+User.remove({});
+
+User.find(function(err, users) {
+  if (err) {
+    console.log(err)
+  } else {
+    users.forEach(user => {
+      console.log(user.performance)
+    })
+  }
+})
+
+// User.insertMany(usersArr, function(err) {
+//     if (err) {
+//         debugger
+//         console.log(err)
+//     } else {
+//         console.log("user docs inserted")
+//     }
+// })
+
+
 module.exports = User;
