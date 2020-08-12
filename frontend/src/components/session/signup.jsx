@@ -11,7 +11,7 @@ class SignUp extends React.Component {
             handle: '',
             email: '',
             password: '',
-            confirmpassword: ''
+            password2: ''
         };
         this.handleSubmit = this.handleSubmit.bind(this);
     };
@@ -55,8 +55,8 @@ class SignUp extends React.Component {
                                         className="mb"
                                         placeholder="Name"
                                         type="text"
-                                        value={this.state.username}
-                                        onChange={this.update('username')}
+                                        value={this.state.handle}
+                                        onChange={this.update('handle')}
                                     /> 
                                     <input
                                         className="mb"
@@ -77,7 +77,7 @@ class SignUp extends React.Component {
                                         className="mb"
                                         type="password"
                                         value={this.state.confirmpassword}
-                                        onChange={this.update('confirmpassword')}
+                                        onChange={this.update('password2')}
                                     />
                                 <input className="submit-button" type="submit" value="Create Account"/>
                                 {this.renderErrors()}
