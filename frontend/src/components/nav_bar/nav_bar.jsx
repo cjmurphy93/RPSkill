@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { logout } from '../../actions/session_actions';
 import './nav_bar.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faLinkedin } from '@fortawesome/free-brands-svg-icons'
 
 class NavBar extends React.Component {
     constructor(props) {
@@ -19,29 +21,44 @@ class NavBar extends React.Component {
       e.preventDefault();
       window.open('https://www.linkedin.com/in/naraskim/');
       window.open('https://www.linkedin.com/in/austinhokunwong/');
+      window.open('https://www.linkedin.com/in/connor-murphy-085a7238/')
     }
 
     render() {
         const display = !this.props.loggedIn ? (
           <div className="navbar">
             <div className="navbar">
-              <Link className="white-btn home-btn" to="/">Home</Link>
+              <Link className="white-btn home-btn" to="/">
+                Home
+              </Link>
             </div>
             <div className="navbar">
-              <a onClick={(e) => this.linkedin(e)} className="linkedin"><img className="linkedin-img" src="https://www.iconsdb.com/icons/preview/white/linkedin-xxl.png" alt=""/></a>
-              <Link className="white-btn login" to="/login">Log In</Link>
+              <a onClick={(e) => this.linkedin(e)} className="linkedin">
+                <FontAwesomeIcon icon={faLinkedin} className="linkedin-img" />
+              </a>
+              <Link className="white-btn login" to="/login">
+                Log In
+              </Link>
             </div>
           </div>
         ) : (
           <div className="navbar">
-              <div className="navbar">
-                <Link className="white-btn home-btn" to="/">Home</Link>
-              </div>
-              <div className="navbar">
-                <a className="linkedin"><img className="linkedin-img" src="https://www.iconsdb.com/icons/preview/white/linkedin-xxl.png" alt="" /></a>
-                <button onClick={this.logoutUser} className="white-btn logout-btn">Logout</button>
-              </div>
-              
+            <div className="navbar">
+              <Link className="white-btn home-btn" to="/">
+                Home
+              </Link>
+            </div>
+            <div className="navbar">
+              <a onClick={(e) => this.linkedin(e)} className="linkedin">
+                <FontAwesomeIcon icon={faLinkedin} className="linkedin-img" />
+              </a>
+              <button
+                onClick={this.logoutUser}
+                className="white-btn logout-btn"
+              >
+                Logout
+              </button>
+            </div>
           </div>
         );
     return <>

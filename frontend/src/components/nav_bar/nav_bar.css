@@ -16,7 +16,7 @@
     color: white;
     text-decoration: none;
     margin-right: 10%;
-    width:  170px;
+    width:  200px;
     text-align: center;
 }
 .login:visited{
@@ -24,10 +24,12 @@
 }
 
 .linkedin{
-    height: 20%;
+    /* height: 20%; */
     margin-right: 20px;
 }
 
 .linkedin-img{
     height: 100%;
+    color: white;
+    font-size: 40px;
 }
