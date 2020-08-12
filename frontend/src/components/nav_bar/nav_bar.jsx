@@ -1,5 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { logout } from '../../actions/session_actions';
+import './nav_bar.css';
 
 class NavBar extends React.Component {
     constructor(props) {
@@ -15,9 +18,8 @@ class NavBar extends React.Component {
     render() {
         const display = !this.props.loggedIn ? (
           <div className="navbar">
-            <Link className="white-btn login-btn" to="/login">
-              Log In
-            </Link>
+            <Link className="white-btn home-btn" to="/">Home</Link>
+            <Link className="white-btn login" to="/login">Log In</Link>
           </div>
         ) : (
           <div className="navbar">
@@ -26,9 +28,6 @@ class NavBar extends React.Component {
             </button>
           </div>
         );
-        
-        
-    
     return <>
         <nav>
             {display}
@@ -37,4 +36,17 @@ class NavBar extends React.Component {
     } 
 }
 
-export default NavBar;
+const msp = (state) => {
+
+  return {
+    loggedIn: state.session.isAuthenticated,
+  };
+}
+
+const mdp = (dispatch) => {
+  return {
+
+  }
+}
+
+export default connect(msp,mdp)(NavBar);

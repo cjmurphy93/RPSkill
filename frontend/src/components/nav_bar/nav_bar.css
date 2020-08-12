@@ -1,0 +1,22 @@
+.navbar{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.home-btn{
+    position: relative;
+    color: white;
+    text-decoration: none;
+    margin-left: 3%;
+}
+
+.login{
+    position: relative;
+    color: white;
+    text-decoration: none;
+    margin-right: 3%;
+}
+.login:visited{
+    color: white;
+}
