@@ -106,3 +106,12 @@ section{
     color: white;
     transition: 0.2s ease-in;
 }
+
+ul {
+    list-style: none;
+}
+.error-message{
+    color: red;
+    margin-top: 3px;
+    font-size: 14px;
+}
