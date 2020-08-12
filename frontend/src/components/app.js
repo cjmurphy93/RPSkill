@@ -5,16 +5,20 @@ import { Switch } from 'react-router-dom';
 import MainPage from './main/main_page';
 import LogIn from './session/login';
 import SignUp from './session/signup';
-import NavBarContainer from "./nav_bar/nav_bar_container";
+import Hiscores from './hiscores/hiscores'
+import NavBar from "./nav_bar/nav_bar";
+import Profile from "./profile/profile";
 import "./main/main_page.css";
 
 
 const App = () => (
   <div>
-    <NavBarContainer />
+    <NavBar />
 
     <Switch>
       <Route exact path="/" component={MainPage} />
+      <Route exact path="/hiscores" component={Hiscores} />
+      <Route exact path="/user/:username" component={Profile} />
       <AuthRoute exact path="/login" component={LogIn} />
       <AuthRoute exact path="/signup" component={SignUp} />
     </Switch>

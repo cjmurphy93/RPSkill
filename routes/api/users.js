@@ -13,6 +13,15 @@ router.get("/test", (req, res) => {
   res.json({ msg: "This is the users route" });
 });
 
+router.get('/current', passport.authenticate('jwt', { session: false }), (req, res) => {
+  res.json({
+    id: req.user.id,
+    username: req.user.username,
+    email: req.user.email,
+    elo: req.user.elo
+  });
+})
+
 // get all users
 router.get('/', (req, res) => {
     User.find()
@@ -25,9 +34,9 @@ router.get('/', (req, res) => {
 })
 
 // get specific user
-router.get('/:id', (req, res) => {
+router.get('/:username', (req, res) => {
   debugger
-  User.findOne({ _id: req.params.id })
+  User.findOne({ username: req.params.username })
     .then((user) => {
       debugger;
       res.json(user);
@@ -35,14 +44,20 @@ router.get('/:id', (req, res) => {
     .catch((err) => res.status(404).json({ nouserfound: "No user found" }));
 })
 
+// get friend list of specific user
+// router.get('/:id/friends', (req, res) => {
+
+// })
+
 // update attribute (performance or friend)
 router.patch("/:id/", (req, res) => {
     User.updateOne({ _id: req.params.id },
-      { $inc: { elo: req.query.perf }} // query string to be requested as ?perf=score
+      { $inc: { elo: req.query.score }} // query string to be requested as ?score=score
     )
     .then(() => {
-      res.status(200).send();
-    });
+      res.status(200).json({msg: "points added to user"})
+    })
+    .catch((err) => res.status(404).json({ msg: "update errors"}))
     // else if (req.params.friend) {
     //   User.updateOne(
     //     { _id: req.params.id },
@@ -67,7 +82,7 @@ router.patch("/:id/", (req, res) => {
 // remove friend route
 router.delete('/:id/', (req, res) => {
   User.deleteOne({_id: req.params.id},
-    { $pull: { friends: req.query.friend}}
+    { $pull: { friends: req.query.friend}} // ?friend=userId
     )
     .then(() => {
       res.status(200).send();
@@ -140,7 +155,7 @@ router.post("/register", (req, res) => {
           newUser
             .save()
             .then((user) => {
-              const payload = { id: user.id, username: user.username };
+              const payload = { id: user.id, email: user.email };
 
               jwt.sign(
                 payload,
@@ -161,8 +176,5 @@ router.post("/register", (req, res) => {
   });
 });
 
-router.get('/current', passport.authenticate('jwt', {session: false}), (req, res) => {
-  res.json({msg: 'Success'});
-})
 
 module.exports = router;

@@ -74,14 +74,6 @@ section{
     margin-bottom: 11px;
 }
 
-.home-btn{
-    position: absolute;
-    margin-top: 2%;
-    margin-left: 10%;
-    color: white;
-    text-decoration: none;
-}
-
 .login-title {
     color: black;
     font-size: 28px;

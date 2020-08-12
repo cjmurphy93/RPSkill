@@ -1,7 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { signup, remove } from '../../actions/session_actions';
-import { Link } from 'react-router-dom'
+import { signup, login, remove } from '../../actions/session_actions';
+import { Link, withRouter } from 'react-router-dom';
+
 
 class SignUp extends React.Component {
     constructor(props) {
@@ -11,14 +12,27 @@ class SignUp extends React.Component {
             username: '',
             email: '',
             password: '',
-            password2: ''
+            password2: '',
+            errors: {}
         };
         this.handleSubmit = this.handleSubmit.bind(this);
     };
+
     handleSubmit(e) {
         e.preventDefault();
-        this.props.signup(this.state)
-    }
+        let user = {
+            email: this.state.email,
+            username: this.state.username,
+            password: this.state.password,
+            password2: this.state.password2,
+        };
+
+
+        this.props.signup(user);
+    };
+
+
+
     update(type) {
         return e => {
             this.setState({ [type]: e.currentTarget.value })
@@ -43,12 +57,11 @@ class SignUp extends React.Component {
         return (
             <>
                 <section id="main-content">
-                        <Link className="white-btn home-btn" to="/">Home</Link>
                     <div>
                         <div id="user-account-form">
                             <div className="flex space-between mb-11">
                                 <p className="login-title">Sign up</p>
-                                <p className="toggle-session">Have an account? {this.props.login}</p>
+                                <p className="toggle-session">Have an account? {this.props.loginLink}</p>
                             </div>
                             <form className="flex center column" onSubmit={this.handleSubmit}>
                                     <input
@@ -76,7 +89,7 @@ class SignUp extends React.Component {
                                         placeholder="Confirm Password"
                                         className="mb"
                                         type="password"
-                                        value={this.state.confirmpassword}
+                                        value={this.state.password2}
                                         onChange={this.update('password2')}
                                     />
                                 <input className="submit-button" type="submit" value="Create Account"/>
@@ -90,19 +103,21 @@ class SignUp extends React.Component {
     
 }
 
-const msp = ({ errors }) => {
+const msp = (state) => {
 
     return {
-        errors: errors.session,
-        login: <Link to="/login">Log in</Link>
+        errors: state.errors.session,
+        loginLink: <Link to="/login">Log in</Link>,
+        signedIn: state.session.isSignedIn
     }
 }
 const mdp = (dispatch) => {
     return {
         signup: user => dispatch(signup(user)),
+        login: user => dispatch(login(user)),
         removeErrors: () => dispatch(remove())
     };
 };
 
-export default connect(msp, mdp)(SignUp);
+export default connect(msp, mdp)(withRouter(SignUp));
 

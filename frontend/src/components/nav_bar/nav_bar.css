@@ -1,0 +1,35 @@
+.navbar{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.home-btn{
+    position: relative;
+    color: white;
+    text-decoration: none;
+    margin-left: 3%;
+}
+
+.login, .logout-btn{
+    position: relative;
+    color: white;
+    text-decoration: none;
+    margin-right: 10%;
+    width:  200px;
+    text-align: center;
+}
+.login:visited{
+    color: white;
+}
+
+.linkedin{
+    /* height: 20%; */
+    margin-right: 20px;
+}
+
+.linkedin-img{
+    height: 100%;
+    color: white;
+    font-size: 40px;
+}

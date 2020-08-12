@@ -9,7 +9,8 @@ router.get("/test", (req, res) => {
 
 router.get('/', (req, res) => {
     User.find()
-    .sort( {score: -1} )
+    .sort( {elo: -1} )
+    .limit(15)
     .then(users => {
       res.json(users)
     })
