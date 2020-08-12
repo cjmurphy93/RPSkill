@@ -13,15 +13,6 @@ router.get("/test", (req, res) => {
   res.json({ msg: "This is the users route" });
 });
 
-// const users = [
-//     { id: 1, username: "hurricanenara", email: "hello@hello.com", password: "password1234", performance: ["W", "L", "L", "W"], friends: [] },
-//     { id: 2, username: "blue", email: "hello2@hello.com", password: "password1234", performance: ["W", "W", "W", "W"], friends: [] },
-//     { id: 3, username: "yellow", email: "hello3@hello.com", password: "password1234", performance: ["L", "L", "L", "L"], friends: [] },
-//     { id: 4, username: "red", email: "hello4@hello.com", password: "password1234", performance: ["L", "W", "W", "L"], friends: [] },
-//     { id: 5, username: "green", email: "hello5@hello.com", password: "password1234", performance: ["W", "L", "L", "L"], friends: [] },
-//     { id: 6, username: "grey", email: "hello6@hello.com", password: "password1234", performance: ["L", "W", "W", "W"], friends: [] },
-// ]
-
 // get all users
 router.get('/', (req, res) => {
     User.find()
@@ -44,25 +35,34 @@ router.get('/:id', (req, res) => {
     .catch((err) => res.status(404).json({ nouserfound: "No user found" }));
 })
 
-// update attribute (performance for now)
+// update attribute (performance or friend)
 router.patch("/:id/", (req, res) => {
-  User.updateOne({ _id: req.params.id },
-    { $$push: { performance: req.query.perf }} // query string to be requested as ?perf=result
-  )
-  .then(() => {
-    res.status(200).send();
-  });
-});
+    User.updateOne({ _id: req.params.id },
+      { $inc: { elo: req.query.perf }} // query string to be requested as ?perf=score
+    )
+    .then(() => {
+      res.status(200).send();
+    });
+    // else if (req.params.friend) {
+    //   User.updateOne(
+    //     { _id: req.params.id },
+    //     { $addToSet: { friends: req.query.friend } } // query string ?friend=id
+    //   ).then(() => {
+    //     res.status(200).send();
+    //   });
+    // }
+  }
+);
 
-// add friend route
-router.patch('/:id/', (req, res) => {
-  User.updateOne({_id: req.params.id},
-      { $addToSet: { friends: req.query.friend }} // query string ?friend=id
-      )
-      .then(() => {
-        res.status(200).send();
-      });
-});
+// // add friend route
+// router.patch('/:id/', (req, res) => {
+//   User.updateOne({_id: req.params.id},
+//       { $addToSet: { friends: req.query.friend }} // query string ?friend=id
+//       )
+//       .then(() => {
+//         res.status(200).send();
+//       });
+// });
 
 // remove friend route
 router.delete('/:id/', (req, res) => {

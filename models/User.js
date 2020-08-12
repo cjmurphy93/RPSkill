@@ -17,16 +17,13 @@ const userSchema = new Schema(
       type: String,
       required: true,
     },
-    performance: {
-      type: ["W", "L"],
-      default: [],
-    },
     friends: {
-      type: [],
+      type: [Schema.Types.ObjectId],
       default: [],
     },
     elo: {
-      type: Number
+      type: Number,
+      default: 1000,
     }
   },
   {
@@ -36,74 +33,56 @@ const userSchema = new Schema(
 
 const usersArr = [
   {
-    username: "hurricanenara",
+    username: "purple",
     email: "hello@hello.com",
     password: "password1234",
-    performance: [1, 1, 1, 1],
+    score: 10,
   },
   {
     username: "blue",
     email: "hello2@hello.com",
     password: "password1234",
-    performance: [0, 0, 0, 0],
+    score: 8,
   },
   {
     username: "yellow",
     email: "hello3@hello.com",
     password: "password1234",
-    performance: [0, 0, 1, 1],
+    score: 2,
   },
   {
     username: "red",
     email: "hello4@hello.com",
     password: "password1234",
-    performance: [1, 1, 0, 0],
+    score: 0,
   },
   {
     username: "green",
     email: "hello5@hello.com",
     password: "password1234",
-    performance: [1, 0, 1, 0],
+    score: 5,
   },
   {
     username: "grey",
     email: "hello6@hello.com",
     password: "password1234",
-    performance: [0, 1, 0, 1],
+    score: 5,
   },
 ];
-
-//model methods
-userSchema.statics.all = function(callback) {
-  return this.find({});
-}
-
-userSchema.statics.leaderboardTop = function(callback, num) {
-  this.aggregate([
-    { $unwind: "$performance" },
-    { $group: { _id: "$performance", count: { $sum: 1 } } },
-    { $sort: { _id: 1 } },
-  ]);
-}
-
-//document methods
-
-// working on it
-userSchema.statics
 
 const User = mongoose.model("User", userSchema);
 
 User.remove({});
 
-User.find(function(err, users) {
-  if (err) {
-    console.log(err)
-  } else {
-    users.forEach(user => {
-      console.log(user.performance)
-    })
-  }
-})
+// User.find(function(err, users) {
+//   if (err) {
+//     console.log(err)
+//   } else {
+//     users.forEach(user => {
+//       console.log(user.performance)
+//     })
+//   }
+// })
 
 // User.insertMany(usersArr, function(err) {
 //     if (err) {
@@ -113,6 +92,5 @@ User.find(function(err, users) {
 //         console.log("user docs inserted")
 //     }
 // })
-
 
 module.exports = User;
