@@ -11,7 +11,7 @@
     margin-left: 3%;
 }
 
-.login{
+.login, .logout-btn{
     position: relative;
     color: white;
     text-decoration: none;

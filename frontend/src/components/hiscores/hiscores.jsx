@@ -5,6 +5,10 @@ import { Link } from 'react-router-dom';
 
 class Hiscores extends React.Component {
 
+    componentDidMount() {
+        
+    }
+
     render() {
         return (
             <div>
