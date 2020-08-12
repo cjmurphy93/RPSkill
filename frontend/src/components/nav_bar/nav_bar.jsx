@@ -19,6 +19,7 @@ class NavBar extends React.Component {
       e.preventDefault();
       window.open('https://www.linkedin.com/in/naraskim/');
       window.open('https://www.linkedin.com/in/austinhokunwong/');
+      window.open('https://www.linkedin.com/in/connor-murphy-085a7238/')
     }
 
     render() {
