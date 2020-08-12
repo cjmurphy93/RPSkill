@@ -1,0 +1,35 @@
+.user {
+  display: inline-block;
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  cursor: pointer;
+
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+}
+
+.about-container{
+    display: flex;
+    justify-content: space-evenly;
+}
+.nara {
+  background-image: url('https://www.theedgesusu.co.uk/wp-content/uploads/2017/03/Audrey-Hepburn-1.jpg');
+}
+
+.connor {
+  background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/Mike_Tyson_2019_by_Glenn_Francis.jpg/1200px-Mike_Tyson_2019_by_Glenn_Francis.jpg');
+}
+
+.austin {
+  background-image: url('https://www.ccsj.edu/cms/shavings/wp-content/uploads/sites/52/2014/12/2014.12.09-An.Indian.jpg');
+}
+
+.about-title {
+    font-size: 30px;
+    text-align: center;
+    margin-bottom: 10px;
+    font-weight: lighter;
+    letter-spacing: 2px;
+}
