@@ -33,9 +33,9 @@ class NavBar extends React.Component {
               </Link>
             </div>
             <div className="navbar">
-              <a onClick={(e) => this.linkedin(e)} className="linkedin">
+              <Link className="linkedin" to="/aboutus">
                 <FontAwesomeIcon icon={faLinkedin} className="linkedin-img" />
-              </a>
+              </Link>
               <Link className="white-btn login" to="/login">
                 Log In
               </Link>
@@ -49,9 +49,9 @@ class NavBar extends React.Component {
               </Link>
             </div>
             <div className="navbar">
-              <a onClick={(e) => this.linkedin(e)} className="linkedin">
+              <Link className="linkedin" to="/aboutus">
                 <FontAwesomeIcon icon={faLinkedin} className="linkedin-img" />
-              </a>
+              </Link>
               <button
                 onClick={this.logoutUser}
                 className="white-btn logout-btn"
