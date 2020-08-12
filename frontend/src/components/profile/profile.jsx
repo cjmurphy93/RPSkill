@@ -1,6 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { getUser } from '../../actions/profile_actions';
+import './profile.css';
+
 
 class Profile extends React.Component {
 
@@ -17,9 +19,10 @@ class Profile extends React.Component {
                 <section>
                     <div className="profile-container">
                         <h1>{user.username}</h1>
-                        <h1>{user.elo}</h1>
-                        <caption><h1>Profile</h1></caption>
-                        
+                            <div className="user-info">
+                                <li>Rank:</li>
+                                <li>ELO: {user.elo}</li>
+                            </div>                        
                     </div>
                 </section>
             </div>
