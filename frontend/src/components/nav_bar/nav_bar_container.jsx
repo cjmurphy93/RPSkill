@@ -12,8 +12,8 @@ const msp = (state) => {
 
 const mdp = (dispatch) => {
     return {
-        logout: dispatch(logout())
+        
     }
 }
 
-export default connect(msp, mdp)(NavBar);
+export default connect(msp, {logout})(NavBar);

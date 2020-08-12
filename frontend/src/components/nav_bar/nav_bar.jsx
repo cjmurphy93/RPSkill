@@ -14,13 +14,13 @@ class NavBar extends React.Component {
     
     render() {
         const display = !this.props.loggedIn ? (
-          <div>
+          <div className="navbar">
             <Link className="white-btn login-btn" to="/login">
               Log In
             </Link>
           </div>
         ) : (
-          <div>
+          <div className="navbar">
             <button onClick={this.logoutUser} className="white-btn login-btn">
               Logout
             </button>
@@ -30,9 +30,9 @@ class NavBar extends React.Component {
         
     
     return <>
-        <div>
+        <nav>
             {display}
-        </div> 
+        </nav> 
     </>
     } 
 }
