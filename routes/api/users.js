@@ -34,9 +34,9 @@ router.get('/', (req, res) => {
 })
 
 // get specific user
-router.get('/:id', (req, res) => {
+router.get('/:username', (req, res) => {
    
-  User.findOne({ _id: req.params.id })
+  User.findOne({ username: req.params.username })
     .then((user) => {
        ;
       res.json(user);
