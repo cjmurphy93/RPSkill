@@ -15,16 +15,33 @@ class NavBar extends React.Component {
         this.props.logout();
     }
     
+    linkedin(e){
+      e.preventDefault();
+      window.open('https://www.linkedin.com/in/naraskim/');
+      window.open('https://www.linkedin.com/in/austinhokunwong/');
+    }
+
     render() {
         const display = !this.props.loggedIn ? (
           <div className="navbar">
-            <Link className="white-btn home-btn" to="/">Home</Link>
-            <Link className="white-btn login" to="/login">Log In</Link>
+            <div className="navbar">
+              <Link className="white-btn home-btn" to="/">Home</Link>
+            </div>
+            <div className="navbar">
+              <a onClick={(e) => this.linkedin(e)} className="linkedin"><img className="linkedin-img" src="https://www.iconsdb.com/icons/preview/white/linkedin-xxl.png" alt=""/></a>
+              <Link className="white-btn login" to="/login">Log In</Link>
+            </div>
           </div>
         ) : (
           <div className="navbar">
-            <Link className="white-btn home-btn" to="/">Home</Link>
-            <button onClick={this.logoutUser} className="white-btn logout-btn">Logout</button>
+              <div className="navbar">
+                <Link className="white-btn home-btn" to="/">Home</Link>
+              </div>
+              <div className="navbar">
+                <a className="linkedin"><img className="linkedin-img" src="https://www.iconsdb.com/icons/preview/white/linkedin-xxl.png" alt="" /></a>
+                <button onClick={this.logoutUser} className="white-btn logout-btn">Logout</button>
+              </div>
+              
           </div>
         );
     return <>

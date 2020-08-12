@@ -15,8 +15,19 @@
     position: relative;
     color: white;
     text-decoration: none;
-    margin-right: 3%;
+    margin-right: 10%;
+    width:  170px;
+    text-align: center;
 }
 .login:visited{
     color: white;
+}
+
+.linkedin{
+    height: 20%;
+    margin-right: 20px;
+}
+
+.linkedin-img{
+    height: 100%;
 }
