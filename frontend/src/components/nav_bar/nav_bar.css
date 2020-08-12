@@ -1,0 +1,15 @@
+.navbar{
+    display: flex;
+    align-items: center;
+    flex-direction: row-reverse;
+}
+
+.login{
+    position: relative;
+    color: white;
+    text-decoration: none;
+    margin-right: 3%;
+}
+.login:visited{
+    color: white;
+}

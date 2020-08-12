@@ -1,4 +1,6 @@
 import React from 'react';
+import '../main/main_page.css';
+import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
 class Hiscores extends React.Component {
@@ -13,8 +15,6 @@ class Hiscores extends React.Component {
     }
 }
 
-export default Hiscores;
-
 const msp = state => {
     return {
     }
@@ -25,4 +25,4 @@ const mdp = dispatch => {
     }
 }
 
-export default connect(msp, mdp)(Login);
+export default connect(msp, mdp)(Hiscores);
