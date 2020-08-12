@@ -1,0 +1,19 @@
+.profile-container{
+    margin: 0 auto;
+    width: 50%;
+    text-align: center;
+    align-items: center;
+}
+
+#username {
+    /* border: none; */
+    border-bottom: 3px solid white;
+}
+
+.user-info {
+    display: flex;
+    justify-content: space-between;
+    list-style: none;
+    padding: 0 5px;
+    font-size: 30px;
+}

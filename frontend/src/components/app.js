@@ -7,6 +7,7 @@ import LogIn from './session/login';
 import SignUp from './session/signup';
 import Hiscores from './hiscores/hiscores'
 import NavBar from "./nav_bar/nav_bar";
+import Profile from "./profile/profile";
 import AboutUs from "./aboutus/aboutus"
 import "./main/main_page.css";
 
@@ -18,6 +19,7 @@ const App = () => (
     <Switch>
       <Route exact path="/" component={MainPage} />
       <Route exact path="/hiscores" component={Hiscores} />
+      <Route exact path="/user/:username" component={Profile} />
       <Route exact path="/aboutus" component={AboutUs} />
       <AuthRoute exact path="/login" component={LogIn} />
       <AuthRoute exact path="/signup" component={SignUp} />
