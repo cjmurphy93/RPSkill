@@ -28,8 +28,8 @@ class Hiscores extends React.Component {
                             <tbody>
                                     {Object.values((this.props.users)).map((user, idx) => {
                                         return(
-                                            <tr role="row">
-                                                <td className="score-item" key={idx}>
+                                            <tr role="row" key={idx}>
+                                                <td className="score-item">
                                                     <Link className="hiscore-user" to={`/user/${user.username}`}><p>{idx + 1}</p></Link>
                                                 </td>
                                                 <td align="left">
