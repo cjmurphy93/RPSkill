@@ -1,4 +1,4 @@
-wimport * as UserUtil from "../util/user_api_util";
+import * as UserUtil from "../util/user_api_util";
 import User from "../../../models/User";
 
 export const RECEIVE_USER = "RECEIVE_USER";
