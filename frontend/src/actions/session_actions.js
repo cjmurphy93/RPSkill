@@ -34,7 +34,7 @@ export const removeErrors = () => ({
         type: REMOVE_ERRORS,
 });
 
-export const removeErrors = () => ({
+export const receiveUsers = () => ({
     type: RECEIVE_USERS,
 });
 
