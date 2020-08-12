@@ -72,8 +72,6 @@ const usersArr = [
 
 const User = mongoose.model("User", userSchema);
 
-User.remove({});
-
 // User.find(function(err, users) {
 //   if (err) {
 //     console.log(err)
