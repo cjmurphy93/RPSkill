@@ -8,7 +8,7 @@ class SignUp extends React.Component {
         super(props)
 
         this.state = {
-            handle: '',
+            username: '',
             email: '',
             password: '',
             password2: ''
@@ -53,10 +53,10 @@ class SignUp extends React.Component {
                             <form className="flex center column" onSubmit={this.handleSubmit}>
                                     <input
                                         className="mb"
-                                        placeholder="Name"
+                                        placeholder="Userame"
                                         type="text"
-                                        value={this.state.handle}
-                                        onChange={this.update('handle')}
+                                        value={this.state.username}
+                                        onChange={this.update('username')}
                                     /> 
                                     <input
                                         className="mb"
