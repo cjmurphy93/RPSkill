@@ -1,7 +1,14 @@
 .navbar{
     display: flex;
     align-items: center;
-    flex-direction: row-reverse;
+    justify-content: space-between;
+}
+
+.home-btn{
+    position: relative;
+    color: white;
+    text-decoration: none;
+    margin-left: 3%;
 }
 
 .login{

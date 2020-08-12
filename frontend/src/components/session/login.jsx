@@ -44,7 +44,6 @@ class Login extends React.Component {
         return (
             <>
                 <section>
-                        <Link className="white-btn home-btn" to="/">Home</Link>
                         <div>
                             <div id="user-account-form">
                                 <div className="flex space-between mb-11 relative">

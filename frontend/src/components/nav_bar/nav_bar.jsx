@@ -18,9 +18,8 @@ class NavBar extends React.Component {
     render() {
         const display = !this.props.loggedIn ? (
           <div className="navbar">
-            <Link className="white-btn login" to="/login">
-              Log In
-            </Link>
+            <Link className="white-btn home-btn" to="/">Home</Link>
+            <Link className="white-btn login" to="/login">Log In</Link>
           </div>
         ) : (
           <div className="navbar">

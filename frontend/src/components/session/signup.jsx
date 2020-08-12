@@ -43,7 +43,6 @@ class SignUp extends React.Component {
         return (
             <>
                 <section id="main-content">
-                        <Link className="white-btn home-btn" to="/">Home</Link>
                     <div>
                         <div id="user-account-form">
                             <div className="flex space-between mb-11">
