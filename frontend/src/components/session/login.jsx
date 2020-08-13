@@ -19,7 +19,12 @@ class Login extends React.Component {
     }
     handleSubmit(e) {
         e.preventDefault();
-        this.props.login(this.state)
+        this.props.login(this.state).then(() => {
+            this.props.setupSocket();
+        })
+        .catch(err => {
+            console.log(err)
+        })
     }
     update(type) {
         return e => {
