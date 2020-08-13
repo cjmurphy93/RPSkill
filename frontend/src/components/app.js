@@ -14,6 +14,7 @@ import "./main/main_page.css";
 
 const App = () => (
   <div>
+    
     <NavBar />
 
     <Switch>
