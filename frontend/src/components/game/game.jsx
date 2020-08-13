@@ -8,12 +8,12 @@ class GameRoom extends React.Component {
     }
 
     componentDidMount() {
-        debugger
+        
         this.props.setupSocket();
     }
 
     render() {
-        debugger
+        
         return (
             <div>
                 Game Room
