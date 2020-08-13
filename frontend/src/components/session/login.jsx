@@ -17,7 +17,10 @@ class Login extends React.Component {
     }
     handleSubmit(e) {
         e.preventDefault();
-        this.props.login(this.state)
+        Promise.all([
+            this.props.login(this.state),
+            // this.props.setupSocket(),
+        ]).then(() => console.log('all resolved'));
     }
     update(type) {
         return e => {
@@ -74,4 +77,6 @@ class Login extends React.Component {
     }
 }
 
+
 export default Login;
+

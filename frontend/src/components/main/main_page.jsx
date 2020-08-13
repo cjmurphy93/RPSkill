@@ -12,7 +12,8 @@ class MainPage extends React.Component {
               <div className="center-container">
                 <h1>Rock, Paper, Scissors!</h1>
                 <div className="flex-container">
-                  <button className="play-btn">Play</button>
+                  {/* <button className="play-btn">Play</button> */}
+                  <Link to="/gameroom" className="play-btn">Play</Link>
                   <Link to="/hiscores" className="hiscores-btn">
                     Hiscores
                   </Link>

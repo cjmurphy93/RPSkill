@@ -14,8 +14,47 @@ const users = require("./routes/api/users");
 const leaderboard = require("./routes/api/leaderboard");
 const games = require("./routes/api/games");
 
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
+
+const port = process.env.PORT || 5000;
+
+
+server.on('error', err => {
+    console.log('Server error:', err);
+});
+
+// io.on('connection', socket => {
+//     console.log("socket connection made", socket.id)
+
+//     socket.on("disconnect", () => {
+//         console.log("Disconnected")
+//     })
+// })
+
+
+// server.listen(8080, () => {
+//     console.log('RPS started on 8080')
+// })
+
+server.listen(port, () => console.log(`Server is running on port ${port}`));
+
+// if (process.env.NODE_ENV === "production") {
+//     app.use(express.static("frontend/build"));
+//     app.get("/", (req, res) => {
+//         res.sendFile(path.resolve(__dirname, "frontend", "build", "index.html"));
+//     });
+// } else {
+// }
+
+app.use(express.static("chat"))
+// app.get("/", (req, res) => {
+//     res.sendFile(__dirname + "frontend/public/index.html")
+// })
+
 io.on("connect", (socket) => {
-    socket.on("join", ({username, game}, callback) => {
+  console.log('made socket connection', socket.id);    
+  socket.on("join", ({username, game}, callback) => {
         const { player, error } = addPlayer({ id: socket.id, username, game });
         if  (error) return callback(error);
         socket.join(player.game);
@@ -79,13 +118,18 @@ io.on("connect", (socket) => {
     });
 
     socket.on("disconnect", () => {
-        const player = removePlayer(socket.id);
+      console.log('disconnected')        
+      const player = removePlayer(socket.id);
         if (player){
             io.to(player.game).emit("gameData", {
               game: player.game,
               players: getPlayersInGame(player.game),
             });
         }
+    });
+  
+      socket.on('chat', (data) => {
+        io.sockets.emit('chat', data);
     });
 });
 
@@ -97,6 +141,7 @@ if (process.env.NODE_ENV === "production") {
 }
 
 
+
 mongoose
 .connect(db, { useNewUrlParser: true, useUnifiedTopology: true })
 .then(() => console.log("Connected to MongoDB successfully"))
@@ -105,14 +150,9 @@ mongoose
 app.use(passport.initialize());
 require("./config/passport")(passport);
 
-const port = process.env.PORT || 5000;
-
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(bodyParser.json());
-
-app.listen(port, () => console.log(`Server is running on port ${port}`));
-
-
 app.use("/api/users/", users);
 app.use("/api/leaderboard/", leaderboard);
 app.use("/api/games/", games);
+
+
+
