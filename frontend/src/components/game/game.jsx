@@ -2,18 +2,25 @@ import React from "react";
 import { connect } from "react-redux";
 import io from "socket.io-client";
 
-const GameRoom = ( {match, socket} ) => {
+class GameRoom extends React.Component {
+    constructor(props) {
+        super(props);
+    }
 
-    // const gameroomId = match.params.id;
-    
-    
+    componentDidMount() {
+        debugger
+        this.props.setupSocket();
+    }
 
-    return (
-        <div>
-            Game Page
-        </div>
-    )
-};
+    render() {
+        debugger
+        return (
+            <div>
+                Game Room
+            </div>
+        )
+    }
+}
 
 export default GameRoom;
 

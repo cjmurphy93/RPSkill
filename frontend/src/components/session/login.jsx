@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { login, remove } from '../../actions/session_actions';
-import { Link } from 'react-router-dom'
+import { Link, withRouter } from 'react-router-dom'
 import './login.css';
 
 
@@ -19,12 +19,10 @@ class Login extends React.Component {
     }
     handleSubmit(e) {
         e.preventDefault();
-        this.props.login(this.state).then(() => {
-            this.props.setupSocket();
-        })
-        .catch(err => {
-            console.log(err)
-        })
+        Promise.all([
+            this.props.login(this.state),
+            // this.props.setupSocket(),
+        ]).then(() => console.log('all resolved'));
     }
     update(type) {
         return e => {
@@ -95,4 +93,4 @@ const mdp = dispatch => {
     }
 }
 
-export default connect(msp, mdp)(Login);
+export default withRouter(connect(msp, mdp)(Login));
