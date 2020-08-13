@@ -9,22 +9,75 @@ import Hiscores from './hiscores/hiscores_container'
 import NavBar from "./nav_bar/nav_bar_container";
 import Profile from "./profile/profile_container";
 import AboutUs from "./aboutus/aboutus"
+import GameRoom from './game/game';
 import "./main/main_page.css";
+import io from "socket.io-client";
 
 
-const App = () => (
-  <div>
-    <NavBar />
+const App = () => {
+  const [socket, setSocket] = React.useState(null);
+  // const setupSocket = () => {
+    debugger
+  //   const userToken = localStorage.getItem('userToken');
+  //   if (userToken && !socket) {
+  //     const newSocket = io("http://localhost:5000");
+  //     newSocket.on('connect', () => {
+  //       console.log('newSocket connected');
+  //     })
+  //   }
+  // };
 
-    <Switch>
-      <Route exact path="/" component={MainPage} />
-      <Route exact path="/hiscores" component={Hiscores} />
-      <Route exact path="/user/:username" component={Profile} />
-      <Route exact path="/aboutus" component={AboutUs} />
-      <AuthRoute exact path="/login" component={LogIn} />
-      <AuthRoute exact path="/signup" component={SignUp} />
-    </Switch>
-  </div>
-);
+  const setupSocket = () => {
+    const userToken = localStorage.getItem("jwtToken");
+    if (userToken && !socket) {
+      const newSocket = io("http://localhost:5000", {
+        query: {
+          token: localStorage.getItem("userToken"),
+        },
+      });
+
+      newSocket.on("disconnect", () => {
+        setSocket(null);
+        setTimeout(setupSocket, 2000);
+        console.log('socket disconnected')
+      });
+
+      newSocket.on("connect", () => {
+        console.log("socket connected!")
+      });
+
+      setSocket(newSocket);
+    }
+  };
+
+  React.useEffect(() => {
+    setupSocket();
+    //eslint-disable-next-line
+  }, []);
+
+  return (
+    <div>
+      <NavBar />
+
+      <Switch>
+        <Route exact path="/" component={MainPage} />
+        <Route exact path="/hiscores" component={Hiscores} />
+        <Route exact path="/user/:username" component={Profile} />
+        <Route exact path="/aboutus" component={AboutUs} />
+        <AuthRoute
+        exact path="/login"
+        // render={() => <LogIn setupSocket={setupSocket} />}
+        component={LogIn}
+        />
+        <AuthRoute exact path="/signup" component={SignUp} />
+        <Route
+         path="/gameroom/"
+         render={() => <GameRoom setupSocket={setupSocket} />}
+         exact
+        />
+      </Switch>
+    </div>
+  )
+};
 
 export default App;
