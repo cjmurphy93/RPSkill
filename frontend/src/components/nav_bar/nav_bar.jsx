@@ -1,7 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { connect } from 'react-redux';
-import { logout } from '../../actions/session_actions';
 import './nav_bar.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faLinkedin } from '@fortawesome/free-brands-svg-icons'
@@ -69,17 +67,4 @@ class NavBar extends React.Component {
     } 
 }
 
-const msp = (state) => {
-
-  return {
-    loggedIn: state.session.isAuthenticated,
-  };
-}
-
-const mdp = (dispatch) => {
-  return {
-    logout: () => dispatch(logout())
-  }
-}
-
-export default connect(msp,mdp)(NavBar);
+export default NavBar;

@@ -73,7 +73,7 @@ export const logout = () => dispatch => {
     dispatch(logoutUser());
 }
 
-export const remove = () => dispatch => {
+export const clearErrors = () => dispatch => {
     dispatch(removeErrors())
 }
 
