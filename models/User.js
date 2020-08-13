@@ -24,6 +24,10 @@ const userSchema = new Schema(
     elo: {
       type: Number,
       default: 1000,
+    },
+    currentGame: {
+      type: String,
+      default: null
     }
   },
   {
