@@ -28,6 +28,56 @@ io.on("connect", (socket) => {
         });
         callback();
     });
+
+    let moves = [];
+    socket.on('move', function (username, move) {
+        moves.push({'player': username, 'move': move});
+
+        if (moves.length === 2) {
+            switch (moves[0]["move"]) {
+              case "rock": {
+                if (moves[1]["move"] === "rock") {
+                  io.emit("tie", moves);
+                }
+                if (moves[1]["move"] === "paper") {
+                  io.emit("player 2 wins", moves);
+                }
+                if (moves[1]["move"] === "scissors") {
+                  io.emit("player 1 wins", moves);
+                }
+                moves = [];
+                break;
+              }
+              case "paper": {
+                if (moves[1]["move"] === "rock") {
+                  io.emit("player 1 wins", moves);
+                }
+                if (moves[1]["move"] === "paper") {
+                  io.emit("tie", moves);
+                }
+                if (moves[1]["move"] === "scissors") {
+                  io.emit("player 2 wins", moves);
+                }
+                moves = [];
+                break;
+              }
+              case "scissors": {
+                if (moves[1]["move"] === "rock") {
+                  io.emit("player 2 wins", moves);
+                }
+                if (moves[1]["move"] === "paper") {
+                  io.emit("player 1 wins", moves);
+                }
+                if (moves[1]["move"] === "scissors") {
+                  io.emit("tie", moves);
+                }
+                moves = [];
+                break;
+              }
+            }
+        }
+    });
+
     socket.on("disconnect", () => {
         const player = removePlayer(socket.id);
         if (player){
