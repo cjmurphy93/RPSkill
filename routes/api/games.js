@@ -3,7 +3,7 @@ const router = express.Router();
 
 
 router.get("/test", (req, res) => {
-  // debugger
+  //  
   res.json({ msg: "This is the games route" });
 });
 
@@ -22,7 +22,7 @@ router.get("/", (req, res) => {
 
 router.get("/:id", (req, res) => {
   const game = games.find((gameObj) => gameObj.id === Number(req.params.id));
-  debugger;
+   ;
   res.status(200).send(game);
 });
 

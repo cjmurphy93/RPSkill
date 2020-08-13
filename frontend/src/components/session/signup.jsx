@@ -1,8 +1,5 @@
 import React from 'react';
-import { connect } from 'react-redux';
-import { signup, login, remove } from '../../actions/session_actions';
-import { Link, withRouter } from 'react-router-dom';
-
+import { Link } from 'react-router-dom';
 
 class SignUp extends React.Component {
     constructor(props) {
@@ -12,21 +9,14 @@ class SignUp extends React.Component {
             username: '',
             email: '',
             password: '',
-            password2: '',
-            errors: {}
+            password2: ''
         };
         this.handleSubmit = this.handleSubmit.bind(this);
     };
 
     handleSubmit(e) {
         e.preventDefault();
-        let user = {
-            email: this.state.email,
-            username: this.state.username,
-            password: this.state.password,
-            password2: this.state.password2,
-        };
-
+        let user = this.state;
 
         this.props.signup(user);
     };
@@ -37,7 +27,8 @@ class SignUp extends React.Component {
         return e => {
             this.setState({ [type]: e.currentTarget.value })
         }
-    }
+    };
+
     renderErrors() {
         return(
             <ul>
@@ -61,7 +52,7 @@ class SignUp extends React.Component {
                         <div id="user-account-form">
                             <div className="flex space-between mb-11">
                                 <p className="login-title">Sign up</p>
-                                <p className="toggle-session">Have an account? {this.props.loginLink}</p>
+                                <p className="toggle-session">Have an account? <Link to="/login">Log in</Link></p>
                             </div>
                             <form className="flex center column" onSubmit={this.handleSubmit}>
                                     <input
@@ -103,21 +94,4 @@ class SignUp extends React.Component {
     
 }
 
-const msp = (state) => {
-
-    return {
-        errors: state.errors.session,
-        loginLink: <Link to="/login">Log in</Link>,
-        signedIn: state.session.isSignedIn
-    }
-}
-const mdp = (dispatch) => {
-    return {
-        signup: user => dispatch(signup(user)),
-        login: user => dispatch(login(user)),
-        removeErrors: () => dispatch(remove())
-    };
-};
-
-export default connect(msp, mdp)(withRouter(SignUp));
-
+export default SignUp;

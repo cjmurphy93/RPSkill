@@ -1,8 +1,6 @@
 import React from 'react';
 import '../main/main_page.css';
 import './hiscores.css'
-import { connect } from 'react-redux';
-import { scores } from '../../actions/session_actions';
 import { Link } from 'react-router-dom';
 
 class Hiscores extends React.Component {
@@ -51,16 +49,4 @@ class Hiscores extends React.Component {
     }
 }
 
-const msp = state => {
-    return {
-        users: state.hiscores
-    }
-}
-
-const mdp = dispatch => {
-    return {
-        scores: () => dispatch(scores())
-    }
-}
-
-export default connect(msp, mdp)(Hiscores);
+export default Hiscores;

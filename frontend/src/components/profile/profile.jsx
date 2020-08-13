@@ -1,7 +1,4 @@
 import React from 'react';
-import { connect } from 'react-redux';
-import { getUser } from '../../actions/profile_actions';
-import { scores } from "../../actions/session_actions";
 import './profile.css';
 
 
@@ -36,18 +33,4 @@ class Profile extends React.Component {
     }
 }
 
-const msp = state => {
-    return {
-        user: state.user,
-        hiscores: state.hiscores.length ? state.hiscores.map(obj => obj.username) : null,
-    }
-}
-
-const mdp = dispatch => {
-    return {
-        getUser: username => dispatch(getUser(username)),
-        getScores: () => dispatch(scores()),
-    }
-}
-
-export default connect(msp, mdp)(Profile);
+export default Profile;

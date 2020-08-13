@@ -1,16 +1,22 @@
 const mongoose = require("mongoose");
-const { schema } = require("./User");
+const { userSchema } = require("./User");
 const Schema = mongoose.Schema;
 
 const gameSchema = new Schema(
   {
+    name: {
+      type: String,
+      required: true
+    },
     playerOne: {
       type: Schema.Types.ObjectId,
       ref: "users",
+      required: true
     },
     playerTwo: {
       type: Schema.Types.ObjectId,
       ref: "users",
+      default: null,
     },
     winner: {
       type: Schema.Types.ObjectId,

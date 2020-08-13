@@ -24,6 +24,10 @@ const userSchema = new Schema(
     elo: {
       type: Number,
       default: 1000,
+    },
+    currentGame: {
+      type: String,
+      default: null
     }
   },
   {
@@ -84,7 +88,7 @@ const User = mongoose.model("User", userSchema);
 
 // User.insertMany(usersArr, function(err) {
 //     if (err) {
-//         debugger
+//          
 //         console.log(err)
 //     } else {
 //         console.log("user docs inserted")

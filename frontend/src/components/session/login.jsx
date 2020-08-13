@@ -1,7 +1,5 @@
 import React from 'react';
-import { connect } from 'react-redux';
-import { login, remove } from '../../actions/session_actions';
-import { Link, withRouter } from 'react-router-dom'
+import { Link } from 'react-router-dom';
 import './login.css';
 
 
@@ -51,7 +49,7 @@ class Login extends React.Component {
                             <div id="user-account-form">
                                 <div className="flex space-between mb-11 relative">
                                     <p className="login-title">Log in</p>
-                                    <p className="toggle-session">New to RPSkill? {this.props.signup}</p>
+                                <p className="toggle-session">New to RPSkill? <Link to="/signup">Sign Up</Link></p>
                                 </div>
                                 <form className="flex center column" onSubmit={this.handleSubmit}>
                                         <input
@@ -79,18 +77,6 @@ class Login extends React.Component {
     }
 }
 
-const msp = ({errors}) => {
-    return {
-        errors: errors.session,
-        signup: <Link to="/signup">Sign Up</Link>
-    }
-}
 
-const mdp = dispatch => {
-    return {
-        login: user => dispatch(login(user)),
-        removeErrors: () => dispatch(remove())
-    }
-}
+export default Login;
 
-export default withRouter(connect(msp, mdp)(Login));

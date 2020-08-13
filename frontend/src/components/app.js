@@ -3,11 +3,11 @@ import { Route } from 'react-router';
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
 import { Switch } from 'react-router-dom';
 import MainPage from './main/main_page';
-import LogIn from './session/login';
-import SignUp from './session/signup';
-import Hiscores from './hiscores/hiscores'
-import NavBar from "./nav_bar/nav_bar";
-import Profile from "./profile/profile";
+import LogIn from './session/login_container';
+import SignUp from './session/signup_container';
+import Hiscores from './hiscores/hiscores_container'
+import NavBar from "./nav_bar/nav_bar_container";
+import Profile from "./profile/profile_container";
 import AboutUs from "./aboutus/aboutus"
 import GameRoom from './game/game';
 import "./main/main_page.css";
