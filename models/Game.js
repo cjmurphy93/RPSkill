@@ -4,10 +4,7 @@ const Schema = mongoose.Schema;
 
 const gameSchema = new Schema(
   {
-    name: {
-      type: String,
-      required: true
-    },
+
     playerOne: {
       type: Schema.Types.ObjectId,
       ref: "users",

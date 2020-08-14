@@ -7,10 +7,7 @@ const addPlayer = ({ id, username, game}) => {
 
     User.findOne({username: username})
     .then((player) => {
-        return player
-    }).catch((err) => res.status(400).json(err));
-
-    Game.findOne({ name: game})
+            Game.findOne({ name: game})
         .then((ggame) => {
             if (ggame) {
                 if (ggame.playerTwo === null) {
@@ -25,7 +22,10 @@ const addPlayer = ({ id, username, game}) => {
                 newGame.save().then((game) => res.json(game));
             };
         })
-        .catch((err) => res.status(400).json(err))
+    }).catch((err) => res.status(400).json(err));
+
+
+
 
     players.push(player);    
     return { player };

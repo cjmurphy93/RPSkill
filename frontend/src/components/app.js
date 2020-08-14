@@ -30,7 +30,7 @@ const App = () => {
   const setupSocket = () => {
     const userToken = localStorage.getItem("jwtToken");
     if (userToken && !socket) {
-      const newSocket = io("http://localhost:5000", {
+      const newSocket = io.connect("http://localhost:5000", {
         query: {
           token: localStorage.getItem("userToken"),
         },
@@ -39,11 +39,11 @@ const App = () => {
       newSocket.on("disconnect", () => {
         setSocket(null);
         setTimeout(setupSocket, 2000);
-        console.log('socket disconnected')
+        console.log("socket disconnected");
       });
 
       newSocket.on("connect", () => {
-        console.log("socket connected!")
+        console.log("socket connected!");
       });
 
       setSocket(newSocket);
@@ -65,19 +65,20 @@ const App = () => {
         <Route exact path="/user/:username" component={Profile} />
         <Route exact path="/aboutus" component={AboutUs} />
         <AuthRoute
-        exact path="/login"
-        // render={() => <LogIn setupSocket={setupSocket} />}
-        component={LogIn}
+          exact
+          path="/login"
+          // render={() => <LogIn setupSocket={setupSocket} />}
+          component={LogIn}
         />
         <AuthRoute exact path="/signup" component={SignUp} />
         <Route
-         path="/gameroom/"
-         render={() => <GameRoom setupSocket={setupSocket} />}
-         exact
+          path="/gameroom/"
+          render={() => <GameRoom setupSocket={setupSocket} />}
+          exact
         />
       </Switch>
     </div>
-  )
+  );
 };
 
 export default App;

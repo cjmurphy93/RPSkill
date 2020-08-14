@@ -51,22 +51,54 @@ app.use(express.static("chat"))
 // app.get("/", (req, res) => {
 //     res.sendFile(__dirname + "frontend/public/index.html")
 // })
+const connections = [];
 
 io.on("connect", (socket) => {
-  console.log('made socket connection', socket.id);    
-  socket.on("join", ({username, game}, callback) => {
+  console.log('made socket connection', socket.id); 
+
+  connections.push(socket.id);
+
+  // socket.on("join", ({username, game}, callback) => {
+  //       const { player, error } = addPlayer({ id: socket.id, username, game });
+  //       if  (error) return callback(error);
+  //       socket.join(player.game);
+
+  //       socket.emit("id", socket.id);
+
+  //       io.to(player.game).emit("gameData", {
+  //           game: player.game,
+  //           players: getPlayersInGame(player.game)
+  //       });
+
+  //       if (getPlayersInGame(player.game).length === 2) {
+  //         io.to(player.game).emit("game start", {
+  //           game: player.game,
+  //           players: getPlayersInGame(player.game),
+  //         });
+  //       }
+  //       callback();
+  //   });
+
+      socket.on("join random", ({ username }, callback) => {
         const { player, error } = addPlayer({ id: socket.id, username, game });
-        if  (error) return callback(error);
+        if (error) return callback(error);
         socket.join(player.game);
 
         socket.emit("id", socket.id);
 
         io.to(player.game).emit("gameData", {
-            game: player.game,
-            players: getPlayersInGame(player.game)
+          game: player.game,
+          players: getPlayersInGame(player.game),
         });
+
+        if (getPlayersInGame(player.game).length === 2) {
+          io.to(player.game).emit("game start", {
+            game: player.game,
+            players: getPlayersInGame(player.game),
+          });
+        }
         callback();
-    });
+      });
 
     let moves = [];
     socket.on('move', function (username, move) {
