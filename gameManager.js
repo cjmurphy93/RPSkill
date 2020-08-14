@@ -31,11 +31,17 @@ const addPlayer = ({ id, username, game }) => {
 
     User.findOne({username: username})
     .then((player1) => {
-            Game.findOne({ name: game})
+        return player1
+            }
+        
+    );
+    // .catch((err) => res.status(400).json(err));
+    
+                Game.findOne({ name: game})
         .then((ggame) => {
             if (ggame) { 
-                    if (ggame.playerTwo === null)
-                    Game.updateOne({name: ggame.name}, {playerTwo: player1});
+                    if (ggame.playerTwo === null) {
+                    Game.updateOne({name: ggame.name}, {playerTwo: player1});}
             } else {
                 let newGame = new Game({
                     name: game,
@@ -43,11 +49,8 @@ const addPlayer = ({ id, username, game }) => {
                 })
                 
                 newGame.save().then((game) => res.json(game));
-            };
-        })
-    })
-    // .catch((err) => res.status(400).json(err));
-    
+            }})
+
     players.push(player);    
     return { player };
 };

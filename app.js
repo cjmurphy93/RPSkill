@@ -65,13 +65,13 @@ io.on("connect", (socket) => {
 
         socket.emit("id", socket.id);
 
-        io.to(player.game).emit("gameData", {
+        io.emit("gameData", {
             game: player.game,
             players: getPlayersInGame(player.game)
         });
 
         if (getPlayersInGame(player.game).length === 2) {
-          io.to(player.game).emit("game start");
+          io.emit("game start");
         }
         callback();
     });

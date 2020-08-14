@@ -53,7 +53,7 @@ class GameRoom extends React.Component {
       socket.on("game start", () => {
           this.setState({stage: 3})
       });
-      
+     
       let display;
         if (stage === 1){
              display = <JoinGame gameName={gameName}update={this.update} handleJoin={this.handleJoin}/>
