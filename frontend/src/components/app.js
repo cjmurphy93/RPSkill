@@ -10,31 +10,14 @@ import NavBar from "./nav_bar/nav_bar_container";
 import Profile from "./profile/profile_container";
 import AboutUs from "./aboutus/aboutus"
 import GameRoom from './game/game';
+import Result from './result/result';
 import "./main/main_page.css";
 import io from "socket.io-client";
 
 
-<<<<<<< HEAD
-const App = () => (
-  <div>
-    
-    <NavBar />
-
-    <Switch>
-      <Route exact path="/" component={MainPage} />
-      <Route exact path="/hiscores" component={Hiscores} />
-      <Route exact path="/user/:username" component={Profile} />
-      <Route exact path="/aboutus" component={AboutUs} />
-      <AuthRoute exact path="/login" component={LogIn} />
-      <AuthRoute exact path="/signup" component={SignUp} />
-    </Switch>
-  </div>
-);
-=======
 const App = () => {
   const [socket, setSocket] = React.useState(null);
   // const setupSocket = () => {
-    debugger
   //   const userToken = localStorage.getItem('userToken');
   //   if (userToken && !socket) {
   //     const newSocket = io("http://localhost:5000");
@@ -47,7 +30,7 @@ const App = () => {
   const setupSocket = () => {
     const userToken = localStorage.getItem("jwtToken");
     if (userToken && !socket) {
-      const newSocket = io("http://localhost:5000", {
+      const newSocket = io.connect("http://localhost:5000", {
         query: {
           token: localStorage.getItem("userToken"),
         },
@@ -81,6 +64,7 @@ const App = () => {
         <Route exact path="/hiscores" component={Hiscores} />
         <Route exact path="/user/:username" component={Profile} />
         <Route exact path="/aboutus" component={AboutUs} />
+        <Route exact path="/result/" component={Result}/>
         <AuthRoute
         exact path="/login"
         // render={() => <LogIn setupSocket={setupSocket} />}
@@ -96,6 +80,5 @@ const App = () => {
     </div>
   )
 };
->>>>>>> 7664fcfbe28f9b68b14447f02d6a2aadcd5f98ad
 
 export default App;

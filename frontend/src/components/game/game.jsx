@@ -1,6 +1,7 @@
 import React from "react";
-import { connect } from "react-redux";
-import io from "socket.io-client";
+import WaitingRoom from './waitingroom';
+import LiveGame from './livegame';
+import "./game.css";
 
 class GameRoom extends React.Component {
     constructor(props) {
@@ -8,15 +9,19 @@ class GameRoom extends React.Component {
     }
 
     componentDidMount() {
-        debugger
         this.props.setupSocket();
+        //emit "join" username
+    }
+
+    componentWillUnmount() {
+        //disconnect socket
     }
 
     render() {
-        debugger
         return (
             <div>
-                Game Room
+                    <WaitingRoom />
+                    <LiveGame />
             </div>
         )
     }

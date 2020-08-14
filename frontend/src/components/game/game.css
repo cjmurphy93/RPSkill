@@ -1,0 +1,26 @@
+.waiting-message {
+    border: none;
+    margin-bottom: 0;
+    padding: 0;
+}
+
+.spinner-icon {
+    font-size: 70px;
+}
+
+.waiting-container, .game-container{
+    text-align: center;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.live-game-title{
+    font-size: 40px;
+    border: none;
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.move-icon{
+    font-size: 90px;
+}
