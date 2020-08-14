@@ -7,13 +7,18 @@ class GameRoom extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            user: this.props.user
+            user: this.props.user,
+            game_id: null,
+            socket: null
         }
     }
 
     componentDidMount() {
-        const socket = this.props.setupSocket();
-        socket.emit("join", this.props.user.username);
+        const clientSocket = this.props.setupSocket();
+        debugger
+        this.setState({socket: clientSocket});
+        debugger
+        this.state.socket.emit("join", this.props.user.username);
         //emit "join" username
     }
 
@@ -22,6 +27,12 @@ class GameRoom extends React.Component {
     }
 
     render() {
+        if (this.state.socket !== null) {
+            this.state.socket.on('connected', (data) => {
+                this.game_id = data.game_id;
+            })
+        }
+        debugger
         return (
             <div>
                     <WaitingRoom />

@@ -57,6 +57,22 @@ io.on("connect", (socket) => {
   console.log('made socket connection', socket.id); 
 
   connections.push(socket.id);
+  if (connections.length % 2 !== 0 ){ //&& youre the last person to connect?
+    const game_id = Math.floor(Math.random() * 1000) 
+    io.emit('connected', {socket_id: socket.id, game_id: game_id})
+  } else {
+    io.emit("start_game") //should this be on odd numbers? e.g start game can provide componnent state obj 'if your game id is 'x', 
+    //trigger re-render to game input child component
+    
+    //on game emit component, both players emit move with game id
+    //once moves queue with respect to that game id === 2, run
+    //rps function that determines winner
+    //using winner / loser state, modify currently logged in users points
+    //render result page (elo gain / loss + win / loss may will need to be provided to reroute) componentDidDismount will cover removing
+    //players from connections, preserving functionality of "connect"
+  
+  }
+
 
   // socket.on("join", ({username, game}, callback) => {
   //       const { player, error } = addPlayer({ id: socket.id, username, game });
@@ -79,26 +95,26 @@ io.on("connect", (socket) => {
   //       callback();
   //   });
 
-      socket.on("join", ({ username }, callback) => {
-        const { player, error } = addPlayer({ id: socket.id, username});
-        if (error) return callback(error);
-        socket.join(player.game);
+      // socket.on("join", ({ username }, callback) => {
+      //   const { player, error } = addPlayer({ id: socket.id, username});
+      //   if (error) return callback(error);
+      //   socket.join(player.game);
 
-        socket.emit("id", socket.id);
+      //   socket.emit("id", socket.id);
 
-        io.to(player.game).emit("gameData", {
-          game: player.game,
-          players: getPlayersInGame(player.game),
-        });
+      //   io.to(player.game).emit("gameData", {
+      //     game: player.game,
+      //     players: getPlayersInGame(player.game),
+      //   });
 
-        if (getPlayersInGame(player.game).length === 2) {
-          io.to(player.game).emit("game start", {
-            game: player.game,
-            players: getPlayersInGame(player.game),
-          });
-        }
-        callback();
-      });
+      //   if (getPlayersInGame(player.game).length === 2) {
+      //     io.to(player.game).emit("game start", {
+      //       game: player.game,
+      //       players: getPlayersInGame(player.game),
+      //     });
+      //   }
+      //   callback();
+      // });
 
     let moves = [];
     socket.on('move', function (username, move) {
