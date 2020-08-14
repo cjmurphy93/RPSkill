@@ -19,7 +19,7 @@ app.use(bodyParser.json());
 
 const port = process.env.PORT || 5000;
 
-
+app.get("/", (req, res) => res.send("Hello World"));
 server.on('error', err => {
     console.log('Server error:', err);
 });
@@ -58,47 +58,44 @@ io.on("connect", (socket) => {
 
   connections.push(socket.id);
 
-  // socket.on("join", ({username, game}, callback) => {
-  //       const { player, error } = addPlayer({ id: socket.id, username, game });
-  //       if  (error) return callback(error);
-  //       socket.join(player.game);
-
-  //       socket.emit("id", socket.id);
-
-  //       io.to(player.game).emit("gameData", {
-  //           game: player.game,
-  //           players: getPlayersInGame(player.game)
-  //       });
-
-  //       if (getPlayersInGame(player.game).length === 2) {
-  //         io.to(player.game).emit("game start", {
-  //           game: player.game,
-  //           players: getPlayersInGame(player.game),
-  //         });
-  //       }
-  //       callback();
-  //   });
-
-      socket.on("join", ({ username }, callback) => {
-        const { player, error } = addPlayer({ id: socket.id, username});
-        if (error) return callback(error);
+  socket.on("join", ({username, game}, callback) => {
+        const { player, error } = addPlayer({ id: socket.id, username, game });
+        if  (error) return callback(error);
         socket.join(player.game);
 
         socket.emit("id", socket.id);
 
         io.to(player.game).emit("gameData", {
-          game: player.game,
-          players: getPlayersInGame(player.game),
+            game: player.game,
+            players: getPlayersInGame(player.game)
         });
 
         if (getPlayersInGame(player.game).length === 2) {
-          io.to(player.game).emit("game start", {
-            game: player.game,
-            players: getPlayersInGame(player.game),
-          });
+          io.to(player.game).emit("game start");
         }
         callback();
-      });
+    });
+
+      // socket.on("join", ({ username }, callback) => {
+      //   const { player, error } = addPlayer({ id: socket.id, username});
+      //   if (error) return callback(error);
+      //   socket.join(player.game);
+
+      //   socket.emit("id", socket.id);
+
+      //   io.to(player.game).emit("gameData", {
+      //     game: player.game,
+      //     players: getPlayersInGame(player.game),
+      //   });
+
+      //   if (getPlayersInGame(player.game).length === 2) {
+      //     io.to(player.game).emit("game start", {
+      //       game: player.game,
+      //       players: getPlayersInGame(player.game),
+      //     });
+      //   }
+      //   callback();
+      // });
 
     let moves = [];
     socket.on('move', function (username, move) {
