@@ -21,10 +21,10 @@ app.use(bodyParser.json());
 
 const port = process.env.PORT || 5000;
 
-app.get("/", (req, res) => res.send("Hello World"));
-server.on('error', err => {
-    console.log('Server error:', err);
-});
+// app.get("/", (req, res) => res.send("Hello World"));
+// server.on('error', err => {
+//     console.log('Server error:', err);
+// });
 
 // io.on('connection', socket => {
 //     console.log("socket connection made", socket.id)
@@ -122,47 +122,48 @@ io.on("connect", (socket) => {
       //   callback();
       // });
 
-    let moves = [];
-    socket.on('move', function (username, move) {
+    
+    socket.on('move', function (username, move, game) {
+      const moves = gamerooms[game].moves;
         moves.push({'player': username, 'move': move});
 
         if (moves.length === 2) {
             switch (moves[0]["move"]) {
               case "rock": {
                 if (moves[1]["move"] === "rock") {
-                  io.emit("tie", moves);
+                  io.to(game).emit("tie", moves);
                 }
                 if (moves[1]["move"] === "paper") {
-                  io.emit("player 2 wins", moves);
+                  io.to(game).emit("player 2 wins", moves);
                 }
                 if (moves[1]["move"] === "scissors") {
-                  io.emit("player 1 wins", moves);
+                  io.to(game).emit("player 1 wins", moves);
                 }
                 moves = [];
                 break;
               }
               case "paper": {
                 if (moves[1]["move"] === "rock") {
-                  io.emit("player 1 wins", moves);
+                  io.to(game).emit("player 1 wins", moves);
                 }
                 if (moves[1]["move"] === "paper") {
-                  io.emit("tie", moves);
+                  io.to(game).emit("tie", moves);
                 }
                 if (moves[1]["move"] === "scissors") {
-                  io.emit("player 2 wins", moves);
+                  io.to(game).emit("player 2 wins", moves);
                 }
                 moves = [];
                 break;
               }
               case "scissors": {
                 if (moves[1]["move"] === "rock") {
-                  io.emit("player 2 wins", moves);
+                  io.to(game).emit("player 2 wins", moves);
                 }
                 if (moves[1]["move"] === "paper") {
-                  io.emit("player 1 wins", moves);
+                  io.to(game).emit("player 1 wins", moves);
                 }
                 if (moves[1]["move"] === "scissors") {
-                  io.emit("tie", moves);
+                  io.to(game).emit("tie", moves);
                 }
                 moves = [];
                 break;

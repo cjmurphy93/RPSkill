@@ -17,6 +17,9 @@ class GameRoom extends React.Component {
     this.scoket = null;
     this.handleJoin = this.handleJoin.bind(this);
     this.update = this.update.bind(this);
+    this.handleRock = this.handleRock.bind(this);
+    this.handlePaper = this.handlePaper.bind(this);
+    this.handleScissors = this.handleScissors.bind(this);
   }
 
   componentDidMount() {
@@ -41,6 +44,25 @@ class GameRoom extends React.Component {
     })
     //emit "join" username
   }
+
+  handleRock(e) {
+    e.preventDefault();
+    const username = this.state.user.username
+    const game = this.state.gameName;
+    this.socket.emit('move', {username, move: "rock", game })
+  };
+  handlePaper(e) {
+    e.preventDefault();
+    const username = this.state.user.username
+    const game = this.state.gameName;
+    this.socket.emit('move', {username, move: "paper", game })
+  };
+  handleScissors(e) {
+    e.preventDefault();
+    const username = this.state.user.username
+    const game = this.state.gameName;
+    this.socket.emit('move', {username, move: "scissors", game })
+  };
 
   update(type) {
     return (e) => {
@@ -76,7 +98,7 @@ class GameRoom extends React.Component {
         } else if (stage===2) {
              display = <WaitingRoom />
         } else if (stage===3) {
-             display = <LiveGame />
+             display = <LiveGame handleRock={this.handleRock} handlePaper={this.handlePaper} handleScissors={this.handleScissors}/>
         }
     return (
       <div>

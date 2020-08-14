@@ -34,6 +34,7 @@ class Game {
     // this.playerOne = player;
     // this.playerTwo = null;
     this.winner = null;
+    this.moves = [];
   }
 
   addPlayer(player) {
