@@ -14,13 +14,19 @@ class GameRoom extends React.Component {
       gameName: "",
       stage: 1,
     };
+    this.scoket = null;
     this.handleJoin = this.handleJoin.bind(this);
     this.update = this.update.bind(this);
   }
 
   componentDidMount() {
-    const socket = io();
-    this.setState({ socket: socket });
+   this.socket = io();
+    
+    this.socket.on("connect", (socket) => {
+              this.socket.on("game start", () => {
+                this.setState({ stage: 3 });
+              });
+    })
     //emit "join" username
   }
 
@@ -32,10 +38,10 @@ class GameRoom extends React.Component {
 
   handleJoin(e){
     e.preventDefault();
-    let {socket} = this.state;
+
     const username = this.state.user.username
     const game = this.state.gameName;
-    socket.emit("join", {username, game}, (error) => {
+    this.socket.emit("join", {username, game}, (error) => {
         if (error) {
             alert(error);
         }
@@ -49,11 +55,8 @@ class GameRoom extends React.Component {
 
   render() {
       const { stage, gameName} = this.state;
-      let socket = io();
-      socket.on("game start", () => {
-          this.setState({stage: 3})
-      });
-     
+
+
       let display;
         if (stage === 1){
              display = <JoinGame gameName={gameName}update={this.update} handleJoin={this.handleJoin}/>
