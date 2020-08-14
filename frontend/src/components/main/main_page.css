@@ -61,6 +61,8 @@ h1{
     padding: 2.5rem 5rem;
     margin-bottom: 20px;
     cursor: pointer;
+    color: white;
+    text-decoration: none;
 }
 
 .hiscores-btn{
