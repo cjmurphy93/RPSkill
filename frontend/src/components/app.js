@@ -51,10 +51,10 @@ const App = () => {
     }
   };
 
-  React.useEffect(() => {
-    setupSocket();
-    //eslint-disable-next-line
-  }, []);
+  // React.useEffect(() => {
+  //   setupSocket();
+  //   //eslint-disable-next-line
+  // }, []);
 
   return (
     <div>

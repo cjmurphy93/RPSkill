@@ -4,7 +4,9 @@ const Schema = mongoose.Schema;
 
 const gameSchema = new Schema(
   {
-
+    name: {
+      type: String
+    },
     playerOne: {
       type: Schema.Types.ObjectId,
       ref: "users",
@@ -32,3 +34,5 @@ gameSchema.statics.leaderboardTop = function(callback, num) {
 
 
 const Game = mongoose.model('Game', gameSchema);
+
+module.exports = Game;

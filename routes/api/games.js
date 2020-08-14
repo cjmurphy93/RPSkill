@@ -27,11 +27,10 @@ router.get("/:id", (req, res) => {
 });
 
 router.post('/', (req, res) => {
-    if (req.query.hasOwnProperty('playerOne' && req.query.hasOwnProperty('playerTwo'))) {
+    if (req.query.hasOwnProperty('playerOne' && req.query.hasOwnProperty('name'))) {
         const newGame = {
-          id: Math.floor(Math.random() * 1000),
+          name: req.params.name,
           playerOne: req.params.playerOne,
-          playerTwo: req.params.playerTwo,
           winner: null,
         };
     }

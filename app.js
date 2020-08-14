@@ -8,18 +8,20 @@ const path = require("path");
 const server = require('http').createServer(app);
 const socketio = require("socket.io");
 const io = socketio(server);
-const {addPlayer, removePlayer, getPlayer, getPlayersInGame} = require("./gameManager");
+const {addPlayer, removePlayer, getPlayer, getPlayersInGame, Game} = require("./gameManager");
 
 const users = require("./routes/api/users");
 const leaderboard = require("./routes/api/leaderboard");
 const games = require("./routes/api/games");
+
+const User = require('./models/User');
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 const port = process.env.PORT || 5000;
 
-
+app.get("/", (req, res) => res.send("Hello World"));
 server.on('error', err => {
     console.log('Server error:', err);
 });
@@ -52,6 +54,7 @@ app.use(express.static("chat"))
 //     res.sendFile(__dirname + "frontend/public/index.html")
 // })
 const connections = [];
+const gameRooms = {};
 
 io.on("connect", (socket) => {
   console.log('made socket connection', socket.id); 
@@ -74,6 +77,7 @@ io.on("connect", (socket) => {
   }
 
 
+<<<<<<< HEAD
   // socket.on("join", ({username, game}, callback) => {
   //       const { player, error } = addPlayer({ id: socket.id, username, game });
   //       if  (error) return callback(error);
@@ -94,6 +98,47 @@ io.on("connect", (socket) => {
   //       }
   //       callback();
   //   });
+=======
+  socket.on("join", ({username, game}, callback) => {
+    User.findOne({ username: username })
+      .then((user) => {
+        socket.join(game);
+        const gameRoom = gameRooms[game];
+        if (gameRoom) {
+          gameRoom.addPlayer(user);
+        } else {
+          gameRooms[game] = new Game(game, user);
+        }
+
+        socket.emit("gameData", {
+          game,
+          players: gameRooms[game].players
+        });
+
+        if (gameRooms[game].players.length === 2) {
+          io.to(game).emit("game start");
+        }
+
+      });
+    
+        // const { player, error } = addPlayer({ id: socket.id, username, game });
+        // if (error) return callback(error);
+        // socket.join(game);
+
+        // socket.emit("id", socket.id);
+        // debugger;
+
+        // socket.emit("gameData", {
+        //     game: player.game,
+        //     players: getPlayersInGame(player.game)
+        // });
+
+        // if (getPlayersInGame(game).length === 2) {
+        //   socket.emit("game start");
+        // }
+        // callback();
+    });
+>>>>>>> 792d4658c238745c6228ffce6aabe2c3c80cff8d
 
       // socket.on("join", ({ username }, callback) => {
       //   const { player, error } = addPlayer({ id: socket.id, username});
