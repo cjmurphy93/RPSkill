@@ -16,6 +16,9 @@ const games = require("./routes/api/games");
 
 const User = require('./models/User');
 
+app.use("/", express.static(path.join(__dirname, "/client/build")));
+
+
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
@@ -49,7 +52,7 @@ server.listen(port, () => console.log(`Server is running on port ${port}`));
 // } else {
 // }
 
-app.use(express.static("chat"))
+// app.use(express.static("chat"))
 // app.get("/", (req, res) => {
 //     res.sendFile(__dirname + "frontend/public/index.html")
 // })
