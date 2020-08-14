@@ -6,10 +6,14 @@ import "./game.css";
 class GameRoom extends React.Component {
     constructor(props) {
         super(props);
+        this.state = {
+            user: this.props.user
+        }
     }
 
     componentDidMount() {
-        this.props.setupSocket();
+        const socket = this.props.setupSocket();
+        socket.emit("join", this.props.user.username);
         //emit "join" username
     }
 

@@ -10,10 +10,11 @@ export const RECEIVE_USERS = "RECEIVE_USERS";
 
 
 
-export const receiveCurrentUser = (currentUser) => ({
-    type: RECEIVE_CURRENT_USER,
-    currentUser
-});
+export const receiveCurrentUser = (currentUser) => {
+    debugger
+    return {type: RECEIVE_CURRENT_USER,
+    currentUser}
+};
 
 export const logoutUser = () => ({
     type: RECEIVE_USER_LOGOUT

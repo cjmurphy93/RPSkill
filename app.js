@@ -79,8 +79,8 @@ io.on("connect", (socket) => {
   //       callback();
   //   });
 
-      socket.on("join random", ({ username }, callback) => {
-        const { player, error } = addPlayer({ id: socket.id, username, game });
+      socket.on("join", ({ username }, callback) => {
+        const { player, error } = addPlayer({ id: socket.id, username});
         if (error) return callback(error);
         socket.join(player.game);
 

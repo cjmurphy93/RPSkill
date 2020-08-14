@@ -2,20 +2,18 @@ const Game = require('./models/Game');
 const User = require('./models/User');
 const players = [];
 
-const addPlayer = ({ id, username, game}) => {
-    const player = { id, username, game};
+const addPlayer = ({ id, username}) => {
+    const player = { id, username};
 
     User.findOne({username: username})
     .then((player) => {
-            Game.findOne({ name: game})
+            Game.findOne({playerTwo: null})
         .then((ggame) => {
             if (ggame) {
-                if (ggame.playerTwo === null) {
-                    Game.updateOne({name: ggame.name}, {playerTwo: player});
-                }
+                    Game.updateOne({id: ggame.id}, {playerTwo: player});
+
             } else {
                 let newGame = new Game({
-                    name: game,
                     playerOne: player
                 })
                 
@@ -24,12 +22,37 @@ const addPlayer = ({ id, username, game}) => {
         })
     }).catch((err) => res.status(400).json(err));
 
-
-
-
+    
     players.push(player);    
     return { player };
-};
+    };
+// const addPlayer = ({ id, username}) => {
+//     const player = { id, username};
+
+//     User.findOne({playerTwo: null})
+//     .then((player) => {
+//             Game.findOne({ name: game})
+//         .then((ggame) => {
+//             if (ggame) {
+//                     Game.updateOne({name: ggame.name}, {playerTwo: player});
+//             } else {
+//                 let newGame = new Game({
+        
+//                     playerOne: player
+//                 })
+                
+//                 newGame.save().then((game) => res.json(game));
+//             };
+//         })
+//     }).catch((err) => res.status(400).json(err));
+
+
+
+    
+//     players.push(player);    
+//     return { player };
+// };
+
 
 const removePlayer = (id) => {
     const index = players.findIndex((player) => player.id === id);

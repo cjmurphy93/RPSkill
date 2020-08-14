@@ -9,7 +9,7 @@ import Hiscores from './hiscores/hiscores_container'
 import NavBar from "./nav_bar/nav_bar_container";
 import Profile from "./profile/profile_container";
 import AboutUs from "./aboutus/aboutus"
-import GameRoom from './game/game';
+import GameRoom from './game/game_container';
 import Result from './result/result';
 import "./main/main_page.css";
 import io from "socket.io-client";
@@ -47,6 +47,7 @@ const App = () => {
       });
 
       setSocket(newSocket);
+      return newSocket;
     }
   };
 

@@ -5,7 +5,7 @@ import GameRoom from "./game";
 const msp = (state) => {
 
     return {
-        
+        user: state.session.user
     };
 }
 
