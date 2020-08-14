@@ -77,28 +77,6 @@ io.on("connect", (socket) => {
   }
 
 
-<<<<<<< HEAD
-  // socket.on("join", ({username, game}, callback) => {
-  //       const { player, error } = addPlayer({ id: socket.id, username, game });
-  //       if  (error) return callback(error);
-  //       socket.join(player.game);
-
-  //       socket.emit("id", socket.id);
-
-  //       io.to(player.game).emit("gameData", {
-  //           game: player.game,
-  //           players: getPlayersInGame(player.game)
-  //       });
-
-  //       if (getPlayersInGame(player.game).length === 2) {
-  //         io.to(player.game).emit("game start", {
-  //           game: player.game,
-  //           players: getPlayersInGame(player.game),
-  //         });
-  //       }
-  //       callback();
-  //   });
-=======
   socket.on("join", ({username, game}, callback) => {
     User.findOne({ username: username })
       .then((user) => {
@@ -138,7 +116,6 @@ io.on("connect", (socket) => {
         // }
         // callback();
     });
->>>>>>> 792d4658c238745c6228ffce6aabe2c3c80cff8d
 
       // socket.on("join", ({ username }, callback) => {
       //   const { player, error } = addPlayer({ id: socket.id, username});
