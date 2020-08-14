@@ -21,10 +21,10 @@ app.use(bodyParser.json());
 
 const port = process.env.PORT || 5000;
 
-app.get("/", (req, res) => res.send("Hello World"));
-server.on('error', err => {
-    console.log('Server error:', err);
-});
+// app.get("/", (req, res) => res.send("Hello World"));
+// server.on('error', err => {
+//     console.log('Server error:', err);
+// });
 
 // io.on('connection', socket => {
 //     console.log("socket connection made", socket.id)
