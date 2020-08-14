@@ -16,6 +16,9 @@ const games = require("./routes/api/games");
 
 const User = require('./models/User');
 
+app.use("/", express.static(path.join(__dirname, "/client/build")));
+
+
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
