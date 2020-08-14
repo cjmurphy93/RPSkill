@@ -19,54 +19,55 @@ app.use(bodyParser.json());
 
 const port = process.env.PORT || 5000;
 
-
 server.on('error', err => {
     console.log('Server error:', err);
 });
 
-// io.on('connection', socket => {
-//     console.log("socket connection made", socket.id)
-
-//     socket.on("disconnect", () => {
-//         console.log("Disconnected")
-//     })
-// })
-
-
-// server.listen(8080, () => {
-//     console.log('RPS started on 8080')
-// })
-
 server.listen(port, () => console.log(`Server is running on port ${port}`));
 
-// if (process.env.NODE_ENV === "production") {
-//     app.use(express.static("frontend/build"));
-//     app.get("/", (req, res) => {
-//         res.sendFile(path.resolve(__dirname, "frontend", "build", "index.html"));
-//     });
-// } else {
-// }
-
-app.use(express.static("chat"))
-// app.get("/", (req, res) => {
-//     res.sendFile(__dirname + "frontend/public/index.html")
-// })
+const connections = [];
+const players = [];
 
 io.on("connect", (socket) => {
-  console.log('made socket connection', socket.id);    
-  socket.on("join", ({username, game}, callback) => {
-        const { player, error } = addPlayer({ id: socket.id, username, game });
-        if  (error) return callback(error);
-        socket.join(player.game);
+connections.push(socket.id);
+console.log("%s sockets currently connected", connections.length)
+socket.on('subscribeToPlayer', () => {
+  const randomNumber = Math.floor(Math.random()) * 100;
+  io.emit('game_id', randomNumber);
+})
 
-        socket.emit("id", socket.id);
 
-        io.to(player.game).emit("gameData", {
-            game: player.game,
-            players: getPlayersInGame(player.game)
-        });
-        callback();
-    });
+socket.emit("message", {connections: connections})
+
+socket.on('disconnect', data => {
+  players.splice(players.indexOf(socket.id), 1);
+  io.sockets.emit('get players', players)
+  connections.splice(connections.indexOf(socket.id), 1);
+  io.emit('disconnected', socket.id)
+  console.log("%s sockets currently connected", connections.length)
+});
+
+socket.on('add player', (data, callback) => {
+  socket.id = data;
+
+  if (players.indexOf(socket.id) !== -1) {
+    callback(false);
+  } else {
+    players.push(socket.id);
+    console.log(players);
+    io.sockets.emit("get players", players);
+    callback(true);
+  }
+
+  if (players.length % 2 === 0) {
+    debugger
+    io.emit('connected', connections);
+    console.log(socket.id);
+    io.emit('start game');
+  }
+})
+
+  // console.log('made socket connection', socket.id);
 
     let moves = [];
     socket.on('move', function (username, move) {
@@ -117,16 +118,16 @@ io.on("connect", (socket) => {
         }
     });
 
-    socket.on("disconnect", () => {
-      console.log('disconnected')        
-      const player = removePlayer(socket.id);
-        if (player){
-            io.to(player.game).emit("gameData", {
-              game: player.game,
-              players: getPlayersInGame(player.game),
-            });
-        }
-    });
+    // socket.on("disconnect", () => {
+    //   console.log('disconnected')        
+    //   const player = removePlayer(socket.id);
+    //     if (player){
+    //         io.to(player.game).emit("gameData", {
+    //           game: player.game,
+    //           players: getPlayersInGame(player.game),
+    //         });
+    //     }
+    // });
   
       socket.on('chat', (data) => {
         io.sockets.emit('chat', data);
@@ -154,5 +155,14 @@ app.use("/api/users/", users);
 app.use("/api/leaderboard/", leaderboard);
 app.use("/api/games/", games);
 
+// if (process.env.NODE_ENV === "production") {
+//     app.use(express.static("frontend/build"));
+//     app.get("/", (req, res) => {
+//         res.sendFile(path.resolve(__dirname, "frontend", "build", "index.html"));
+//     });
+// } else {
+// }
 
-
+// app.get("/", (req, res) => {
+//     res.sendFile(__dirname + "frontend/public/index.html")
+// })

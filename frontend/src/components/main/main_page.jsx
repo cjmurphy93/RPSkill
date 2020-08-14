@@ -4,6 +4,9 @@ import { Link } from 'react-router-dom';
 
 class MainPage extends React.Component {
 
+    // componentDidMount() {
+    //   this.props.setupSocket();
+    // }
     render() {
         return (
           <div>

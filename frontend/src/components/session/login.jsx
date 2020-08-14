@@ -18,9 +18,9 @@ class Login extends React.Component {
     handleSubmit(e) {
         e.preventDefault();
         Promise.all([
-            this.props.login(this.state),
-            // this.props.setupSocket(),
-        ]).then(() => console.log('all resolved'));
+        //   this.props.setupSocket(),
+          this.props.login(this.state),
+        ]).then(() => console.log("all resolved"));
     }
     update(type) {
         return e => {

@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import io from "socket.io-client";
+// import io from "socket.io-client";
 import GameRoom from "./game";
 
 const msp = (state) => {

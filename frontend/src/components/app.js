@@ -9,14 +9,21 @@ import Hiscores from './hiscores/hiscores_container'
 import NavBar from "./nav_bar/nav_bar_container";
 import Profile from "./profile/profile_container";
 import AboutUs from "./aboutus/aboutus"
-import GameRoom from './game/game';
+import GameRoom from './game/game_container';
 import Result from './result/result';
 import "./main/main_page.css";
 import io from "socket.io-client";
+const socket = io("http://localhost:5000")
 
+export const subscribeToPlayer = cb => {
+  socket.on('game_id', (game_id) => {
+    cb(null, game_id)
+  })
+}
 
 const App = () => {
-  const [socket, setSocket] = React.useState(null);
+  debugger
+  // const [socket, setSocket] = React.useState(null);
   // const setupSocket = () => {
   //   const userToken = localStorage.getItem('userToken');
   //   if (userToken && !socket) {
@@ -27,33 +34,37 @@ const App = () => {
   //   }
   // };
 
-  const setupSocket = () => {
-    const userToken = localStorage.getItem("jwtToken");
-    if (userToken && !socket) {
-      const newSocket = io.connect("http://localhost:5000", {
-        query: {
-          token: localStorage.getItem("userToken"),
-        },
-      });
 
-      newSocket.on("disconnect", () => {
-        setSocket(null);
-        setTimeout(setupSocket, 2000);
-        console.log('socket disconnected')
-      });
 
-      newSocket.on("connect", () => {
-        console.log("socket connected!")
-      });
+  // const setupSocket = () => {
+  //   debugger;
+  //   const userToken = localStorage.getItem("jwtToken");
+  //   if (userToken && !socket) {
+  //     const newSocket = io.connect("http://localhost:5000", {
+  //       query: {
+  //         token: localStorage.getItem("jwtToken"),
+  //       },
+  //     });
 
-      setSocket(newSocket);
-    }
-  };
+  //     newSocket.on("disconnect", () => {
+  //       setSocket(null);
+  //       setTimeout(setupSocket, 2000);
+  //       console.log("socket disconnected");
+  //     });
 
-  React.useEffect(() => {
-    setupSocket();
-    //eslint-disable-next-line
-  }, []);
+  //     newSocket.on("connect", () => {
+  //       console.log("socket connected!");
+  //     });
+
+  //     setSocket(newSocket);
+  //     return newSocket;
+  //   }
+  // };
+
+  // React.useEffect(() => {
+  //   setupSocket();
+  //   //eslint-disable-next-line
+  // }, []);
 
   return (
     <div>
@@ -64,21 +75,17 @@ const App = () => {
         <Route exact path="/hiscores" component={Hiscores} />
         <Route exact path="/user/:username" component={Profile} />
         <Route exact path="/aboutus" component={AboutUs} />
-        <Route exact path="/result/" component={Result}/>
+        <Route exact path="/result/" component={Result} />
         <AuthRoute
-        exact path="/login"
-        // render={() => <LogIn setupSocket={setupSocket} />}
-        component={LogIn}
+          exact
+          path="/login"
+          component={LogIn}
         />
         <AuthRoute exact path="/signup" component={SignUp} />
-        <Route
-         path="/gameroom/"
-         render={() => <GameRoom setupSocket={setupSocket} />}
-         exact
-        />
+        <Route path="/gameroom/" component={GameRoom} exact/>
       </Switch>
     </div>
-  )
+  );
 };
 
 export default App;

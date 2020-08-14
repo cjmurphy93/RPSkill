@@ -3,9 +3,9 @@ import './result.css';
 
 
 class Result extends React.Component {
-    constructor(props) {
-        super(props)
-    }
+    // constructor(props) {
+    //     super(props)
+    // }
     render() {
         //if (player counter === 2) {
         //return null
