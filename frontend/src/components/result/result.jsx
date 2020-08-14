@@ -1,15 +1,13 @@
 import React from 'react';
 import './result.css';
 
-
-class Result extends React.Component {
-    constructor(props) {
-        super(props)
-    }
-    render() {
+const Result = ({winner}) => {
         //if (player counter === 2) {
         //return null
         // }
+        
+        const message = winner === "tie" ? "It's a Tie!" : `${winner} Wins!`;
+      
         return (
             <>
                 <section>
@@ -18,6 +16,7 @@ class Result extends React.Component {
                     </div>
                     <div className="flex space-evenly">
                         <div>
+                            <h1>{message}</h1>
                             <h2>Player 1</h2>
                             <h2>ELO Change:</h2>
                         </div>
@@ -30,6 +29,6 @@ class Result extends React.Component {
             </>
         )
     }
-}
+
 
 export default Result;
