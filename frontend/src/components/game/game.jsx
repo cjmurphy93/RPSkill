@@ -2,6 +2,7 @@ import React from "react";
 import WaitingRoom from './waitingroom';
 import LiveGame from './livegame';
 import JoinGame from './join_game';
+import Result from '../result/result';
 import io from 'socket.io-client';
 import "./game.css";
 
@@ -13,6 +14,7 @@ class GameRoom extends React.Component {
       socket: null,
       gameName: "",
       stage: 1,
+      winner: ""
     };
     this.scoket = null;
     this.handleJoin = this.handleJoin.bind(this);
@@ -26,7 +28,7 @@ class GameRoom extends React.Component {
     const HOST =
       process.env.NODE_ENV === "production"
         ? "https://rpskill.herokuapp.com/"
-        : "http://localhost:5000";
+        : "http://localhost:5000/";
         
     this.socket = io(HOST);
     
@@ -34,13 +36,31 @@ class GameRoom extends React.Component {
 
       this.socket.on("gameData", (gameData) => {
         console.log(gameData);
-        debugger;
+        ;
       });
 
       this.socket.on("game start", () => {
-        debugger;
+        ;
         this.setState({ stage: 3 });
       });
+
+      this.socket.on("player 1 wins", (moves) => {
+        const winner = moves[0]["player"];
+        
+        this.setState({winner: winner, stage: 4});
+      });
+      this.socket.on("player 2 wins", (moves) => {
+        const winner = moves[1]["player"];
+        
+        this.setState({winner: winner, stage: 4});
+      });
+      this.socket.on("tie", (moves) => {
+        
+        const winner = "tie";
+        this.setState({winner: winner, stage: 4});
+      });
+
+
     })
     //emit "join" username
   }
@@ -49,19 +69,22 @@ class GameRoom extends React.Component {
     e.preventDefault();
     const username = this.state.user.username
     const game = this.state.gameName;
-    this.socket.emit('move', {username, move: "rock", game })
+    this.socket.emit('move', {username, move: "rock", game });
+    this.setState({stage: 2});
   };
   handlePaper(e) {
     e.preventDefault();
     const username = this.state.user.username
     const game = this.state.gameName;
-    this.socket.emit('move', {username, move: "paper", game })
+    this.socket.emit('move', {username, move: "paper", game });
+    this.setState({ stage: 2 });
   };
   handleScissors(e) {
     e.preventDefault();
     const username = this.state.user.username
     const game = this.state.gameName;
-    this.socket.emit('move', {username, move: "scissors", game })
+    this.socket.emit('move', {username, move: "scissors", game });
+    this.setState({ stage: 2 });
   };
 
   update(type) {
@@ -75,7 +98,7 @@ class GameRoom extends React.Component {
 
     const username = this.state.user.username
     const game = this.state.gameName;
-    debugger;
+    ;
     this.socket.emit("join", {username, game}, (error) => {
         if (error) {
             alert(error);
@@ -89,7 +112,7 @@ class GameRoom extends React.Component {
   }
 
   render() {
-      const { stage, gameName} = this.state;
+      const { stage, gameName, winner} = this.state;
 
 
       let display;
@@ -99,6 +122,8 @@ class GameRoom extends React.Component {
              display = <WaitingRoom />
         } else if (stage===3) {
              display = <LiveGame handleRock={this.handleRock} handlePaper={this.handlePaper} handleScissors={this.handleScissors}/>
+        } else if (stage===4) {
+          display = <Result winner={winner} />
         }
     return (
       <div>

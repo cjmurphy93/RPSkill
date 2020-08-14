@@ -11,7 +11,7 @@ export const RECEIVE_USERS = "RECEIVE_USERS";
 
 
 export const receiveCurrentUser = (currentUser) => {
-    debugger
+    
     return {type: RECEIVE_CURRENT_USER,
     currentUser}
 };

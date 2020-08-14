@@ -49,7 +49,7 @@ const addPlayer = ({ id, username, game }) => {
     .then((player1) => {
       // Game.findOne({ name: game })
       //   .then((ggame) => {
-      //     debugger;
+      //     ;
       //     if (ggame) {
       //       if (ggame.playerTwo === null) {
       //         Game.updateOne({ name: ggame.name }, { playerTwo: player1 });

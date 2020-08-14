@@ -91,7 +91,7 @@ io.on("connect", (socket) => {
         // socket.join(game);
 
         // socket.emit("id", socket.id);
-        // debugger;
+        // ;
 
         // socket.emit("gameData", {
         //     game: player.game,
@@ -126,8 +126,8 @@ io.on("connect", (socket) => {
       // });
 
     
-    socket.on('move', function (username, move, game) {
-      const moves = gamerooms[game].moves;
+    socket.on('move', ({username, move, game}) => {
+      let moves = gameRooms[game].moves;
         moves.push({'player': username, 'move': move});
 
         if (moves.length === 2) {
