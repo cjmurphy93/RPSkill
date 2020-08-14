@@ -22,7 +22,7 @@ class GameRoom extends React.Component {
   componentDidMount() {
     const HOST =
       process.env.NODE_ENV === "production"
-        ? "https://feuding-friends.herokuapp.com/"
+        ? "https://rpskill.herokuapp.com/"
         : "http://localhost:5000";
         
     this.socket = io(HOST);
