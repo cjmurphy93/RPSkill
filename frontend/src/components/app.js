@@ -10,6 +10,7 @@ import NavBar from "./nav_bar/nav_bar_container";
 import Profile from "./profile/profile_container";
 import AboutUs from "./aboutus/aboutus"
 import GameRoom from './game/game';
+import Result from './result/result';
 import "./main/main_page.css";
 import io from "socket.io-client";
 
@@ -17,7 +18,6 @@ import io from "socket.io-client";
 const App = () => {
   const [socket, setSocket] = React.useState(null);
   // const setupSocket = () => {
-    
   //   const userToken = localStorage.getItem('userToken');
   //   if (userToken && !socket) {
   //     const newSocket = io("http://localhost:5000");
@@ -30,7 +30,7 @@ const App = () => {
   const setupSocket = () => {
     const userToken = localStorage.getItem("jwtToken");
     if (userToken && !socket) {
-      const newSocket = io("http://localhost:5000", {
+      const newSocket = io.connect("http://localhost:5000", {
         query: {
           token: localStorage.getItem("userToken"),
         },
@@ -64,6 +64,7 @@ const App = () => {
         <Route exact path="/hiscores" component={Hiscores} />
         <Route exact path="/user/:username" component={Profile} />
         <Route exact path="/aboutus" component={AboutUs} />
+        <Route exact path="/result/" component={Result}/>
         <AuthRoute
         exact path="/login"
         // render={() => <LogIn setupSocket={setupSocket} />}
