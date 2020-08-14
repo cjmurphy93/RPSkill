@@ -8,18 +8,20 @@ const path = require("path");
 const server = require('http').createServer(app);
 const socketio = require("socket.io");
 const io = socketio(server);
-const {addPlayer, removePlayer, getPlayer, getPlayersInGame} = require("./gameManager");
+const {addPlayer, removePlayer, getPlayer, getPlayersInGame, Game} = require("./gameManager");
 
 const users = require("./routes/api/users");
 const leaderboard = require("./routes/api/leaderboard");
 const games = require("./routes/api/games");
+
+const User = require('./models/User');
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 const port = process.env.PORT || 5000;
 
-
+app.get("/", (req, res) => res.send("Hello World"));
 server.on('error', err => {
     console.log('Server error:', err);
 });
@@ -52,53 +54,73 @@ app.use(express.static("chat"))
 //     res.sendFile(__dirname + "frontend/public/index.html")
 // })
 const connections = [];
+const gameRooms = {};
 
 io.on("connect", (socket) => {
   console.log('made socket connection', socket.id); 
 
   connections.push(socket.id);
 
-  // socket.on("join", ({username, game}, callback) => {
-  //       const { player, error } = addPlayer({ id: socket.id, username, game });
-  //       if  (error) return callback(error);
-  //       socket.join(player.game);
+  socket.on("join", ({username, game}, callback) => {
+    User.findOne({ username: username })
+      .then((user) => {
+        socket.join(game);
+        const gameRoom = gameRooms[game];
+        if (gameRoom) {
+          gameRoom.addPlayer(user);
+        } else {
+          gameRooms[game] = new Game(game, user);
+        }
 
-  //       socket.emit("id", socket.id);
-
-  //       io.to(player.game).emit("gameData", {
-  //           game: player.game,
-  //           players: getPlayersInGame(player.game)
-  //       });
-
-  //       if (getPlayersInGame(player.game).length === 2) {
-  //         io.to(player.game).emit("game start", {
-  //           game: player.game,
-  //           players: getPlayersInGame(player.game),
-  //         });
-  //       }
-  //       callback();
-  //   });
-
-      socket.on("join", ({ username }, callback) => {
-        const { player, error } = addPlayer({ id: socket.id, username});
-        if (error) return callback(error);
-        socket.join(player.game);
-
-        socket.emit("id", socket.id);
-
-        io.to(player.game).emit("gameData", {
-          game: player.game,
-          players: getPlayersInGame(player.game),
+        socket.emit("gameData", {
+          game,
+          players: gameRooms[game].players
         });
 
-        if (getPlayersInGame(player.game).length === 2) {
-          io.to(player.game).emit("game start", {
-            game: player.game,
-            players: getPlayersInGame(player.game),
-          });
+        if (gameRooms[game].players.length === 2) {
+          io.to(game).emit("game start");
         }
-        callback();
+
       });
+    
+        // const { player, error } = addPlayer({ id: socket.id, username, game });
+        // if (error) return callback(error);
+        // socket.join(game);
+
+        // socket.emit("id", socket.id);
+        // debugger;
+
+        // socket.emit("gameData", {
+        //     game: player.game,
+        //     players: getPlayersInGame(player.game)
+        // });
+
+        // if (getPlayersInGame(game).length === 2) {
+        //   socket.emit("game start");
+        // }
+        // callback();
+    });
+
+      // socket.on("join", ({ username }, callback) => {
+      //   const { player, error } = addPlayer({ id: socket.id, username});
+      //   if (error) return callback(error);
+      //   socket.join(player.game);
+
+      //   socket.emit("id", socket.id);
+
+      //   io.to(player.game).emit("gameData", {
+      //     game: player.game,
+      //     players: getPlayersInGame(player.game),
+      //   });
+
+      //   if (getPlayersInGame(player.game).length === 2) {
+      //     io.to(player.game).emit("game start", {
+      //       game: player.game,
+      //       players: getPlayersInGame(player.game),
+      //     });
+      //   }
+      //   callback();
+      // });
 
     let moves = [];
     socket.on('move', function (username, move) {
