@@ -14,8 +14,10 @@ class GameRoom extends React.Component {
       socket: null,
       gameName: "",
       stage: 1,
-      winner: ""
+      winner: "",
+      gameRooms: null
     };
+    this.gameRooms = null;
     this.scoket = null;
     this.handleJoin = this.handleJoin.bind(this);
     this.update = this.update.bind(this);
@@ -33,6 +35,10 @@ class GameRoom extends React.Component {
     this.socket = io(HOST);
     
     this.socket.on("connect", (socket) => {
+
+      this.socket.on("gameRooms", (gameRooms) =>{
+        this.gameRooms = gameRooms
+      });
 
       this.socket.on("gameData", (gameData) => {
         console.log(gameData);
@@ -112,12 +118,13 @@ class GameRoom extends React.Component {
   }
 
   render() {
-      const { stage, gameName, winner} = this.state;
+      const { stage, gameName, winner, gameRooms} = this.state;
 
 
       let display;
         if (stage === 1){
-             display = <JoinGame gameName={gameName}update={this.update} handleJoin={this.handleJoin}/>
+             display = <JoinGame gameName={gameName}
+              update={this.update}  handleJoin={this.handleJoin}/>
         } else if (stage===2) {
              display = <WaitingRoom />
         } else if (stage===3) {

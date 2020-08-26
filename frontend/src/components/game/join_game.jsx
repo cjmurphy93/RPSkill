@@ -1,11 +1,22 @@
 import React from 'react';
 
-const JoinGame = ({ gameName, update, handleJoin}) => {
-
+const JoinGame = ({ gameName, update, handleJoin, }) => {
+  // const rooms = gameRooms ? (
+  //   <ul>
+  //     {Object.values(gameRooms).map((game, idx) => {
+  //       return (
+  //         <li key={idx}>Name: {game.name} Players: {game.players[0]}</li>
+  //       )
+  //     })}
+  //   </ul>
+  // ) : <p>No Open Rooms</p>
     return (
       <div>
         <div>
           <form>
+          {/* <div>
+            {rooms}
+          </div> */}
             <section>
               <div className="game-name-container">
                 <input

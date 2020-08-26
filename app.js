@@ -63,7 +63,9 @@ io.on("connect", (socket) => {
   console.log('made socket connection', socket.id); 
 
   connections.push(socket.id);
-
+  if (gameRooms){
+  socket.emit("gameRooms", gameRooms);
+  }
   socket.on("join", ({username, game}, callback) => {
     User.findOne({ username: username })
       .then((user) => {

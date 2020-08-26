@@ -83,6 +83,7 @@ const removePlayer = (id) => {
     if (index !== -1) return players.splice(index, 1)[0];
 };
 
+
 const getPlayer = (id) => players.find((player) => player.id === id);
 const getPlayersInGame = (game) => players.filter((player) => player.game === game);
 
