@@ -45,28 +45,28 @@
     justify-self: stat;
     align-self: center;
     margin-left: 9px;
-    background-color: hsla(178, 0%, 100%, 0.68);;
+    background-color: hsla(178, 0%, 100%, 0.68);
     
 }
 
 .chat-lines {
-    grid-area: 1 / 1 / 6 / 6;
+    grid-area: 1 / 1 / 6 / 7;
     position: relative;
     font-size: 15px;
-    justify-self: start;
     list-style: none;
     padding: 10px;
     text-align: left;
 }
 
 .chat-lines .line {
-    grid-area: 1 / 1 / 6 / 6;
-    position: fixed;
+    display: flex;
+    justify-content: space-between;
+    padding: 3px;
 }
 
-.line {
-    display: flex;
-    justify-self: center;
+#time-stamp {
+    color: hsla(178, 0%, 100%, 0.48);
+    font-size: 13px;
 }
 
 .live-game-title{
