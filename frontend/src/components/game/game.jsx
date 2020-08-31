@@ -26,7 +26,7 @@ class GameRoom extends React.Component {
     this.handlePaper = this.handlePaper.bind(this);
     this.handleScissors = this.handleScissors.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.handleKeyDown = this.handleKeyDown.bind(this);
+    this.handleChange = this.handleChange.bind(this);
     // this.handleMessage = this.handleMessage.bind(this);
     // this.handleChange = this.handleChange.bind(this);
   }
@@ -54,11 +54,7 @@ class GameRoom extends React.Component {
       // }
 
       this.socket.on('chat message', data => {
-        this.setState({
-          messages: data.messages,
-          user: data.user,
-        })
-        // console.log(data);
+        console.log(data.messages, "this came through")
       })
 
       this.socket.on("gameData", (gameData) => {
@@ -83,10 +79,6 @@ class GameRoom extends React.Component {
         const winner = "tie";
         this.setState({winner: winner, stage: 4});
       });
-
-      // this.socket.on('chat message', msg => {
-      //   console.log(msg);
-      // })
     })
     //emit "join" username
   }
@@ -109,20 +101,22 @@ class GameRoom extends React.Component {
   //   })
   // }
   
-  handleKeyDown(type) {
+  handleChange(type) {
     return e => {
       if (e.keyCode === 13) {
         this.setState({[type]: [...this.state.messages, e.currentTarget.value]});
-     }
+      }
     }
   }
   
-  handleSubmit(type) {
+  handleSubmit(e) {
+    e.preventDefault();
     this.socket.emit('chat message', {
       messages: this.state.messages,
-      user: this.state.user,
+      user: this.state.user.id,
     })
-    console.log(this.state.messages, this.state.user, 'client side');
+    console.log(this.state.message, this.state.user.id, 'client side');
+    console.log(this.state.messages, this.state.user.id, 'client side');
     // console.log(this.state.messages);
     // return e => {
     //   this.setState({messages: [...this.state.messages, this.state.message]});
@@ -185,7 +179,7 @@ class GameRoom extends React.Component {
         } else if (stage===2) {
              display = <WaitingRoom />
         } else if (stage===3) {
-             display = <LiveGame user={user} message={message} messages={messages} handleKeyDown={this.handleKeyDown} handleSubmit={this.handleSubmit} handleRock={this.handleRock} handlePaper={this.handlePaper} handleScissors={this.handleScissors}/>
+             display = <LiveGame user={user.id} message={message} messages={messages} handleChange={this.handleChange} handleSubmit={this.handleSubmit} handleRock={this.handleRock} handlePaper={this.handlePaper} handleScissors={this.handleScissors}/>
         } else if (stage===4) {
           display = <Result winner={winner} />
         }

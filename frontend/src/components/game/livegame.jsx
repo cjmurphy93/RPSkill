@@ -2,7 +2,7 @@ import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHandRock, faHandPaper, faHandScissors } from '@fortawesome/free-solid-svg-icons';
 
-const LiveGame = ({ handleRock, handlePaper, handleScissors, handleSubmit, handleKeyDown, messages, user}) => {
+const LiveGame = ({ handleRock, handlePaper, handleScissors, handleSubmit, handleChange, messages, user}) => {
 
 
         // if some condition (e.g 2 moves received)
@@ -16,24 +16,15 @@ const LiveGame = ({ handleRock, handlePaper, handleScissors, handleSubmit, handl
                 <section className="livegame-container">
                     <div className="chat-box">
 
-                        <form action="" className="form-container" onSubmit={handleSubmit('messages')}>
+                        <form action="" className="form-container" onSubmit={handleSubmit}>
                             <div className="chat-lines">
-                                {/* {  
-                                    messages.map((message, i) => {
-                                        if (message === undefined) {
-                                            return <h3>{`${user} has joined the gameroom.`}</h3>
-                                        } else {
-                                            return <li key={i}>{`${user}: ${message}`}</li>
-                                        }
-                                    })
-                                } */}
                                 {`${user}: ${messages[messages.length - 1]}`}
                             </div>
                             <input
                             type="text"
                             className="message-input"
                             placeholder=" Type here..."
-                            onKeyDown={handleKeyDown('messages')}
+                            onKeyDown={handleChange('messages')}
                             autoFocus/>
                             <button className="send-button">Send</button>
                         </form>
