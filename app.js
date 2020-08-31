@@ -63,14 +63,17 @@ io.on("connect", (socket) => {
   console.log('made socket connection', socket.id); 
 
   connections.push(socket.id);
+  console.log(`${connections.length} connections`)
 
   socket.on('chat message', msg => {
     console.log(msg);
-    io.emit('chat message', msg);
+    const { id } = socket.id;
+    io.emit('chat message', {msg, id});
     // socket.broadcast.emit('chat message', msg);
   })
 
   socket.on("join", ({username, game}, callback) => {
+    console.log(username, "joined the room")
     User.findOne({ username: username })
       .then((user) => {
         socket.join(game);
@@ -182,7 +185,9 @@ io.on("connect", (socket) => {
     });
 
     socket.on("disconnect", () => {
-      console.log('disconnected')        
+      console.log('disconnected')
+      connections.pop();
+      console.log(`${connections.length} connections`)
       const player = removePlayer(socket.id);
         if (player){
             io.to(player.game).emit("gameData", {

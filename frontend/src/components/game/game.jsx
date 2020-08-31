@@ -54,10 +54,11 @@ class GameRoom extends React.Component {
       // }
 
       this.socket.on('chat message', data => {
-        console.log(data.messages, data.user, "this came through")
+        // debugger
+        console.log(data.msg.messages, data.msg.user, "this came through")
         this.setState({
-          messages: [...this.state.messages, data.messages[data.messages.length - 1]],
-          user: data.user
+          messages: [...this.state.messages, data.msg.messages[data.msg.messages.length - 1]],
+          user: data.msg.user
         })
       })
 
@@ -119,6 +120,7 @@ class GameRoom extends React.Component {
     this.socket.emit('chat message', {
       messages: [...this.state.messages, this.state.message],
       user: this.state.user,
+      username: this.state.user.username,
       message: "",
     })
     this.setState({message: ""});
