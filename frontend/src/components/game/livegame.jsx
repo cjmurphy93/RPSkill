@@ -20,6 +20,7 @@ const LiveGame = ({ handleRock, handlePaper, handleScissors, handleSubmit, handl
                             <div className="chat-lines">
                                 {
                                     messages.map((message, i) => {
+                                        
                                         return (
                                             <li key={i}>
                                                 {`${user}: ${message}`}

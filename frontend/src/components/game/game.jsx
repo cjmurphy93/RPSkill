@@ -11,6 +11,7 @@ class GameRoom extends React.Component {
     super(props);
     this.state = {
       user: this.props.user,
+      username: "",
       socket: null,
       gameName: "",
       stage: 1,
@@ -58,7 +59,7 @@ class GameRoom extends React.Component {
         console.log(data.msg.messages, data.msg.user, "this came through")
         this.setState({
           messages: [...this.state.messages, data.msg.messages[data.msg.messages.length - 1]],
-          user: data.msg.user
+          user: this.state.user.username,
         })
       })
 
@@ -110,7 +111,7 @@ class GameRoom extends React.Component {
     return e => {
       // if (e.keyCode === 13) {
         // this.setState({[type]: [...this.state.messages, e.currentTarget.value]});
-        this.setState({[type]: e.currentTarget.value, user: this.state.user});
+        this.setState({[type]: e.currentTarget.value, username: this.state.user.username});
       // }
     }
   }
@@ -119,11 +120,11 @@ class GameRoom extends React.Component {
     e.preventDefault();
     this.socket.emit('chat message', {
       messages: [...this.state.messages, this.state.message],
-      user: this.state.user,
+      user: this.state.user.username,
       username: this.state.user.username,
       message: "",
     })
-    this.setState({message: ""});
+    this.setState({message: "", username: ""});
     console.log(this.state.message, this.state.user, 'client side');
     console.log(this.state.messages, this.state.user, 'client side');
     // console.log(this.state.messages);
@@ -188,7 +189,7 @@ class GameRoom extends React.Component {
         } else if (stage===2) {
              display = <WaitingRoom />
         } else if (stage===3) {
-             display = <LiveGame user={user.id} message={message} messages={messages} handleChange={this.handleChange} handleSubmit={this.handleSubmit} handleRock={this.handleRock} handlePaper={this.handlePaper} handleScissors={this.handleScissors}/>
+             display = <LiveGame user={user.username} message={message} messages={messages} handleChange={this.handleChange} handleSubmit={this.handleSubmit} handleRock={this.handleRock} handlePaper={this.handlePaper} handleScissors={this.handleScissors}/>
         } else if (stage===4) {
           display = <Result winner={winner} />
         }
