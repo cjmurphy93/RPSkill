@@ -55,6 +55,9 @@ class GameRoom extends React.Component {
 
       this.socket.on('chat message', data => {
         console.log(data.messages, "this came through")
+        this.setState({
+          messages: [...this.state.messages, data.messages[data.messages.length - 1]]
+        })
       })
 
       this.socket.on("gameData", (gameData) => {

@@ -18,7 +18,16 @@ const LiveGame = ({ handleRock, handlePaper, handleScissors, handleSubmit, handl
 
                         <form action="" className="form-container" onSubmit={handleSubmit}>
                             <div className="chat-lines">
-                                {`${user}: ${messages[messages.length - 1]}`}
+                                {
+                                    messages.map((message, i) => {
+                                        return (
+                                            <li key={i}>
+                                                {message}
+                                            </li>
+                                        )
+                                    })
+                                }
+                                {/* {`${user}: ${messages[messages.length - 1]}`} */}
                             </div>
                             <input
                             type="text"
