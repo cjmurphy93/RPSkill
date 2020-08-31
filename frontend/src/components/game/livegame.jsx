@@ -2,7 +2,7 @@ import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHandRock, faHandPaper, faHandScissors } from '@fortawesome/free-solid-svg-icons';
 
-const LiveGame = ({ handleRock, handlePaper, handleScissors, handleSubmit, handleChange, messages, message, user}) => {
+const LiveGame = ({ handleRock, handlePaper, handleScissors, handleSubmit, handleChange, messages, message, user, chatLines}) => {
 
 
         // if some condition (e.g 2 moves received)
@@ -19,11 +19,11 @@ const LiveGame = ({ handleRock, handlePaper, handleScissors, handleSubmit, handl
                         <form action="" className="form-container" onSubmit={handleSubmit}>
                             <div className="chat-lines">
                                 {
-                                    messages.map((message, i) => {
+                                    chatLines.map((message, i) => {
                                         
                                         return (
                                             <li key={i}>
-                                                {`${user}: ${message}`}
+                                                {`${message}`}
                                             </li>
                                         )
                                     })

@@ -65,10 +65,11 @@ io.on("connect", (socket) => {
   connections.push(socket.id);
   console.log(`${connections.length} connections`)
 
-  socket.on('chat message', msg => {
-    console.log(msg);
-    const { id } = socket.id;
-    io.emit('chat message', {msg, id});
+  socket.on('chat message', data => {
+    debugger
+    console.log(data);
+    // const { id } = socket.id;
+    io.emit('chat message', data);
     // socket.broadcast.emit('chat message', msg);
   })
 
