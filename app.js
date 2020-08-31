@@ -63,8 +63,17 @@ io.on("connect", (socket) => {
   console.log('made socket connection', socket.id); 
 
   connections.push(socket.id);
+  console.log(`${connections.length} connections`)
+
+  socket.on('chat message', data => {
+    console.log(data);
+    // const { id } = socket.id;
+    io.emit('chat message', data);
+    // socket.broadcast.emit('chat message', msg);
+  })
 
   socket.on("join", ({username, game}, callback) => {
+    console.log(username, "joined the room")
     User.findOne({ username: username })
       .then((user) => {
         socket.join(game);
@@ -176,7 +185,9 @@ io.on("connect", (socket) => {
     });
 
     socket.on("disconnect", () => {
-      console.log('disconnected')        
+      console.log('disconnected')
+      connections.pop();
+      console.log(`${connections.length} connections`)
       const player = removePlayer(socket.id);
         if (player){
             io.to(player.game).emit("gameData", {
@@ -186,9 +197,12 @@ io.on("connect", (socket) => {
         }
     });
   
-      socket.on('chat', (data) => {
-        io.sockets.emit('chat', data);
-    });
+    //   socket.on('chat', (data) => {
+    //     io.sockets.emit('chat', data);
+    // });
+    // socket.on("sendMessage", data => {
+    //   io.socket.emit('receiveMessage', data)
+    // })
 });
 
 if (process.env.NODE_ENV === "production") {
@@ -197,8 +211,6 @@ if (process.env.NODE_ENV === "production") {
         res.sendFile(path.resolve(__dirname, "frontend", "build", "index.html"));
     });
 }
-
-
 
 mongoose
 .connect(db, { useNewUrlParser: true, useUnifiedTopology: true })

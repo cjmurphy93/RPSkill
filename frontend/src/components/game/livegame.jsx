@@ -2,7 +2,7 @@ import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHandRock, faHandPaper, faHandScissors } from '@fortawesome/free-solid-svg-icons';
 
-const LiveGame = ({handleRock, handlePaper, handleScissors}) => {
+const LiveGame = ({ handleRock, handlePaper, handleScissors, handleSubmit, handleChange, messages, message, user, chatLines}) => {
 
 
         // if some condition (e.g 2 moves received)
@@ -13,7 +13,33 @@ const LiveGame = ({handleRock, handlePaper, handleScissors}) => {
         // }
         return (
             <>
-                <section>
+                <section className="livegame-container">
+                    <div className="chat-box">
+
+                        <form action="" className="form-container" onSubmit={handleSubmit}>
+                            <div className="chat-lines">
+                                {
+                                    chatLines.map((message, i) => {
+                                        
+                                        return (
+                                            <li key={i}>
+                                                {`${message}`}
+                                            </li>
+                                        )
+                                    })
+                                }
+                                {/* {`${user}: ${messages[messages.length - 1]}`} */}
+                            </div>
+                            <input
+                            type="text"
+                            className="message-input"
+                            placeholder=" Type here..."
+                            value={message}
+                            onChange={handleChange('message')}
+                            autoFocus/>
+                            <button className="send-button">Send</button>
+                        </form>
+                    </div>
                     <div>
                         <h1 className="live-game-title">Choose Rock, Paper, or Scissors</h1>
                     </div>
