@@ -14,6 +14,7 @@ const JoinGame = ({ gameName, update, handleJoin}) => {
                   placeholder="Game Name"
                   value={gameName}
                   onChange={update("gameName")}
+                  autoFocus
                 />
                 <button className="game-name-button" onClick={handleJoin}>Join</button>
               </div>
