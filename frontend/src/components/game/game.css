@@ -59,9 +59,14 @@
     text-align: left;
 }
 
-.chat-lines .li {
+.chat-lines .line {
     grid-area: 1 / 1 / 6 / 6;
     position: fixed;
+}
+
+.line {
+    display: flex;
+    justify-self: center;
 }
 
 .live-game-title{

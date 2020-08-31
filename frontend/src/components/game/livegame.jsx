@@ -22,9 +22,10 @@ const LiveGame = ({ handleRock, handlePaper, handleScissors, handleSubmit, handl
                                     chatLines.map((message, i) => {
                                         
                                         return (
-                                            <li key={i}>
+                                            <div key={i} className="divne">
                                                 {`${message}`}
-                                            </li>
+                                                {new Date(parseInt(Date.now())).toLocaleTimeString()}
+                                            </div>
                                         )
                                     })
                                 }
