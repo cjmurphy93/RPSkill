@@ -13,7 +13,10 @@ const LiveGame = ({handleRock, handlePaper, handleScissors}) => {
         // }
         return (
             <>
-                <section>
+                <section className="livegame-container">
+                    <div className="chat-box">
+                        Chatbox Placeholder
+                    </div>
                     <div>
                         <h1 className="live-game-title">Choose Rock, Paper, or Scissors</h1>
                     </div>
