@@ -54,6 +54,7 @@
     font-size: 15px;
     justify-self: start;
     padding: 9px;
+    list-style: none;
 }
 
 .live-game-title{
