@@ -109,9 +109,12 @@ class GameRoom extends React.Component {
   
   handleSubmit(e) {
     e.preventDefault();
-    this.socket.emit('chat message', this.state.message)
-    console.log(this.state.message, 'client side');
-    console.log(this.state.messages, 'client side');
+    this.socket.emit('chat message', {
+      messages: this.state.messages,
+      user: this.state.user.id,
+    })
+    console.log(this.state.message, this.state.user.id, 'client side');
+    console.log(this.state.messages, this.state.user.id, 'client side');
     // console.log(this.state.messages);
     // return e => {
     //   this.setState({messages: [...this.state.messages, this.state.message]});
@@ -165,7 +168,7 @@ class GameRoom extends React.Component {
   }
 
   render() {
-      const { stage, gameName, winner, message, messages} = this.state;
+      const { stage, gameName, winner, message, messages, user} = this.state;
 
 
       let display;
@@ -174,7 +177,7 @@ class GameRoom extends React.Component {
         } else if (stage===2) {
              display = <WaitingRoom />
         } else if (stage===3) {
-             display = <LiveGame message={message} messages={messages} handleChange={this.handleChange} handleSubmit={this.handleSubmit} handleRock={this.handleRock} handlePaper={this.handlePaper} handleScissors={this.handleScissors}/>
+             display = <LiveGame user={user.id} message={message} messages={messages} handleChange={this.handleChange} handleSubmit={this.handleSubmit} handleRock={this.handleRock} handlePaper={this.handlePaper} handleScissors={this.handleScissors}/>
         } else if (stage===4) {
           display = <Result winner={winner} />
         }

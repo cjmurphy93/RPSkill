@@ -45,7 +45,15 @@
     justify-self: stat;
     align-self: center;
     margin-left: 9px;
+    background-color: hsla(178, 0%, 100%, 0.68);;
     
+}
+
+.chat-lines {
+    grid-area: 1 / 1 / 6 / 6;
+    font-size: 15px;
+    justify-self: start;
+    padding: 9px;
 }
 
 .live-game-title{
