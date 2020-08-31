@@ -186,9 +186,12 @@ io.on("connect", (socket) => {
         }
     });
   
-      socket.on('chat', (data) => {
-        io.sockets.emit('chat', data);
-    });
+    //   socket.on('chat', (data) => {
+    //     io.sockets.emit('chat', data);
+    // });
+    // socket.on("sendMessage", data => {
+    //   io.socket.emit('receiveMessage', data)
+    // })
 });
 
 if (process.env.NODE_ENV === "production") {
@@ -197,8 +200,6 @@ if (process.env.NODE_ENV === "production") {
         res.sendFile(path.resolve(__dirname, "frontend", "build", "index.html"));
     });
 }
-
-
 
 mongoose
 .connect(db, { useNewUrlParser: true, useUnifiedTopology: true })

@@ -14,7 +14,9 @@ class GameRoom extends React.Component {
       socket: null,
       gameName: "",
       stage: 1,
-      winner: ""
+      winner: "",
+      message: "",
+      messages: [],
     };
     this.scoket = null;
     this.handleJoin = this.handleJoin.bind(this);
@@ -22,7 +24,8 @@ class GameRoom extends React.Component {
     this.handleRock = this.handleRock.bind(this);
     this.handlePaper = this.handlePaper.bind(this);
     this.handleScissors = this.handleScissors.bind(this);
-    this.handleMessage = this.handleMessage.bind(this);
+    // this.handleMessage = this.handleMessage.bind(this);
+    // this.handleChange = this.handleChange.bind(this);
   }
 
   componentDidMount() {
@@ -35,9 +38,16 @@ class GameRoom extends React.Component {
     
     this.socket.on("connect", (socket) => {
 
-      this.socket.on('chat', messageData => {
+      // this.socket.on("receiveMessage", data => {
+      //   addMessage(data);
+      // })
 
-      });
+      // const addMessage = data => {
+      //   debugger
+      //   console.log(data);
+      //   this.setState({messages: [...this.state.messages, data]});
+      //   console.log(this.state.messages);
+      // }
 
       this.socket.on("gameData", (gameData) => {
         console.log(gameData);
@@ -67,13 +77,23 @@ class GameRoom extends React.Component {
     //emit "join" username
   }
 
-  handleMessage(e) {
-    e.preventDefault();
-    const username = this.state.user.username;
-    const game = this.state.gameName;
-    this.socket.emit('chat', {message: e.currentTarget.value})
-    console.log(e);
-  }
+  // handleMessage(e) {
+  //   debugger
+  //   e.preventDefault();
+  //   const username = this.state.user.username;
+  //   const game = this.state.gameName;
+  //   this.socket.emit('sendMessage', {
+  //     username,
+  //     message: this.state.message,
+  //   })
+  //   this.setState({message: ""});
+  // }
+
+  // handleChange(e) {
+  //   this.setState({
+  //     message: e.currentTarget.value,
+  //   })
+  // }
 
   handleRock(e) {
     e.preventDefault();
@@ -131,7 +151,7 @@ class GameRoom extends React.Component {
         } else if (stage===2) {
              display = <WaitingRoom />
         } else if (stage===3) {
-             display = <LiveGame handleMessage={this.handleMessage} handleRock={this.handleRock} handlePaper={this.handlePaper} handleScissors={this.handleScissors}/>
+             display = <LiveGame handleRock={this.handleRock} handlePaper={this.handlePaper} handleScissors={this.handleScissors}/>
         } else if (stage===4) {
           display = <Result winner={winner} />
         }

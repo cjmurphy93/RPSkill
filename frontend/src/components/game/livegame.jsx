@@ -2,7 +2,7 @@ import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHandRock, faHandPaper, faHandScissors } from '@fortawesome/free-solid-svg-icons';
 
-const LiveGame = ({handleRock, handlePaper, handleScissors, handleMessage}) => {
+const LiveGame = ({handleRock, handlePaper, handleScissors}) => {
 
 
         // if some condition (e.g 2 moves received)
@@ -19,7 +19,7 @@ const LiveGame = ({handleRock, handlePaper, handleScissors, handleMessage}) => {
                         type="text"
                         className="message-input"
                         placeholder=" Type here..."
-                        onClick={handleMessage}
+                        // onChange={handleChange}
                         autoFocus/>
                         <button className="send-button">Send</button>
                     </div>
