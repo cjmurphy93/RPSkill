@@ -64,6 +64,11 @@ io.on("connect", (socket) => {
 
   connections.push(socket.id);
 
+  socket.on('chat message', msg => {
+    console.log(msg);
+    io.emit('chat message', msg);
+  })
+
   socket.on("join", ({username, game}, callback) => {
     User.findOne({ username: username })
       .then((user) => {
