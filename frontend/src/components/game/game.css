@@ -50,11 +50,17 @@
 }
 
 .chat-lines {
-    grid-area: 1 / 1 / 5 / 5;
+    grid-area: 1 / 1 / 6 / 6;
+    position: relative;
     font-size: 15px;
     justify-self: start;
-    padding: 9px;
     list-style: none;
+}
+
+.chat-lines .li {
+    grid-area: 1 / 1 / 6 / 6;
+    padding-left: 9px;
+    position: fixed;
 }
 
 .live-game-title{

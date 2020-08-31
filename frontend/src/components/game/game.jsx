@@ -106,18 +106,21 @@ class GameRoom extends React.Component {
   
   handleChange(type) {
     return e => {
-      if (e.keyCode === 13) {
-        this.setState({[type]: [...this.state.messages, e.currentTarget.value]});
-      }
+      // if (e.keyCode === 13) {
+        // this.setState({[type]: [...this.state.messages, e.currentTarget.value]});
+        this.setState({[type]: e.currentTarget.value});
+      // }
     }
   }
   
   handleSubmit(e) {
     e.preventDefault();
     this.socket.emit('chat message', {
-      messages: this.state.messages,
+      messages: [...this.state.messages, this.state.message],
       user: this.state.user.id,
+      message: "",
     })
+    this.setState({message: ""});
     console.log(this.state.message, this.state.user.id, 'client side');
     console.log(this.state.messages, this.state.user.id, 'client side');
     // console.log(this.state.messages);

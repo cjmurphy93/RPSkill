@@ -66,8 +66,8 @@ io.on("connect", (socket) => {
 
   socket.on('chat message', msg => {
     console.log(msg);
-    // io.emit('chat message', msg);
-    socket.broadcast.emit('chat message', msg);
+    io.emit('chat message', msg);
+    // socket.broadcast.emit('chat message', msg);
   })
 
   socket.on("join", ({username, game}, callback) => {

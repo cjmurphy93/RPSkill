@@ -2,7 +2,7 @@ import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHandRock, faHandPaper, faHandScissors } from '@fortawesome/free-solid-svg-icons';
 
-const LiveGame = ({ handleRock, handlePaper, handleScissors, handleSubmit, handleChange, messages, user}) => {
+const LiveGame = ({ handleRock, handlePaper, handleScissors, handleSubmit, handleChange, messages, message, user}) => {
 
 
         // if some condition (e.g 2 moves received)
@@ -22,7 +22,7 @@ const LiveGame = ({ handleRock, handlePaper, handleScissors, handleSubmit, handl
                                     messages.map((message, i) => {
                                         return (
                                             <li key={i}>
-                                                {message}
+                                                {`${user}: ${message}`}
                                             </li>
                                         )
                                     })
@@ -33,7 +33,8 @@ const LiveGame = ({ handleRock, handlePaper, handleScissors, handleSubmit, handl
                             type="text"
                             className="message-input"
                             placeholder=" Type here..."
-                            onKeyDown={handleChange('messages')}
+                            value={message}
+                            onChange={handleChange('message')}
                             autoFocus/>
                             <button className="send-button">Send</button>
                         </form>
