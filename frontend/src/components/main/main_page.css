@@ -83,6 +83,7 @@ h1{
 
 .hiscores-btn:hover {
     background-color: hsla(178, 0%, 100%, 0.1);
+    /* transition:  1.5s ease-in-out 1.5s; */
 }
 
 .navbar {

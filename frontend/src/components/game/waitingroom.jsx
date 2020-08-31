@@ -1,6 +1,7 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSpinner } from '@fortawesome/free-solid-svg-icons';
+import "./game.css";
 
 class WaitingRoom extends React.Component {
     constructor(props){
@@ -11,15 +12,16 @@ class WaitingRoom extends React.Component {
             //return null
         // }
         return (
-            <>
-                <section>
-                    <div className="flex waiting-container">
-                        <h1 className="waiting-message">Please wait while you are connected with an opponent...</h1>
-                        <FontAwesomeIcon icon={faSpinner} className="spinner-icon" />
-                    </div>
-                </section>
-            </>
-        )
+          <>
+            <section>
+              <div className="flex waiting-container">
+                <h1 className="waiting-message">
+                  Please wait while you are connected with an opponent...
+                </h1><FontAwesomeIcon icon={faSpinner} className="spinner-icon-waiting" />
+              </div>
+            </section>
+          </>
+        );
     }
 }
 
