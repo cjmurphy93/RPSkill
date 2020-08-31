@@ -54,9 +54,10 @@ class GameRoom extends React.Component {
       // }
 
       this.socket.on('chat message', data => {
-        console.log(data.messages, "this came through")
+        console.log(data.messages, data.user, "this came through")
         this.setState({
-          messages: [...this.state.messages, data.messages[data.messages.length - 1]]
+          messages: [...this.state.messages, data.messages[data.messages.length - 1]],
+          user: data.user
         })
       })
 
@@ -108,7 +109,7 @@ class GameRoom extends React.Component {
     return e => {
       // if (e.keyCode === 13) {
         // this.setState({[type]: [...this.state.messages, e.currentTarget.value]});
-        this.setState({[type]: e.currentTarget.value});
+        this.setState({[type]: e.currentTarget.value, user: this.state.user});
       // }
     }
   }
@@ -117,12 +118,12 @@ class GameRoom extends React.Component {
     e.preventDefault();
     this.socket.emit('chat message', {
       messages: [...this.state.messages, this.state.message],
-      user: this.state.user.id,
+      user: this.state.user,
       message: "",
     })
     this.setState({message: ""});
-    console.log(this.state.message, this.state.user.id, 'client side');
-    console.log(this.state.messages, this.state.user.id, 'client side');
+    console.log(this.state.message, this.state.user, 'client side');
+    console.log(this.state.messages, this.state.user, 'client side');
     // console.log(this.state.messages);
     // return e => {
     //   this.setState({messages: [...this.state.messages, this.state.message]});

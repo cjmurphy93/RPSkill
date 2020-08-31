@@ -55,11 +55,12 @@
     font-size: 15px;
     justify-self: start;
     list-style: none;
+    padding: 10px;
+    text-align: left;
 }
 
 .chat-lines .li {
     grid-area: 1 / 1 / 6 / 6;
-    padding-left: 9px;
     position: fixed;
 }
 
