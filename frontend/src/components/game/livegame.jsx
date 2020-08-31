@@ -2,7 +2,7 @@ import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHandRock, faHandPaper, faHandScissors } from '@fortawesome/free-solid-svg-icons';
 
-const LiveGame = ({handleRock, handlePaper, handleScissors}) => {
+const LiveGame = ({handleRock, handlePaper, handleScissors, handleMessage}) => {
 
 
         // if some condition (e.g 2 moves received)
@@ -15,7 +15,12 @@ const LiveGame = ({handleRock, handlePaper, handleScissors}) => {
             <>
                 <section className="livegame-container">
                     <div className="chat-box">
-                        <input type="text" className="message-input" placeholder=" Type here..." autoFocus/>
+                        <input
+                        type="text"
+                        className="message-input"
+                        placeholder=" Type here..."
+                        onClick={handleMessage}
+                        autoFocus/>
                         <button className="send-button">Send</button>
                     </div>
                     <div>

@@ -22,7 +22,7 @@ class GameRoom extends React.Component {
     this.handleRock = this.handleRock.bind(this);
     this.handlePaper = this.handlePaper.bind(this);
     this.handleScissors = this.handleScissors.bind(this);
-    // this.handleMessage = this.handleMessage.bind(this);
+    this.handleMessage = this.handleMessage.bind(this);
   }
 
   componentDidMount() {
@@ -35,19 +35,20 @@ class GameRoom extends React.Component {
     
     this.socket.on("connect", (socket) => {
 
+      this.socket.on('chat', messageData => {
+
+      });
+
       this.socket.on("gameData", (gameData) => {
         console.log(gameData);
-        ;
       });
 
       this.socket.on("game start", () => {
-        ;
         this.setState({ stage: 3 });
       });
 
       this.socket.on("player 1 wins", (moves) => {
         const winner = moves[0]["player"];
-        
         this.setState({winner: winner, stage: 4});
       });
       this.socket.on("player 2 wins", (moves) => {
@@ -70,7 +71,8 @@ class GameRoom extends React.Component {
     e.preventDefault();
     const username = this.state.user.username;
     const game = this.state.gameName;
-    
+    this.socket.emit('chat', {message: e.currentTarget.value})
+    console.log(e);
   }
 
   handleRock(e) {
@@ -129,7 +131,7 @@ class GameRoom extends React.Component {
         } else if (stage===2) {
              display = <WaitingRoom />
         } else if (stage===3) {
-             display = <LiveGame handleRock={this.handleRock} handlePaper={this.handlePaper} handleScissors={this.handleScissors}/>
+             display = <LiveGame handleMessage={this.handleMessage} handleRock={this.handleRock} handlePaper={this.handlePaper} handleScissors={this.handleScissors}/>
         } else if (stage===4) {
           display = <Result winner={winner} />
         }
