@@ -15,7 +15,8 @@ const LiveGame = ({handleRock, handlePaper, handleScissors}) => {
             <>
                 <section className="livegame-container">
                     <div className="chat-box">
-                        Chatbox Placeholder
+                        <input type="text" className="message-input" placeholder=" Type here..." autoFocus/>
+                        <button className="send-button">Send</button>
                     </div>
                     <div>
                         <h1 className="live-game-title">Choose Rock, Paper, or Scissors</h1>

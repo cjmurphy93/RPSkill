@@ -22,6 +22,7 @@ class GameRoom extends React.Component {
     this.handleRock = this.handleRock.bind(this);
     this.handlePaper = this.handlePaper.bind(this);
     this.handleScissors = this.handleScissors.bind(this);
+    // this.handleMessage = this.handleMessage.bind(this);
   }
 
   componentDidMount() {
@@ -63,6 +64,13 @@ class GameRoom extends React.Component {
 
     })
     //emit "join" username
+  }
+
+  handleMessage(e) {
+    e.preventDefault();
+    const username = this.state.user.username;
+    const game = this.state.gameName;
+    
   }
 
   handleRock(e) {
