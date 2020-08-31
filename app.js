@@ -66,7 +66,6 @@ io.on("connect", (socket) => {
   console.log(`${connections.length} connections`)
 
   socket.on('chat message', data => {
-    debugger
     console.log(data);
     // const { id } = socket.id;
     io.emit('chat message', data);

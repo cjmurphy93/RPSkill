@@ -42,20 +42,8 @@ class GameRoom extends React.Component {
     this.socket = io(HOST);
     
     this.socket.on("connect", (socket) => {
-      
-      // this.socket.on("receiveMessage", data => {
-      //   addMessage(data);
-      // })
-
-      // const addMessage = data => {
-      //   debugger
-      //   console.log(data);
-      //   this.setState({messages: [...this.state.messages, data]});
-      //   console.log(this.state.messages);
-      // }
 
       this.socket.on('chat message', data => {
-        debugger
         console.log(data.messages, data.user, "this came through")
         this.setState({
           messages: [...this.state.messages, data.messages[data.messages.length - 1]],
@@ -128,8 +116,8 @@ class GameRoom extends React.Component {
       chatLines: [...this.state.chatLines, `${this.props.user.username}: ${this.state.message}`]
     })
     this.setState({message: ""});
-    console.log(this.state.message, this.state.user, 'client side');
-    console.log(this.state.messages, this.state.user, 'client side');
+    // console.log(this.state.message, this.state.user, 'client side');
+    // console.log(this.state.messages, this.state.user, 'client side');
     // console.log(this.state.messages);
     // return e => {
     //   this.setState({messages: [...this.state.messages, this.state.message]});
