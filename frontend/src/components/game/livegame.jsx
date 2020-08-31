@@ -2,7 +2,7 @@ import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHandRock, faHandPaper, faHandScissors } from '@fortawesome/free-solid-svg-icons';
 
-const LiveGame = ({ handleRock, handlePaper, handleScissors, handleSubmit, handleChange, messages, message, user, chatLines}) => {
+const LiveGame = ({ handleRock, handlePaper, handleScissors, handleSubmit, handleChange, message, chatLines}) => {
 
 
         // if some condition (e.g 2 moves received)
@@ -24,7 +24,6 @@ const LiveGame = ({ handleRock, handlePaper, handleScissors, handleSubmit, handl
                                         return (
                                             <div key={i} className="divne">
                                                 {`${message}`}
-                                                {new Date(parseInt(Date.now())).toLocaleTimeString()}
                                             </div>
                                         )
                                     })
