@@ -168,7 +168,7 @@ class GameRoom extends React.Component {
         } else if (stage===3) {
              display = <LiveGame users={users} chatLines={chatLines} user={user} message={message} messages={messages} handleChange={this.handleChange} handleSubmit={this.handleSubmit} handleRock={this.handleRock} handlePaper={this.handlePaper} handleScissors={this.handleScissors}/>
         } else if (stage===4) {
-          display = <Result winner={winner} loser={users.players.filter(user => user !== winner)} />
+          display = <Result winner={winner} players={users.players} loser={users.players.filter(user => user !== winner)} />
         }
     return (
       <div>
