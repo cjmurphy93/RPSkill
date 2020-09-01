@@ -40,10 +40,8 @@ const standbyUsers = [];
 
 io.on("connect", (socket) => {
   console.log('made socket connection', socket.id); 
-  
   connections.push(socket.id);
-  console.log(`${connections.length} connections`)
-  
+  // console.log(`${connections.length} connections`)  
   
   socket.on("join", ({username, game}, callback) => {
     standbyUsers.push(username);
@@ -59,6 +57,12 @@ io.on("connect", (socket) => {
 
     socket.on("add points", username => {
       console.log(username);
+      User.updateOne({ username: username },
+        { $inc: { elo: 200 } }
+      )
+      .then(user => {
+        console.log(`points added to ${username}`)
+      })
     })
 
     User.findOne({ username: username })
