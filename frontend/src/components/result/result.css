@@ -1,3 +1,44 @@
-/* .space-evenyly{
-    justify-content: space-evenly;
-} */
+
+.section-container {
+    
+}
+
+.inner-container {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    gap: 3px;
+    text-align: center;
+    width: 600px;
+    height: 700px;
+    background-color: hsla(178, 0%, 100%, 0.08);
+    border-radius: 5px;
+    margin: 0 auto;
+    margin-bottom: 50px;
+    padding: 0 3px;
+}
+
+
+.center-container {
+    grid-area: 2 / 2 / 2 / 5;
+    border: white 1px solid;
+    margin: 0;
+    font-size: 28px;
+}
+
+.result-message {
+    grid-area: 3 / 2 / 3 / 5;
+    font-size: 26px;    
+    align-self: center;
+}
+
+.players {
+    grid-area: 4 / 2 / 4 / 5;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.playerOne {
+
+}

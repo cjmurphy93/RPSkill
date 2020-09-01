@@ -10,14 +10,14 @@ const Result = ({winner}) => {
       
         return (
             <>
-                <section>
-                    <div className="result-section">
+                <section className="section-container">
+                    <div className="inner-container">
                         <div className="center-container">
-                            <h1>Game Results</h1>
+                            Game Results
                         </div>
+                        <div className="result-message">{message}</div>
                         <div className="players">
                             <div className="playerOne">
-                                <h1>{message}</h1>
                                 <h2>Player 1</h2>
                                 <h2>ELO Change:</h2>
                             </div>
