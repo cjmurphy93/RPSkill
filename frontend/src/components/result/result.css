@@ -43,9 +43,9 @@
     font-size: 13px;
 }
 
-
-.playerOne {
-
+#winner-points, #loser-points {
+  padding-top: 19px;
+  font-size: 30px;
 }
 
 .conf-wrap {
