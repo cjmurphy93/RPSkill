@@ -11,7 +11,7 @@ const Result = ({winner}) => {
         return (
             <>
                 <section className="section-container conf-wrap">
-                    <div className="conf-149"></div>
+                    {/* <div className="conf-149"></div>
                     <div className="conf-148"></div>
                     <div className="conf-147"></div>
                     <div className="conf-146"></div>
@@ -32,8 +32,8 @@ const Result = ({winner}) => {
                     <div className="conf-131"></div>
                     <div className="conf-130"></div>
                     <div className="conf-129"></div>
-                    <div className="conf-128"></div>
-                    <div className="conf-127"></div>
+                    <div className="conf-128"></div> */}
+                    {/* <div className="conf-127"></div>
                     <div className="conf-126"></div>
                     <div className="conf-125"></div>
                     <div className="conf-124"></div>
@@ -59,8 +59,8 @@ const Result = ({winner}) => {
                     <div className="conf-104"></div>
                     <div className="conf-103"></div>
                     <div className="conf-102"></div>
-                    <div className="conf-101"></div>
-                    <div className="conf-100"></div>
+                    <div className="conf-101"></div> */}
+                    {/* <div className="conf-100"></div>
                     <div className="conf-99"></div>
                     <div className="conf-98"></div>
                     <div className="conf-97"></div>
@@ -79,8 +79,8 @@ const Result = ({winner}) => {
                     <div className="conf-84"></div>
                     <div className="conf-83"></div>
                     <div className="conf-82"></div>
-                    <div className="conf-81"></div>
-                    <div className="conf-80"></div>
+                    <div className="conf-81"></div> */}
+                    {/* <div className="conf-80"></div> */}
                     <div className="conf-79"></div>
                     <div className="conf-78"></div>
                     <div className="conf-77"></div>
