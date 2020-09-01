@@ -57,12 +57,32 @@ io.on("connect", (socket) => {
 
     socket.on("add points", username => {
       console.log(username);
+
       User.updateOne({ username: username },
         { $inc: { elo: 200 } }
       )
       .then(user => {
         console.log(`points added to ${username}`)
-      })
+      })      
+    });
+
+    Game.findOne({ name: game }).then(gameResponse => {
+      if (gameResponse) {
+        console.log(gameResponse);
+      } else {
+
+        const newGame = new Game({
+          playerOne: username,
+          playerTwo: null,
+          name: game,
+          winner: null,
+        });
+
+        newGame.save()
+        .then(game => {
+          console.log(game)
+        })
+      }
     })
 
     User.findOne({ username: username })

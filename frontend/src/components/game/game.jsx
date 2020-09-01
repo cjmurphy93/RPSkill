@@ -58,7 +58,7 @@ class GameRoom extends React.Component {
       })
 
       this.socket.on("gameData", (gameData) => {
-        // console.log(gameData);
+        console.log(gameData);
       });
 
       this.socket.on("game start", (gameData) => {
@@ -69,13 +69,12 @@ class GameRoom extends React.Component {
         });
       });
 
-      this.socket.on("player 1 wins", (moves) => {
-        
+      this.socket.on("player 1 wins", (moves) => {        
         const winner = moves[0]["player"];
-
         this.setState({winner: winner, stage: 5});
         this.socket.emit("add points", moves[0]["player"]);
       });
+
       this.socket.on("player 2 wins", (moves) => {
         const winner = moves[1]["player"];
         this.setState({winner: winner, stage: 5});
