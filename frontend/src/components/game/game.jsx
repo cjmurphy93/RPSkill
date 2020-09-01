@@ -102,21 +102,21 @@ class GameRoom extends React.Component {
 
   handleRock(e) {
     e.preventDefault();
-    const username = this.state.user.username
+    const username = this.props.user.username
     const game = this.state.gameName;
     this.socket.emit('move', {username, move: "rock", game });
     this.setState({stage: 2});
   };
   handlePaper(e) {
     e.preventDefault();
-    const username = this.state.user.username
+    const username = this.props.user.username
     const game = this.state.gameName;
     this.socket.emit('move', {username, move: "paper", game });
     this.setState({ stage: 2 });
   };
   handleScissors(e) {
     e.preventDefault();
-    const username = this.state.user.username
+    const username = this.props.user.username
     const game = this.state.gameName;
     this.socket.emit('move', {username, move: "scissors", game });
     this.setState({ stage: 2 });
