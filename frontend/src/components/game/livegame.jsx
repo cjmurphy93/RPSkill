@@ -14,6 +14,7 @@ const LiveGame = ({ handleRock, handlePaper, handleScissors, handleSubmit, handl
         return (
             <>
                 <section className="livegame-container">
+                    
                     <div className="chat-box">
 
                         <form action="" className="form-container" onSubmit={handleSubmit}>
