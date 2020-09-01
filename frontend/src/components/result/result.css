@@ -44,16 +44,16 @@
 
 }
 
-.wrapper {
+.conf-wrap {
   position: relative;
   min-height: 100vh;
 }
 
-[class|="confetti"] {
+[class|="conf"] {
   position: absolute;
 }
 
-.confetti-0 {
+.conf-0 {
   width: 4px;
   height: 1.6px;
   background-color: #d13447;
@@ -79,7 +79,7 @@
     left: 51%;
   }
 }
-.confetti-1 {
+.conf-1 {
   width: 4px;
   height: 1.6px;
   background-color: #ffbf00;
@@ -105,7 +105,7 @@
     left: 50%;
   }
 }
-.confetti-2 {
+.conf-2 {
   width: 3px;
   height: 1.2px;
   background-color: #d13447;
@@ -131,7 +131,7 @@
     left: 91%;
   }
 }
-.confetti-3 {
+.conf-3 {
   width: 8px;
   height: 3.2px;
   background-color: #ffbf00;
@@ -157,7 +157,7 @@
     left: 57%;
   }
 }
-.confetti-4 {
+.conf-4 {
   width: 5px;
   height: 2px;
   background-color: #d13447;
@@ -183,7 +183,7 @@
     left: 70%;
   }
 }
-.confetti-5 {
+.conf-5 {
   width: 5px;
   height: 2px;
   background-color: #263672;
@@ -209,7 +209,7 @@
     left: 76%;
   }
 }
-.confetti-6 {
+.conf-6 {
   width: 5px;
   height: 2px;
   background-color: #d13447;
@@ -235,7 +235,7 @@
     left: 43%;
   }
 }
-.confetti-7 {
+.conf-7 {
   width: 1px;
   height: 0.4px;
   background-color: #d13447;
@@ -261,7 +261,7 @@
     left: 105%;
   }
 }
-.confetti-8 {
+.conf-8 {
   width: 8px;
   height: 3.2px;
   background-color: #d13447;
@@ -287,7 +287,7 @@
     left: 79%;
   }
 }
-.confetti-9 {
+.conf-9 {
   width: 2px;
   height: 0.8px;
   background-color: #263672;
@@ -313,7 +313,7 @@
     left: 42%;
   }
 }
-.confetti-10 {
+.conf-10 {
   width: 7px;
   height: 2.8px;
   background-color: #d13447;
@@ -339,7 +339,7 @@
     left: 19%;
   }
 }
-.confetti-11 {
+.conf-11 {
   width: 2px;
   height: 0.8px;
   background-color: #ffbf00;
@@ -365,7 +365,7 @@
     left: 48%;
   }
 }
-.confetti-12 {
+.conf-12 {
   width: 4px;
   height: 1.6px;
   background-color: #d13447;
@@ -391,7 +391,7 @@
     left: 83%;
   }
 }
-.confetti-13 {
+.conf-13 {
   width: 2px;
   height: 0.8px;
   background-color: #ffbf00;
@@ -417,7 +417,7 @@
     left: 18%;
   }
 }
-.confetti-14 {
+.conf-14 {
   width: 2px;
   height: 0.8px;
   background-color: #ffbf00;
@@ -443,7 +443,7 @@
     left: 29%;
   }
 }
-.confetti-15 {
+.conf-15 {
   width: 8px;
   height: 3.2px;
   background-color: #263672;
@@ -469,7 +469,7 @@
     left: 48%;
   }
 }
-.confetti-16 {
+.conf-16 {
   width: 2px;
   height: 0.8px;
   background-color: #263672;
@@ -495,7 +495,7 @@
     left: 23%;
   }
 }
-.confetti-17 {
+.conf-17 {
   width: 4px;
   height: 1.6px;
   background-color: #d13447;
@@ -521,7 +521,7 @@
     left: 81%;
   }
 }
-.confetti-18 {
+.conf-18 {
   width: 7px;
   height: 2.8px;
   background-color: #263672;
@@ -547,7 +547,7 @@
     left: 96%;
   }
 }
-.confetti-19 {
+.conf-19 {
   width: 1px;
   height: 0.4px;
   background-color: #263672;
@@ -573,7 +573,7 @@
     left: 84%;
   }
 }
-.confetti-20 {
+.conf-20 {
   width: 5px;
   height: 2px;
   background-color: #ffbf00;
@@ -599,7 +599,7 @@
     left: 108%;
   }
 }
-.confetti-21 {
+.conf-21 {
   width: 2px;
   height: 0.8px;
   background-color: #263672;
@@ -625,7 +625,7 @@
     left: 76%;
   }
 }
-.confetti-22 {
+.conf-22 {
   width: 7px;
   height: 2.8px;
   background-color: #d13447;
@@ -651,7 +651,7 @@
     left: 97%;
   }
 }
-.confetti-23 {
+.conf-23 {
   width: 5px;
   height: 2px;
   background-color: #263672;
@@ -677,7 +677,7 @@
     left: 103%;
   }
 }
-.confetti-24 {
+.conf-24 {
   width: 8px;
   height: 3.2px;
   background-color: #263672;
@@ -703,7 +703,7 @@
     left: 77%;
   }
 }
-.confetti-25 {
+.conf-25 {
   width: 4px;
   height: 1.6px;
   background-color: #d13447;
@@ -729,7 +729,7 @@
     left: 56%;
   }
 }
-.confetti-26 {
+.conf-26 {
   width: 8px;
   height: 3.2px;
   background-color: #263672;
@@ -755,7 +755,7 @@
     left: 28%;
   }
 }
-.confetti-27 {
+.conf-27 {
   width: 8px;
   height: 3.2px;
   background-color: #d13447;
@@ -781,7 +781,7 @@
     left: 30%;
   }
 }
-.confetti-28 {
+.conf-28 {
   width: 8px;
   height: 3.2px;
   background-color: #263672;
@@ -807,7 +807,7 @@
     left: 20%;
   }
 }
-.confetti-29 {
+.conf-29 {
   width: 8px;
   height: 3.2px;
   background-color: #ffbf00;
@@ -833,7 +833,7 @@
     left: 59%;
   }
 }
-.confetti-30 {
+.conf-30 {
   width: 1px;
   height: 0.4px;
   background-color: #ffbf00;
@@ -859,7 +859,7 @@
     left: 45%;
   }
 }
-.confetti-31 {
+.conf-31 {
   width: 4px;
   height: 1.6px;
   background-color: #d13447;
@@ -885,7 +885,7 @@
     left: 72%;
   }
 }
-.confetti-32 {
+.conf-32 {
   width: 7px;
   height: 2.8px;
   background-color: #263672;
@@ -911,7 +911,7 @@
     left: 98%;
   }
 }
-.confetti-33 {
+.conf-33 {
   width: 5px;
   height: 2px;
   background-color: #263672;
@@ -937,7 +937,7 @@
     left: 63%;
   }
 }
-.confetti-34 {
+.conf-34 {
   width: 4px;
   height: 1.6px;
   background-color: #d13447;
@@ -963,7 +963,7 @@
     left: 28%;
   }
 }
-.confetti-35 {
+.conf-35 {
   width: 6px;
   height: 2.4px;
   background-color: #d13447;
@@ -989,7 +989,7 @@
     left: 43%;
   }
 }
-.confetti-36 {
+.conf-36 {
   width: 2px;
   height: 0.8px;
   background-color: #ffbf00;
@@ -1015,7 +1015,7 @@
     left: 5%;
   }
 }
-.confetti-37 {
+.conf-37 {
   width: 5px;
   height: 2px;
   background-color: #d13447;
@@ -1041,7 +1041,7 @@
     left: 28%;
   }
 }
-.confetti-38 {
+.conf-38 {
   width: 1px;
   height: 0.4px;
   background-color: #d13447;
@@ -1067,7 +1067,7 @@
     left: 56%;
   }
 }
-.confetti-39 {
+.conf-39 {
   width: 5px;
   height: 2px;
   background-color: #d13447;
@@ -1093,7 +1093,7 @@
     left: 71%;
   }
 }
-.confetti-40 {
+.conf-40 {
   width: 7px;
   height: 2.8px;
   background-color: #ffbf00;
@@ -1119,7 +1119,7 @@
     left: 72%;
   }
 }
-.confetti-41 {
+.conf-41 {
   width: 4px;
   height: 1.6px;
   background-color: #ffbf00;
@@ -1145,7 +1145,7 @@
     left: 109%;
   }
 }
-.confetti-42 {
+.conf-42 {
   width: 4px;
   height: 1.6px;
   background-color: #d13447;
@@ -1171,7 +1171,7 @@
     left: 106%;
   }
 }
-.confetti-43 {
+.conf-43 {
   width: 7px;
   height: 2.8px;
   background-color: #ffbf00;
@@ -1197,7 +1197,7 @@
     left: 60%;
   }
 }
-.confetti-44 {
+.conf-44 {
   width: 4px;
   height: 1.6px;
   background-color: #d13447;
@@ -1223,7 +1223,7 @@
     left: 42%;
   }
 }
-.confetti-45 {
+.conf-45 {
   width: 8px;
   height: 3.2px;
   background-color: #d13447;
@@ -1249,7 +1249,7 @@
     left: 92%;
   }
 }
-.confetti-46 {
+.conf-46 {
   width: 6px;
   height: 2.4px;
   background-color: #263672;
@@ -1275,7 +1275,7 @@
     left: 56%;
   }
 }
-.confetti-47 {
+.conf-47 {
   width: 6px;
   height: 2.4px;
   background-color: #d13447;
@@ -1301,7 +1301,7 @@
     left: 32%;
   }
 }
-.confetti-48 {
+.conf-48 {
   width: 2px;
   height: 0.8px;
   background-color: #263672;
@@ -1327,7 +1327,7 @@
     left: 66%;
   }
 }
-.confetti-49 {
+.conf-49 {
   width: 8px;
   height: 3.2px;
   background-color: #263672;
@@ -1353,7 +1353,7 @@
     left: 69%;
   }
 }
-.confetti-50 {
+.conf-50 {
   width: 3px;
   height: 1.2px;
   background-color: #d13447;
@@ -1379,7 +1379,7 @@
     left: 104%;
   }
 }
-.confetti-51 {
+.conf-51 {
   width: 6px;
   height: 2.4px;
   background-color: #ffbf00;
@@ -1405,7 +1405,7 @@
     left: 95%;
   }
 }
-.confetti-52 {
+.conf-52 {
   width: 2px;
   height: 0.8px;
   background-color: #263672;
@@ -1431,7 +1431,7 @@
     left: 26%;
   }
 }
-.confetti-53 {
+.conf-53 {
   width: 6px;
   height: 2.4px;
   background-color: #d13447;
@@ -1457,7 +1457,7 @@
     left: 70%;
   }
 }
-.confetti-54 {
+.conf-54 {
   width: 1px;
   height: 0.4px;
   background-color: #263672;
@@ -1483,7 +1483,7 @@
     left: 21%;
   }
 }
-.confetti-55 {
+.conf-55 {
   width: 1px;
   height: 0.4px;
   background-color: #ffbf00;
@@ -1509,7 +1509,7 @@
     left: 105%;
   }
 }
-.confetti-56 {
+.conf-56 {
   width: 3px;
   height: 1.2px;
   background-color: #ffbf00;
@@ -1535,7 +1535,7 @@
     left: 23%;
   }
 }
-.confetti-57 {
+.conf-57 {
   width: 6px;
   height: 2.4px;
   background-color: #d13447;
@@ -1561,7 +1561,7 @@
     left: 7%;
   }
 }
-.confetti-58 {
+.conf-58 {
   width: 1px;
   height: 0.4px;
   background-color: #d13447;
@@ -1587,7 +1587,7 @@
     left: 42%;
   }
 }
-.confetti-59 {
+.conf-59 {
   width: 4px;
   height: 1.6px;
   background-color: #263672;
@@ -1613,7 +1613,7 @@
     left: 27%;
   }
 }
-.confetti-60 {
+.conf-60 {
   width: 6px;
   height: 2.4px;
   background-color: #ffbf00;
@@ -1639,7 +1639,7 @@
     left: 55%;
   }
 }
-.confetti-61 {
+.conf-61 {
   width: 5px;
   height: 2px;
   background-color: #263672;
@@ -1665,7 +1665,7 @@
     left: 114%;
   }
 }
-.confetti-62 {
+.conf-62 {
   width: 7px;
   height: 2.8px;
   background-color: #d13447;
@@ -1691,7 +1691,7 @@
     left: 78%;
   }
 }
-.confetti-63 {
+.conf-63 {
   width: 7px;
   height: 2.8px;
   background-color: #263672;
@@ -1717,7 +1717,7 @@
     left: 70%;
   }
 }
-.confetti-64 {
+.conf-64 {
   width: 5px;
   height: 2px;
   background-color: #ffbf00;
@@ -1743,7 +1743,7 @@
     left: 75%;
   }
 }
-.confetti-65 {
+.conf-65 {
   width: 7px;
   height: 2.8px;
   background-color: #d13447;
@@ -1769,7 +1769,7 @@
     left: 105%;
   }
 }
-.confetti-66 {
+.conf-66 {
   width: 1px;
   height: 0.4px;
   background-color: #ffbf00;
@@ -1795,7 +1795,7 @@
     left: 105%;
   }
 }
-.confetti-67 {
+.conf-67 {
   width: 2px;
   height: 0.8px;
   background-color: #263672;
@@ -1821,7 +1821,7 @@
     left: 42%;
   }
 }
-.confetti-68 {
+.conf-68 {
   width: 5px;
   height: 2px;
   background-color: #ffbf00;
@@ -1847,7 +1847,7 @@
     left: 80%;
   }
 }
-.confetti-69 {
+.conf-69 {
   width: 2px;
   height: 0.8px;
   background-color: #263672;
@@ -1873,7 +1873,7 @@
     left: 70%;
   }
 }
-.confetti-70 {
+.conf-70 {
   width: 2px;
   height: 0.8px;
   background-color: #263672;
@@ -1899,7 +1899,7 @@
     left: 42%;
   }
 }
-.confetti-71 {
+.conf-71 {
   width: 1px;
   height: 0.4px;
   background-color: #d13447;
@@ -1925,7 +1925,7 @@
     left: 78%;
   }
 }
-.confetti-72 {
+.conf-72 {
   width: 6px;
   height: 2.4px;
   background-color: #d13447;
@@ -1951,7 +1951,7 @@
     left: 89%;
   }
 }
-.confetti-73 {
+.conf-73 {
   width: 2px;
   height: 0.8px;
   background-color: #d13447;
@@ -1977,7 +1977,7 @@
     left: 49%;
   }
 }
-.confetti-74 {
+.conf-74 {
   width: 1px;
   height: 0.4px;
   background-color: #ffbf00;
@@ -2003,7 +2003,7 @@
     left: 89%;
   }
 }
-.confetti-75 {
+.conf-75 {
   width: 1px;
   height: 0.4px;
   background-color: #ffbf00;
@@ -2029,7 +2029,7 @@
     left: 48%;
   }
 }
-.confetti-76 {
+.conf-76 {
   width: 5px;
   height: 2px;
   background-color: #d13447;
@@ -2055,7 +2055,7 @@
     left: 49%;
   }
 }
-.confetti-77 {
+.conf-77 {
   width: 1px;
   height: 0.4px;
   background-color: #ffbf00;
@@ -2081,7 +2081,7 @@
     left: 92%;
   }
 }
-.confetti-78 {
+.conf-78 {
   width: 4px;
   height: 1.6px;
   background-color: #263672;
@@ -2107,7 +2107,7 @@
     left: 33%;
   }
 }
-.confetti-79 {
+.conf-79 {
   width: 6px;
   height: 2.4px;
   background-color: #d13447;
@@ -2133,7 +2133,7 @@
     left: 28%;
   }
 }
-.confetti-80 {
+.conf-80 {
   width: 3px;
   height: 1.2px;
   background-color: #263672;
@@ -2159,7 +2159,7 @@
     left: 24%;
   }
 }
-.confetti-81 {
+.conf-81 {
   width: 1px;
   height: 0.4px;
   background-color: #263672;
@@ -2185,7 +2185,7 @@
     left: 34%;
   }
 }
-.confetti-82 {
+.conf-82 {
   width: 1px;
   height: 0.4px;
   background-color: #d13447;
@@ -2211,7 +2211,7 @@
     left: 92%;
   }
 }
-.confetti-83 {
+.conf-83 {
   width: 7px;
   height: 2.8px;
   background-color: #263672;
@@ -2237,7 +2237,7 @@
     left: 40%;
   }
 }
-.confetti-84 {
+.conf-84 {
   width: 8px;
   height: 3.2px;
   background-color: #d13447;
@@ -2263,7 +2263,7 @@
     left: 88%;
   }
 }
-.confetti-85 {
+.conf-85 {
   width: 4px;
   height: 1.6px;
   background-color: #263672;
@@ -2289,7 +2289,7 @@
     left: 89%;
   }
 }
-.confetti-86 {
+.conf-86 {
   width: 4px;
   height: 1.6px;
   background-color: #ffbf00;
@@ -2315,7 +2315,7 @@
     left: 37%;
   }
 }
-.confetti-87 {
+.conf-87 {
   width: 1px;
   height: 0.4px;
   background-color: #ffbf00;
@@ -2341,7 +2341,7 @@
     left: 9%;
   }
 }
-.confetti-88 {
+.conf-88 {
   width: 4px;
   height: 1.6px;
   background-color: #263672;
@@ -2367,7 +2367,7 @@
     left: 48%;
   }
 }
-.confetti-89 {
+.conf-89 {
   width: 1px;
   height: 0.4px;
   background-color: #ffbf00;
@@ -2393,7 +2393,7 @@
     left: 103%;
   }
 }
-.confetti-90 {
+.conf-90 {
   width: 7px;
   height: 2.8px;
   background-color: #d13447;
@@ -2419,7 +2419,7 @@
     left: 85%;
   }
 }
-.confetti-91 {
+.conf-91 {
   width: 8px;
   height: 3.2px;
   background-color: #263672;
@@ -2445,7 +2445,7 @@
     left: 94%;
   }
 }
-.confetti-92 {
+.conf-92 {
   width: 4px;
   height: 1.6px;
   background-color: #d13447;
@@ -2471,7 +2471,7 @@
     left: 105%;
   }
 }
-.confetti-93 {
+.conf-93 {
   width: 5px;
   height: 2px;
   background-color: #d13447;
@@ -2497,7 +2497,7 @@
     left: 89%;
   }
 }
-.confetti-94 {
+.conf-94 {
   width: 8px;
   height: 3.2px;
   background-color: #263672;
@@ -2523,7 +2523,7 @@
     left: 79%;
   }
 }
-.confetti-95 {
+.conf-95 {
   width: 5px;
   height: 2px;
   background-color: #d13447;
@@ -2549,7 +2549,7 @@
     left: 40%;
   }
 }
-.confetti-96 {
+.conf-96 {
   width: 1px;
   height: 0.4px;
   background-color: #263672;
@@ -2575,7 +2575,7 @@
     left: 85%;
   }
 }
-.confetti-97 {
+.conf-97 {
   width: 2px;
   height: 0.8px;
   background-color: #ffbf00;
@@ -2601,7 +2601,7 @@
     left: 4%;
   }
 }
-.confetti-98 {
+.conf-98 {
   width: 6px;
   height: 2.4px;
   background-color: #ffbf00;
@@ -2627,7 +2627,7 @@
     left: 76%;
   }
 }
-.confetti-99 {
+.conf-99 {
   width: 4px;
   height: 1.6px;
   background-color: #d13447;
@@ -2653,7 +2653,7 @@
     left: 30%;
   }
 }
-.confetti-100 {
+.conf-100 {
   width: 4px;
   height: 1.6px;
   background-color: #ffbf00;
@@ -2679,7 +2679,7 @@
     left: 36%;
   }
 }
-.confetti-101 {
+.conf-101 {
   width: 8px;
   height: 3.2px;
   background-color: #ffbf00;
@@ -2705,7 +2705,7 @@
     left: 89%;
   }
 }
-.confetti-102 {
+.conf-102 {
   width: 4px;
   height: 1.6px;
   background-color: #263672;
@@ -2731,7 +2731,7 @@
     left: 30%;
   }
 }
-.confetti-103 {
+.conf-103 {
   width: 1px;
   height: 0.4px;
   background-color: #d13447;
@@ -2757,7 +2757,7 @@
     left: 57%;
   }
 }
-.confetti-104 {
+.conf-104 {
   width: 8px;
   height: 3.2px;
   background-color: #263672;
@@ -2783,7 +2783,7 @@
     left: 80%;
   }
 }
-.confetti-105 {
+.conf-105 {
   width: 6px;
   height: 2.4px;
   background-color: #d13447;
@@ -2809,7 +2809,7 @@
     left: 63%;
   }
 }
-.confetti-106 {
+.conf-106 {
   width: 7px;
   height: 2.8px;
   background-color: #ffbf00;
@@ -2835,7 +2835,7 @@
     left: 52%;
   }
 }
-.confetti-107 {
+.conf-107 {
   width: 8px;
   height: 3.2px;
   background-color: #ffbf00;
@@ -2861,7 +2861,7 @@
     left: 104%;
   }
 }
-.confetti-108 {
+.conf-108 {
   width: 3px;
   height: 1.2px;
   background-color: #ffbf00;
@@ -2887,7 +2887,7 @@
     left: 51%;
   }
 }
-.confetti-109 {
+.conf-109 {
   width: 4px;
   height: 1.6px;
   background-color: #ffbf00;
@@ -2913,7 +2913,7 @@
     left: 49%;
   }
 }
-.confetti-110 {
+.conf-110 {
   width: 4px;
   height: 1.6px;
   background-color: #d13447;
@@ -2939,7 +2939,7 @@
     left: 63%;
   }
 }
-.confetti-111 {
+.conf-111 {
   width: 2px;
   height: 0.8px;
   background-color: #263672;
@@ -2965,7 +2965,7 @@
     left: 67%;
   }
 }
-.confetti-112 {
+.conf-112 {
   width: 6px;
   height: 2.4px;
   background-color: #ffbf00;
@@ -2991,7 +2991,7 @@
     left: 52%;
   }
 }
-.confetti-113 {
+.conf-113 {
   width: 7px;
   height: 2.8px;
   background-color: #263672;
@@ -3017,7 +3017,7 @@
     left: 96%;
   }
 }
-.confetti-114 {
+.conf-114 {
   width: 4px;
   height: 1.6px;
   background-color: #263672;
@@ -3043,7 +3043,7 @@
     left: 42%;
   }
 }
-.confetti-115 {
+.conf-115 {
   width: 2px;
   height: 0.8px;
   background-color: #263672;
@@ -3069,7 +3069,7 @@
     left: 91%;
   }
 }
-.confetti-116 {
+.conf-116 {
   width: 5px;
   height: 2px;
   background-color: #d13447;
@@ -3095,7 +3095,7 @@
     left: 63%;
   }
 }
-.confetti-117 {
+.conf-117 {
   width: 1px;
   height: 0.4px;
   background-color: #ffbf00;
@@ -3121,7 +3121,7 @@
     left: 38%;
   }
 }
-.confetti-118 {
+.conf-118 {
   width: 2px;
   height: 0.8px;
   background-color: #d13447;
@@ -3147,7 +3147,7 @@
     left: 38%;
   }
 }
-.confetti-119 {
+.conf-119 {
   width: 2px;
   height: 0.8px;
   background-color: #d13447;
@@ -3173,7 +3173,7 @@
     left: 76%;
   }
 }
-.confetti-120 {
+.conf-120 {
   width: 3px;
   height: 1.2px;
   background-color: #263672;
@@ -3199,7 +3199,7 @@
     left: 90%;
   }
 }
-.confetti-121 {
+.conf-121 {
   width: 1px;
   height: 0.4px;
   background-color: #263672;
@@ -3225,7 +3225,7 @@
     left: 29%;
   }
 }
-.confetti-122 {
+.conf-122 {
   width: 1px;
   height: 0.4px;
   background-color: #d13447;
@@ -3251,7 +3251,7 @@
     left: 28%;
   }
 }
-.confetti-123 {
+.conf-123 {
   width: 8px;
   height: 3.2px;
   background-color: #ffbf00;
@@ -3277,7 +3277,7 @@
     left: 99%;
   }
 }
-.confetti-124 {
+.conf-124 {
   width: 4px;
   height: 1.6px;
   background-color: #ffbf00;
@@ -3303,7 +3303,7 @@
     left: 62%;
   }
 }
-.confetti-125 {
+.conf-125 {
   width: 5px;
   height: 2px;
   background-color: #263672;
@@ -3329,7 +3329,7 @@
     left: 21%;
   }
 }
-.confetti-126 {
+.conf-126 {
   width: 1px;
   height: 0.4px;
   background-color: #263672;
@@ -3355,7 +3355,7 @@
     left: 47%;
   }
 }
-.confetti-127 {
+.conf-127 {
   width: 5px;
   height: 2px;
   background-color: #d13447;
@@ -3381,7 +3381,7 @@
     left: 84%;
   }
 }
-.confetti-128 {
+.conf-128 {
   width: 7px;
   height: 2.8px;
   background-color: #d13447;
@@ -3407,7 +3407,7 @@
     left: 45%;
   }
 }
-.confetti-129 {
+.conf-129 {
   width: 3px;
   height: 1.2px;
   background-color: #d13447;
@@ -3433,7 +3433,7 @@
     left: 61%;
   }
 }
-.confetti-130 {
+.conf-130 {
   width: 3px;
   height: 1.2px;
   background-color: #d13447;
@@ -3459,7 +3459,7 @@
     left: 37%;
   }
 }
-.confetti-131 {
+.conf-131 {
   width: 2px;
   height: 0.8px;
   background-color: #d13447;
@@ -3485,7 +3485,7 @@
     left: 107%;
   }
 }
-.confetti-132 {
+.conf-132 {
   width: 1px;
   height: 0.4px;
   background-color: #d13447;
@@ -3511,7 +3511,7 @@
     left: 102%;
   }
 }
-.confetti-133 {
+.conf-133 {
   width: 1px;
   height: 0.4px;
   background-color: #d13447;
@@ -3537,7 +3537,7 @@
     left: 58%;
   }
 }
-.confetti-134 {
+.conf-134 {
   width: 1px;
   height: 0.4px;
   background-color: #ffbf00;
@@ -3563,7 +3563,7 @@
     left: 70%;
   }
 }
-.confetti-135 {
+.conf-135 {
   width: 4px;
   height: 1.6px;
   background-color: #d13447;
@@ -3589,7 +3589,7 @@
     left: 101%;
   }
 }
-.confetti-136 {
+.conf-136 {
   width: 2px;
   height: 0.8px;
   background-color: #263672;
@@ -3615,7 +3615,7 @@
     left: 67%;
   }
 }
-.confetti-137 {
+.conf-137 {
   width: 6px;
   height: 2.4px;
   background-color: #ffbf00;
@@ -3641,7 +3641,7 @@
     left: 46%;
   }
 }
-.confetti-138 {
+.conf-138 {
   width: 3px;
   height: 1.2px;
   background-color: #263672;
@@ -3667,7 +3667,7 @@
     left: 39%;
   }
 }
-.confetti-139 {
+.conf-139 {
   width: 1px;
   height: 0.4px;
   background-color: #d13447;
@@ -3693,7 +3693,7 @@
     left: 95%;
   }
 }
-.confetti-140 {
+.conf-140 {
   width: 6px;
   height: 2.4px;
   background-color: #263672;
@@ -3719,7 +3719,7 @@
     left: 44%;
   }
 }
-.confetti-141 {
+.conf-141 {
   width: 2px;
   height: 0.8px;
   background-color: #263672;
@@ -3745,7 +3745,7 @@
     left: 16%;
   }
 }
-.confetti-142 {
+.conf-142 {
   width: 8px;
   height: 3.2px;
   background-color: #ffbf00;
@@ -3771,7 +3771,7 @@
     left: 60%;
   }
 }
-.confetti-143 {
+.conf-143 {
   width: 5px;
   height: 2px;
   background-color: #263672;
@@ -3797,7 +3797,7 @@
     left: 28%;
   }
 }
-.confetti-144 {
+.conf-144 {
   width: 1px;
   height: 0.4px;
   background-color: #263672;
@@ -3823,7 +3823,7 @@
     left: 79%;
   }
 }
-.confetti-145 {
+.conf-145 {
   width: 7px;
   height: 2.8px;
   background-color: #ffbf00;
@@ -3849,7 +3849,7 @@
     left: 90%;
   }
 }
-.confetti-146 {
+.conf-146 {
   width: 6px;
   height: 2.4px;
   background-color: #ffbf00;
@@ -3875,7 +3875,7 @@
     left: 75%;
   }
 }
-.confetti-147 {
+.conf-147 {
   width: 6px;
   height: 2.4px;
   background-color: #ffbf00;
@@ -3901,7 +3901,7 @@
     left: 35%;
   }
 }
-.confetti-148 {
+.conf-148 {
   width: 6px;
   height: 2.4px;
   background-color: #ffbf00;
@@ -3927,7 +3927,7 @@
     left: 53%;
   }
 }
-.confetti-149 {
+.conf-149 {
   width: 4px;
   height: 1.6px;
   background-color: #d13447;
@@ -3953,7 +3953,7 @@
     left: 58%;
   }
 }
-.confetti-150 {
+.conf-150 {
   width: 5px;
   height: 2px;
   background-color: #d13447;
