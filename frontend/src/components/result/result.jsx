@@ -71,7 +71,7 @@ const Result = ({winner, loser, players}) => {
                   <div className="playerOne">
                         <h2>{winner === "tie" ? players[0] : winner}</h2>
                         <h2>ELO Change</h2>
-                        <h2 id="winner-points">{winner === "tie" ? 0 : 400}</h2>
+                        <h2 id="winner-points">{winner === "tie" ? 0 : "+400"}</h2>
                   </div>
                   <div className="playerTwo">
                         <h2>{winner === "tie" ? players[1] : loser}</h2>
