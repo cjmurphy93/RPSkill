@@ -59,9 +59,9 @@
   background-color: #d13447;
   top: -10%;
   left: 36%;
-  opacity: 1.2895297289;
-  -webkit-transform: rotate(285.6143855902deg);
-          transform: rotate(285.6143855902deg);
+  opacity: 0.7;
+  -webkit-transform: rotate(275.6143855902deg);
+          transform: rotate(275.6143855902deg);
   -webkit-animation: drop-0 4.0169503455s 0.3940320242s infinite;
           animation: drop-0 4.0169503455s 0.3940320242s infinite;
 }
@@ -85,9 +85,9 @@
   background-color: #ffbf00;
   top: -10%;
   left: 48%;
-  opacity: 1.4863336623;
-  -webkit-transform: rotate(322.5429718358deg);
-          transform: rotate(322.5429718358deg);
+  opacity: 0.7;
+  -webkit-transform: rotate(333.5429718358deg);
+          transform: rotate(333.5429718358deg);
   -webkit-animation: drop-1 4.696192303s 0.5514230117s infinite;
           animation: drop-1 4.696192303s 0.5514230117s infinite;
 }
@@ -111,9 +111,9 @@
   background-color: #d13447;
   top: -10%;
   left: 83%;
-  opacity: 1.242087935;
-  -webkit-transform: rotate(317.2880512405deg);
-          transform: rotate(317.2880512405deg);
+  opacity: 0.7;
+  -webkit-transform: rotate(315.2880512405deg);
+          transform: rotate(315.2880512405deg);
   -webkit-animation: drop-2 4.2919958119s 0.1427913744s infinite;
           animation: drop-2 4.2919958119s 0.1427913744s infinite;
 }
@@ -137,9 +137,9 @@
   background-color: #ffbf00;
   top: -10%;
   left: 51%;
-  opacity: 0.9975462545;
-  -webkit-transform: rotate(306.1211299587deg);
-          transform: rotate(306.1211299587deg);
+  opacity: 0.7;
+  -webkit-transform: rotate(307.1211299587deg);
+          transform: rotate(307.1211299587deg);
   -webkit-animation: drop-3 4.5810484606s 0.9282010219s infinite;
           animation: drop-3 4.5810484606s 0.9282010219s infinite;
 }
@@ -163,9 +163,9 @@
   background-color: #d13447;
   top: -10%;
   left: 68%;
-  opacity: 1.1380790234;
-  -webkit-transform: rotate(212.2193204766deg);
-          transform: rotate(212.2193204766deg);
+  opacity: 0.7;
+  -webkit-transform: rotate(270.2193204766deg);
+          transform: rotate(270.2193204766deg);
   -webkit-animation: drop-4 4.8455576775s 0.6310957797s infinite;
           animation: drop-4 4.8455576775s 0.6310957797s infinite;
 }
@@ -189,9 +189,9 @@
   background-color: #263672;
   top: -10%;
   left: 66%;
-  opacity: 1.0664861705;
-  -webkit-transform: rotate(330.4816089754deg);
-          transform: rotate(330.4816089754deg);
+  opacity: 0.7;
+  -webkit-transform: rotate(320.4816089754deg);
+          transform: rotate(320.4816089754deg);
   -webkit-animation: drop-5 4.4473710874s 0.5248366536s infinite;
           animation: drop-5 4.4473710874s 0.5248366536s infinite;
 }
@@ -215,9 +215,9 @@
   background-color: #d13447;
   top: -10%;
   left: 42%;
-  opacity: 1.3274308432;
-  -webkit-transform: rotate(291.8036306376deg);
-          transform: rotate(291.8036306376deg);
+  opacity: 0.7;
+  -webkit-transform: rotate(280.8036306376deg);
+          transform: rotate(280.8036306376deg);
   -webkit-animation: drop-6 4.9592339872s 0.9000353132s infinite;
           animation: drop-6 4.9592339872s 0.9000353132s infinite;
 }
@@ -241,9 +241,9 @@
   background-color: #d13447;
   top: -10%;
   left: 100%;
-  opacity: 0.6452600891;
-  -webkit-transform: rotate(83.9003947357deg);
-          transform: rotate(83.9003947357deg);
+  opacity: 0.7;
+  -webkit-transform: rotate(80.9003947357deg);
+          transform: rotate(80.9003947357deg);
   -webkit-animation: drop-7 4.5964324119s 0.9980410423s infinite;
           animation: drop-7 4.5964324119s 0.9980410423s infinite;
 }
@@ -267,9 +267,9 @@
   background-color: #d13447;
   top: -10%;
   left: 66%;
-  opacity: 0.6092085189;
-  -webkit-transform: rotate(309.6837443651deg);
-          transform: rotate(309.6837443651deg);
+  opacity: 0.7;
+  -webkit-transform: rotate(300.6837443651deg);
+          transform: rotate(300.6837443651deg);
   -webkit-animation: drop-8 4.1241707204s 0.8679605113s infinite;
           animation: drop-8 4.1241707204s 0.8679605113s infinite;
 }
@@ -293,9 +293,9 @@
   background-color: #263672;
   top: -10%;
   left: 29%;
-  opacity: 1.1008296466;
-  -webkit-transform: rotate(189.63148194deg);
-          transform: rotate(189.63148194deg);
+  opacity: 0.7;
+  -webkit-transform: rotate(195.63148194deg);
+          transform: rotate(195.63148194deg);
   -webkit-animation: drop-9 4.7489150339s 0.2353777068s infinite;
           animation: drop-9 4.7489150339s 0.2353777068s infinite;
 }
@@ -319,7 +319,7 @@
   background-color: #d13447;
   top: -10%;
   left: 4%;
-  opacity: 1.2918517484;
+  opacity: 0.7;
   -webkit-transform: rotate(10.9943761519deg);
           transform: rotate(10.9943761519deg);
   -webkit-animation: drop-10 4.7450999325s 0.8923273752s infinite;
@@ -345,7 +345,7 @@
   background-color: #ffbf00;
   top: -10%;
   left: 41%;
-  opacity: 1.0726576714;
+  opacity: 0.7;
   -webkit-transform: rotate(278.754924266deg);
           transform: rotate(278.754924266deg);
   -webkit-animation: drop-11 4.6281084492s 0.0833887262s infinite;
@@ -368,10 +368,10 @@
 .conf-12 {
   width: 4px;
   height: 1.6px;
-  background-color: #d13447;
+  background-color: rosybrown;
   top: -10%;
   left: 69%;
-  opacity: 0.6980566392;
+  opacity: 0.7;
   -webkit-transform: rotate(64.4456849882deg);
           transform: rotate(64.4456849882deg);
   -webkit-animation: drop-12 4.1953673916s 0.3767923389s infinite;
@@ -397,7 +397,7 @@
   background-color: #ffbf00;
   top: -10%;
   left: 9%;
-  opacity: 0.6313383214;
+  opacity: 0.7;
   -webkit-transform: rotate(267.7848088454deg);
           transform: rotate(267.7848088454deg);
   -webkit-animation: drop-13 4.1765370608s 0.0766706825s infinite;
@@ -420,10 +420,10 @@
 .conf-14 {
   width: 2px;
   height: 0.8px;
-  background-color: #ffbf00;
+  background-color: rgba(71, 243, 32, 1);
   top: -10%;
   left: 19%;
-  opacity: 0.5392955288;
+  opacity: 0.7;
   -webkit-transform: rotate(241.7407203136deg);
           transform: rotate(241.7407203136deg);
   -webkit-animation: drop-14 4.6013761423s 0.0360055174s infinite;
@@ -446,10 +446,10 @@
 .conf-15 {
   width: 8px;
   height: 3.2px;
-  background-color: #263672;
+  background-color: rgba(180, 32, 243, 1);
   top: -10%;
   left: 37%;
-  opacity: 0.8932006566;
+  opacity: 0.7;
   -webkit-transform: rotate(251.6498073254deg);
           transform: rotate(251.6498073254deg);
   -webkit-animation: drop-15 4.0350486592s 0.4600416877s infinite;
@@ -472,10 +472,10 @@
 .conf-16 {
   width: 2px;
   height: 0.8px;
-  background-color: #263672;
+  background-color: rgba(32, 43, 243, 1);
   top: -10%;
   left: 9%;
-  opacity: 0.5371397346;
+  opacity: 0.7;
   -webkit-transform: rotate(311.7049533256deg);
           transform: rotate(311.7049533256deg);
   -webkit-animation: drop-16 4.0390269892s 0.4920473564s infinite;
@@ -498,10 +498,10 @@
 .conf-17 {
   width: 4px;
   height: 1.6px;
-  background-color: #d13447;
+  background-color: rgba(32, 43, 243, 1);
   top: -10%;
   left: 68%;
-  opacity: 1.2151887271;
+  opacity: 0.7;
   -webkit-transform: rotate(134.9734048631deg);
           transform: rotate(134.9734048631deg);
   -webkit-animation: drop-17 4.6133109823s 0.6442364697s infinite;
@@ -524,10 +524,10 @@
 .conf-18 {
   width: 7px;
   height: 2.8px;
-  background-color: #263672;
+  background-color: rgba(20, 255, 71, 1);
   top: -10%;
   left: 93%;
-  opacity: 1.4604583439;
+  opacity: 0.7;
   -webkit-transform: rotate(136.3929542371deg);
           transform: rotate(136.3929542371deg);
   -webkit-animation: drop-18 4.9512197387s 0.6937432376s infinite;
@@ -550,10 +550,10 @@
 .conf-19 {
   width: 1px;
   height: 0.4px;
-  background-color: #263672;
+  background-color: rgba(20, 255, 71, 1);
   top: -10%;
   left: 81%;
-  opacity: 0.7520301579;
+  opacity: 0.7;
   -webkit-transform: rotate(127.3120627004deg);
           transform: rotate(127.3120627004deg);
   -webkit-animation: drop-19 4.0031995533s 0.0974635153s infinite;
@@ -579,7 +579,7 @@
   background-color: #ffbf00;
   top: -10%;
   left: 93%;
-  opacity: 1.35054585;
+  opacity: 0.7;
   -webkit-transform: rotate(109.2445011658deg);
           transform: rotate(109.2445011658deg);
   -webkit-animation: drop-20 4.6971758036s 0.6689259646s infinite;
@@ -602,10 +602,10 @@
 .conf-21 {
   width: 2px;
   height: 0.8px;
-  background-color: #263672;
+  background-color: rgba(255, 67, 20, 1);
   top: -10%;
   left: 73%;
-  opacity: 1.4649147176;
+  opacity: 0.7;
   -webkit-transform: rotate(194.2541345051deg);
           transform: rotate(194.2541345051deg);
   -webkit-animation: drop-21 4.6606482321s 0.8887300439s infinite;
@@ -628,10 +628,10 @@
 .conf-22 {
   width: 7px;
   height: 2.8px;
-  background-color: #d13447;
+  background-color: rgba(255, 67, 20, 1);
   top: -10%;
   left: 88%;
-  opacity: 1.3957463673;
+  opacity: 0.7;
   -webkit-transform: rotate(96.7609687255deg);
           transform: rotate(96.7609687255deg);
   -webkit-animation: drop-22 4.3682469191s 0.8187987788s infinite;
@@ -654,10 +654,10 @@
 .conf-23 {
   width: 5px;
   height: 2px;
-  background-color: #263672;
+  background-color: rgba(20, 255, 239, 1);
   top: -10%;
   left: 95%;
-  opacity: 1.4852381325;
+  opacity: 0.7;
   -webkit-transform: rotate(330.1539680053deg);
           transform: rotate(330.1539680053deg);
   -webkit-animation: drop-23 4.2114594292s 0.4128859572s infinite;
@@ -680,10 +680,10 @@
 .conf-24 {
   width: 8px;
   height: 3.2px;
-  background-color: #263672;
+  background-color: rgba(20, 255, 239, 1);
   top: -10%;
   left: 67%;
-  opacity: 0.659866917;
+  opacity: 0.7;
   -webkit-transform: rotate(12.2913695027deg);
           transform: rotate(12.2913695027deg);
   -webkit-animation: drop-24 4.7131360835s 0.2817660291s infinite;
@@ -706,10 +706,10 @@
 .conf-25 {
   width: 4px;
   height: 1.6px;
-  background-color: #d13447;
+  background-color: rgba(149, 23, 253, 1);
   top: -10%;
   left: 43%;
-  opacity: 0.7622983212;
+  opacity: 0.7;
   -webkit-transform: rotate(43.2817217694deg);
           transform: rotate(43.2817217694deg);
   -webkit-animation: drop-25 4.521200435s 0.4081410007s infinite;
@@ -732,10 +732,10 @@
 .conf-26 {
   width: 8px;
   height: 3.2px;
-  background-color: #263672;
+  background-color: rgba(253, 233, 53, 1);
   top: -10%;
   left: 24%;
-  opacity: 1.1730921507;
+  opacity: 0.7;
   -webkit-transform: rotate(92.0408358506deg);
           transform: rotate(92.0408358506deg);
   -webkit-animation: drop-26 4.6349725306s 0.0292984109s infinite;
@@ -758,10 +758,10 @@
 .conf-27 {
   width: 8px;
   height: 3.2px;
-  background-color: #d13447;
+  background-color: rgba(253, 233, 53, 1);
   top: -10%;
   left: 29%;
-  opacity: 0.6270704483;
+  opacity: 0.7;
   -webkit-transform: rotate(123.4370876361deg);
           transform: rotate(123.4370876361deg);
   -webkit-animation: drop-27 4.0015709364s 0.7061441008s infinite;
@@ -784,10 +784,10 @@
 .conf-28 {
   width: 8px;
   height: 3.2px;
-  background-color: #263672;
+  background-color: rgba(253, 233, 53, 1);
   top: -10%;
   left: 13%;
-  opacity: 0.6578494963;
+  opacity: 0.7;
   -webkit-transform: rotate(191.1138041018deg);
           transform: rotate(191.1138041018deg);
   -webkit-animation: drop-28 4.3035785077s 0.5252577707s infinite;
@@ -810,10 +810,10 @@
 .conf-29 {
   width: 8px;
   height: 3.2px;
-  background-color: #ffbf00;
+  background-color: rgba(53, 253, 186, 1);
   top: -10%;
   left: 53%;
-  opacity: 0.6137315035;
+  opacity: 0.7;
   -webkit-transform: rotate(283.5426198118deg);
           transform: rotate(283.5426198118deg);
   -webkit-animation: drop-29 4.2764033632s 0.5526577158s infinite;
@@ -836,10 +836,10 @@
 .conf-30 {
   width: 1px;
   height: 0.4px;
-  background-color: #ffbf00;
+  background-color: rgba(53, 253, 186, 1);
   top: -10%;
   left: 41%;
-  opacity: 0.6272261017;
+  opacity: 0.7;
   -webkit-transform: rotate(349.841162555deg);
           transform: rotate(349.841162555deg);
   -webkit-animation: drop-30 4.9940243278s 0.9534170987s infinite;
@@ -862,10 +862,10 @@
 .conf-31 {
   width: 4px;
   height: 1.6px;
-  background-color: #d13447;
+  background-color: rgba(53, 253, 186, 1);
   top: -10%;
   left: 65%;
-  opacity: 1.4938198045;
+  opacity: 0.7;
   -webkit-transform: rotate(284.0883918107deg);
           transform: rotate(284.0883918107deg);
   -webkit-animation: drop-31 4.6469508955s 0.2149853384s infinite;
@@ -888,10 +888,10 @@
 .conf-32 {
   width: 7px;
   height: 2.8px;
-  background-color: #263672;
+  background-color: rgba(65, 253, 23, 1);
   top: -10%;
   left: 87%;
-  opacity: 1.3817335368;
+  opacity: 0.7;
   -webkit-transform: rotate(313.4190837417deg);
           transform: rotate(313.4190837417deg);
   -webkit-animation: drop-32 4.6037768224s 0.0854502453s infinite;
@@ -914,10 +914,10 @@
 .conf-33 {
   width: 5px;
   height: 2px;
-  background-color: #263672;
+  background-color: rgba(65, 253, 23, 1);
   top: -10%;
   left: 61%;
-  opacity: 1.4230832298;
+  opacity: 0.7;
   -webkit-transform: rotate(15.1904966991deg);
           transform: rotate(15.1904966991deg);
   -webkit-animation: drop-33 4.799749704s 0.4986250681s infinite;
@@ -940,10 +940,10 @@
 .conf-34 {
   width: 4px;
   height: 1.6px;
-  background-color: #d13447;
+  background-color: rgba(65, 253, 23, 1);
   top: -10%;
   left: 27%;
-  opacity: 0.806744809;
+  opacity: 0.7;
   -webkit-transform: rotate(288.5140915802deg);
           transform: rotate(288.5140915802deg);
   -webkit-animation: drop-34 4.0713286157s 0.6021373408s infinite;
@@ -966,10 +966,10 @@
 .conf-35 {
   width: 6px;
   height: 2.4px;
-  background-color: #d13447;
+  background-color: rgba(253, 23, 23, 1);
   top: -10%;
   left: 29%;
-  opacity: 0.5281268968;
+  opacity: 0.7;
   -webkit-transform: rotate(118.4528414756deg);
           transform: rotate(118.4528414756deg);
   -webkit-animation: drop-35 4.9871139784s 0.8204586222s infinite;
@@ -992,12 +992,12 @@
 .conf-36 {
   width: 2px;
   height: 0.8px;
-  background-color: #ffbf00;
+  background-color: rgba(253, 23, 23, 1);
   top: -10%;
   left: 2%;
-  opacity: 0.9935549949;
-  -webkit-transform: rotate(260.2852301594deg);
-          transform: rotate(260.2852301594deg);
+  opacity: 0.7;
+  -webkit-transform: rotate(260.2752301594deg);
+          transform: rotate(260.2752301594deg);
   -webkit-animation: drop-36 4.5588271636s 0.231002515s infinite;
           animation: drop-36 4.5588271636s 0.231002515s infinite;
 }
@@ -1018,10 +1018,10 @@
 .conf-37 {
   width: 5px;
   height: 2px;
-  background-color: #d13447;
+  background-color: rgba(253, 23, 119, 1);
   top: -10%;
   left: 26%;
-  opacity: 0.956026426;
+  opacity: 0.7;
   -webkit-transform: rotate(123.2752465849deg);
           transform: rotate(123.2752465849deg);
   -webkit-animation: drop-37 4.476853325s 0.4817846477s infinite;
@@ -1044,10 +1044,10 @@
 .conf-38 {
   width: 1px;
   height: 0.4px;
-  background-color: #d13447;
+  background-color: rgba(253, 23, 119, 1);
   top: -10%;
   left: 52%;
-  opacity: 0.6961893248;
+  opacity: 0.7;
   -webkit-transform: rotate(87.4205826129deg);
           transform: rotate(87.4205826129deg);
   -webkit-animation: drop-38 4.8803150307s 0.6319883999s infinite;
@@ -1070,10 +1070,10 @@
 .conf-39 {
   width: 5px;
   height: 2px;
-  background-color: #d13447;
+  background-color: rgba(253, 23, 119, 1);
   top: -10%;
   left: 61%;
-  opacity: 1.4721148289;
+  opacity: 0.7;
   -webkit-transform: rotate(247.4073440526deg);
           transform: rotate(247.4073440526deg);
   -webkit-animation: drop-39 4.1469035306s 0.5805985255s infinite;
@@ -1096,10 +1096,10 @@
 .conf-40 {
   width: 7px;
   height: 2.8px;
-  background-color: #ffbf00;
+  background-color: rgba(253, 58, 253, 1);
   top: -10%;
   left: 69%;
-  opacity: 1.4495072448;
+  opacity: 0.7;
   -webkit-transform: rotate(119.9108763219deg);
           transform: rotate(119.9108763219deg);
   -webkit-animation: drop-40 4.464316896s 0.5506943531s infinite;
@@ -1122,10 +1122,10 @@
 .conf-41 {
   width: 4px;
   height: 1.6px;
-  background-color: #ffbf00;
+  background-color: rgba(253, 58, 253, 1);
   top: -10%;
   left: 98%;
-  opacity: 0.9211339368;
+  opacity: 0.7;
   -webkit-transform: rotate(227.775612843deg);
           transform: rotate(227.775612843deg);
   -webkit-animation: drop-41 4.6219186968s 0.5790641257s infinite;
@@ -1148,10 +1148,10 @@
 .conf-42 {
   width: 4px;
   height: 1.6px;
-  background-color: #d13447;
+  background-color: rgba(253, 58, 253, 1);
   top: -10%;
   left: 98%;
-  opacity: 0.6547682382;
+  opacity: 0.7;
   -webkit-transform: rotate(188.7716735883deg);
           transform: rotate(188.7716735883deg);
   -webkit-animation: drop-42 4.5634717508s 0.3719353578s infinite;
@@ -1174,10 +1174,10 @@
 .conf-43 {
   width: 7px;
   height: 2.8px;
-  background-color: #ffbf00;
+  background-color: rgba(253, 58, 253, 1);
   top: -10%;
   left: 50%;
-  opacity: 1.284563583;
+  opacity: 0.7;
   -webkit-transform: rotate(222.7684975731deg);
           transform: rotate(222.7684975731deg);
   -webkit-animation: drop-43 4.1875815911s 0.797226208s infinite;
@@ -1200,10 +1200,10 @@
 .conf-44 {
   width: 4px;
   height: 1.6px;
-  background-color: #d13447;
+  background-color: rgba(58, 81, 253, 1);
   top: -10%;
   left: 39%;
-  opacity: 1.4904808546;
+  opacity: 0.7;
   -webkit-transform: rotate(139.6621448665deg);
           transform: rotate(139.6621448665deg);
   -webkit-animation: drop-44 4.0303063132s 0.621282389s infinite;
@@ -1226,10 +1226,10 @@
 .conf-45 {
   width: 8px;
   height: 3.2px;
-  background-color: #d13447;
+  background-color: rgba(58, 81, 253, 1);
   top: -10%;
   left: 78%;
-  opacity: 0.8945992576;
+  opacity: 0.7;
   -webkit-transform: rotate(259.0976095092deg);
           transform: rotate(259.0976095092deg);
   -webkit-animation: drop-45 4.1911845776s 0.5135289027s infinite;
@@ -1252,10 +1252,10 @@
 .conf-46 {
   width: 6px;
   height: 2.4px;
-  background-color: #263672;
+  background-color: rgba(58, 81, 253, 1);
   top: -10%;
   left: 54%;
-  opacity: 0.879029428;
+  opacity: 0.7;
   -webkit-transform: rotate(159.0932312631deg);
           transform: rotate(159.0932312631deg);
   -webkit-animation: drop-46 4.3373899951s 0.1069883062s infinite;
@@ -1278,10 +1278,10 @@
 .conf-47 {
   width: 6px;
   height: 2.4px;
-  background-color: #d13447;
+  background-color: rgba(217, 58, 253, 1);
   top: -10%;
   left: 30%;
-  opacity: 0.5638784162;
+  opacity: 0.7;
   -webkit-transform: rotate(184.1098483155deg);
           transform: rotate(184.1098483155deg);
   -webkit-animation: drop-47 4.0925323844s 0.4062753555s infinite;
@@ -1304,10 +1304,10 @@
 .conf-48 {
   width: 2px;
   height: 0.8px;
-  background-color: #263672;
+  background-color: rgba(217, 58, 253, 1);
   top: -10%;
   left: 59%;
-  opacity: 0.7096180152;
+  opacity: 0.7;
   -webkit-transform: rotate(52.4161164642deg);
           transform: rotate(52.4161164642deg);
   -webkit-animation: drop-48 4.2629649571s 0.8901314859s infinite;
@@ -1330,10 +1330,10 @@
 .conf-49 {
   width: 8px;
   height: 3.2px;
-  background-color: #263672;
+  background-color: rgba(217, 58, 253, 1);
   top: -10%;
   left: 56%;
-  opacity: 0.7858089903;
+  opacity: 0.7;
   -webkit-transform: rotate(0.7791353041deg);
           transform: rotate(0.7791353041deg);
   -webkit-animation: drop-49 4.5793669396s 0.6200101173s infinite;
@@ -1356,10 +1356,10 @@
 .conf-50 {
   width: 3px;
   height: 1.2px;
-  background-color: #d13447;
+  background-color: rgba(217, 58, 253, 1);
   top: -10%;
   left: 96%;
-  opacity: 0.8879227383;
+  opacity: 0.7;
   -webkit-transform: rotate(170.5747643032deg);
           transform: rotate(170.5747643032deg);
   -webkit-animation: drop-50 4.8465531949s 0.0170135352s infinite;
@@ -1382,10 +1382,10 @@
 .conf-51 {
   width: 6px;
   height: 2.4px;
-  background-color: #ffbf00;
+  background-color: rgba(217, 58, 253, 1);
   top: -10%;
   left: 80%;
-  opacity: 0.6737501044;
+  opacity: 0.7;
   -webkit-transform: rotate(53.5827040638deg);
           transform: rotate(53.5827040638deg);
   -webkit-animation: drop-51 4.8391051966s 0.9665197435s infinite;
@@ -1408,10 +1408,10 @@
 .conf-52 {
   width: 2px;
   height: 0.8px;
-  background-color: #263672;
+  background-color: rgba(217, 58, 253, 1);
   top: -10%;
   left: 12%;
-  opacity: 0.8045770216;
+  opacity: 0.7;
   -webkit-transform: rotate(71.3078347296deg);
           transform: rotate(71.3078347296deg);
   -webkit-animation: drop-52 4.3836033244s 0.6634015795s infinite;
@@ -1434,10 +1434,10 @@
 .conf-53 {
   width: 6px;
   height: 2.4px;
-  background-color: #d13447;
+  background-color: rgba(58, 253, 91, 1);
   top: -10%;
   left: 57%;
-  opacity: 1.3451260433;
+  opacity: 0.7;
   -webkit-transform: rotate(143.9028870768deg);
           transform: rotate(143.9028870768deg);
   -webkit-animation: drop-53 4.2777042711s 0.3483245243s infinite;
@@ -1460,10 +1460,10 @@
 .conf-54 {
   width: 1px;
   height: 0.4px;
-  background-color: #263672;
+  background-color: rgba(58, 253, 91, 1);
   top: -10%;
   left: 8%;
-  opacity: 1.1150030736;
+  opacity: 0.7;
   -webkit-transform: rotate(345.9176883703deg);
           transform: rotate(345.9176883703deg);
   -webkit-animation: drop-54 4.3393922915s 0.1287470889s infinite;
@@ -1486,10 +1486,10 @@
 .conf-55 {
   width: 1px;
   height: 0.4px;
-  background-color: #ffbf00;
+  background-color: rgba(58, 253, 91, 1);
   top: -10%;
   left: 93%;
-  opacity: 0.9506954811;
+  opacity: 0.7;
   -webkit-transform: rotate(77.3889237078deg);
           transform: rotate(77.3889237078deg);
   -webkit-animation: drop-55 4.0077089048s 0.4834444001s infinite;
@@ -1512,10 +1512,10 @@
 .conf-56 {
   width: 3px;
   height: 1.2px;
-  background-color: #ffbf00;
+  background-color: rgba(58, 253, 91, 1);
   top: -10%;
   left: 8%;
-  opacity: 1.3833487801;
+  opacity: 0.7;
   -webkit-transform: rotate(5.8531794646deg);
           transform: rotate(5.8531794646deg);
   -webkit-animation: drop-56 4.746229561s 0.1255813636s infinite;
@@ -1541,7 +1541,7 @@
   background-color: #d13447;
   top: -10%;
   left: 2%;
-  opacity: 0.7804583287;
+  opacity: 0.7;
   -webkit-transform: rotate(315.4393940165deg);
           transform: rotate(315.4393940165deg);
   -webkit-animation: drop-57 4.1484757287s 0.0154176825s infinite;
@@ -1567,7 +1567,7 @@
   background-color: #d13447;
   top: -10%;
   left: 39%;
-  opacity: 1.2036564399;
+  opacity: 0.7;
   -webkit-transform: rotate(215.6724244198deg);
           transform: rotate(215.6724244198deg);
   -webkit-animation: drop-58 4.2298490879s 0.4987764466s infinite;
@@ -1593,7 +1593,7 @@
   background-color: #263672;
   top: -10%;
   left: 12%;
-  opacity: 1.430645164;
+  opacity: 0.7;
   -webkit-transform: rotate(84.7611150611deg);
           transform: rotate(84.7611150611deg);
   -webkit-animation: drop-59 4.6127234505s 0.2003880363s infinite;
@@ -1619,7 +1619,7 @@
   background-color: #ffbf00;
   top: -10%;
   left: 40%;
-  opacity: 1.4753651859;
+  opacity: 0.7;
   -webkit-transform: rotate(42.63190667deg);
           transform: rotate(42.63190667deg);
   -webkit-animation: drop-60 4.9162791238s 0.1041415762s infinite;
@@ -1645,7 +1645,7 @@
   background-color: #263672;
   top: -10%;
   left: 99%;
-  opacity: 0.5301118807;
+  opacity: 0.7;
   -webkit-transform: rotate(100.4327645179deg);
           transform: rotate(100.4327645179deg);
   -webkit-animation: drop-61 4.8551861182s 0.1653932945s infinite;
@@ -1671,7 +1671,7 @@
   background-color: #d13447;
   top: -10%;
   left: 64%;
-  opacity: 1.1797470915;
+  opacity: 0.7;
   -webkit-transform: rotate(256.1721053959deg);
           transform: rotate(256.1721053959deg);
   -webkit-animation: drop-62 4.9615398674s 0.0615348124s infinite;
@@ -1697,7 +1697,7 @@
   background-color: #263672;
   top: -10%;
   left: 63%;
-  opacity: 0.5536413304;
+  opacity: 0.7;
   -webkit-transform: rotate(136.6069336226deg);
           transform: rotate(136.6069336226deg);
   -webkit-animation: drop-63 4.522083714s 0.5738047645s infinite;
@@ -1723,7 +1723,7 @@
   background-color: #ffbf00;
   top: -10%;
   left: 61%;
-  opacity: 1.3580154459;
+  opacity: 0.7;
   -webkit-transform: rotate(175.748174164deg);
           transform: rotate(175.748174164deg);
   -webkit-animation: drop-64 4.4801166318s 0.6896834993s infinite;
@@ -1749,7 +1749,7 @@
   background-color: #d13447;
   top: -10%;
   left: 96%;
-  opacity: 0.9491864827;
+  opacity: 0.7;
   -webkit-transform: rotate(41.5829358945deg);
           transform: rotate(41.5829358945deg);
   -webkit-animation: drop-65 4.4528373796s 0.6890177701s infinite;
@@ -1775,7 +1775,7 @@
   background-color: #ffbf00;
   top: -10%;
   left: 96%;
-  opacity: 0.6410990283;
+  opacity: 0.7;
   -webkit-transform: rotate(250.6518964654deg);
           transform: rotate(250.6518964654deg);
   -webkit-animation: drop-66 4.05311568s 0.9520227819s infinite;
@@ -1801,7 +1801,7 @@
   background-color: #263672;
   top: -10%;
   left: 34%;
-  opacity: 0.7600977282;
+  opacity: 0.7;
   -webkit-transform: rotate(116.4993258375deg);
           transform: rotate(116.4993258375deg);
   -webkit-animation: drop-67 4.7033890621s 0.5265588551s infinite;
@@ -1827,7 +1827,7 @@
   background-color: #ffbf00;
   top: -10%;
   left: 67%;
-  opacity: 1.0272428899;
+  opacity: 0.7;
   -webkit-transform: rotate(171.9260100877deg);
           transform: rotate(171.9260100877deg);
   -webkit-animation: drop-68 4.7890997402s 0.7368635509s infinite;
@@ -1853,7 +1853,7 @@
   background-color: #263672;
   top: -10%;
   left: 64%;
-  opacity: 1.2440506936;
+  opacity: 0.7;
   -webkit-transform: rotate(200.9434431262deg);
           transform: rotate(200.9434431262deg);
   -webkit-animation: drop-69 4.3629930579s 0.9085659573s infinite;
@@ -1879,7 +1879,7 @@
   background-color: #263672;
   top: -10%;
   left: 36%;
-  opacity: 1.3302400638;
+  opacity: 0.7;
   -webkit-transform: rotate(52.4159876633deg);
           transform: rotate(52.4159876633deg);
   -webkit-animation: drop-70 4.0448879001s 0.6055502582s infinite;
@@ -1905,7 +1905,7 @@
   background-color: #d13447;
   top: -10%;
   left: 71%;
-  opacity: 1.065687989;
+  opacity: 0.7;
   -webkit-transform: rotate(95.1950359454deg);
           transform: rotate(95.1950359454deg);
   -webkit-animation: drop-71 4.8135900742s 0.0448744346s infinite;
@@ -1931,7 +1931,7 @@
   background-color: #d13447;
   top: -10%;
   left: 75%;
-  opacity: 0.9781797981;
+  opacity: 0.7;
   -webkit-transform: rotate(352.5417644606deg);
           transform: rotate(352.5417644606deg);
   -webkit-animation: drop-72 4.3747313605s 0.6632033756s infinite;
@@ -1957,7 +1957,7 @@
   background-color: #d13447;
   top: -10%;
   left: 48%;
-  opacity: 1.036912136;
+  opacity: 0.7;
   -webkit-transform: rotate(264.0974774278deg);
           transform: rotate(264.0974774278deg);
   -webkit-animation: drop-73 4.3797168524s 0.7411819934s infinite;
@@ -1983,7 +1983,7 @@
   background-color: #ffbf00;
   top: -10%;
   left: 82%;
-  opacity: 0.6644733285;
+  opacity: 0.7;
   -webkit-transform: rotate(63.2160622547deg);
           transform: rotate(63.2160622547deg);
   -webkit-animation: drop-74 4.0791974096s 0.5921940566s infinite;
@@ -2009,7 +2009,7 @@
   background-color: #ffbf00;
   top: -10%;
   left: 47%;
-  opacity: 0.8506565528;
+  opacity: 0.7;
   -webkit-transform: rotate(232.2066961359deg);
           transform: rotate(232.2066961359deg);
   -webkit-animation: drop-75 4.6606850183s 0.120839558s infinite;
@@ -2035,7 +2035,7 @@
   background-color: #d13447;
   top: -10%;
   left: 41%;
-  opacity: 0.7994454752;
+  opacity: 0.7;
   -webkit-transform: rotate(12.0066061615deg);
           transform: rotate(12.0066061615deg);
   -webkit-animation: drop-76 4.2100003187s 0.9323968248s infinite;
@@ -2061,7 +2061,7 @@
   background-color: #ffbf00;
   top: -10%;
   left: 91%;
-  opacity: 1.4271767494;
+  opacity: 0.7;
   -webkit-transform: rotate(210.4426799127deg);
           transform: rotate(210.4426799127deg);
   -webkit-animation: drop-77 4.9964777698s 0.1977684487s infinite;
@@ -2087,7 +2087,7 @@
   background-color: #263672;
   top: -10%;
   left: 27%;
-  opacity: 1.0974504428;
+  opacity: 0.7;
   -webkit-transform: rotate(105.8806545002deg);
           transform: rotate(105.8806545002deg);
   -webkit-animation: drop-78 4.4454427573s 0.8227256816s infinite;
@@ -2113,7 +2113,7 @@
   background-color: #d13447;
   top: -10%;
   left: 25%;
-  opacity: 0.5819239804;
+  opacity: 0.7;
   -webkit-transform: rotate(116.5059832133deg);
           transform: rotate(116.5059832133deg);
   -webkit-animation: drop-79 4.7100039599s 0.7598330544s infinite;
@@ -2139,7 +2139,7 @@
   background-color: #263672;
   top: -10%;
   left: 22%;
-  opacity: 1.0610755655;
+  opacity: 0.7;
   -webkit-transform: rotate(25.1924021592deg);
           transform: rotate(25.1924021592deg);
   -webkit-animation: drop-80 4.677013631s 0.4322837824s infinite;
@@ -2165,7 +2165,7 @@
   background-color: #263672;
   top: -10%;
   left: 27%;
-  opacity: 1.1949273013;
+  opacity: 0.7;
   -webkit-transform: rotate(246.9033863469deg);
           transform: rotate(246.9033863469deg);
   -webkit-animation: drop-81 4.1197684974s 0.2735911931s infinite;
@@ -2191,7 +2191,7 @@
   background-color: #d13447;
   top: -10%;
   left: 91%;
-  opacity: 1.041539158;
+  opacity: 0.7;
   -webkit-transform: rotate(239.5763326deg);
           transform: rotate(239.5763326deg);
   -webkit-animation: drop-82 4.1148308978s 0.7328619388s infinite;
@@ -2217,7 +2217,7 @@
   background-color: #263672;
   top: -10%;
   left: 25%;
-  opacity: 0.6749232909;
+  opacity: 0.7;
   -webkit-transform: rotate(179.3665444129deg);
           transform: rotate(179.3665444129deg);
   -webkit-animation: drop-83 4.9196313615s 0.5901376856s infinite;
@@ -2243,7 +2243,7 @@
   background-color: #d13447;
   top: -10%;
   left: 83%;
-  opacity: 0.5170358349;
+  opacity: 0.7;
   -webkit-transform: rotate(216.0769642354deg);
           transform: rotate(216.0769642354deg);
   -webkit-animation: drop-84 4.1361720991s 0.7158347902s infinite;
@@ -2269,7 +2269,7 @@
   background-color: #263672;
   top: -10%;
   left: 84%;
-  opacity: 1.1348089226;
+  opacity: 0.7;
   -webkit-transform: rotate(88.1707650631deg);
           transform: rotate(88.1707650631deg);
   -webkit-animation: drop-85 4.1765153396s 0.5286736917s infinite;
@@ -2295,7 +2295,7 @@
   background-color: #ffbf00;
   top: -10%;
   left: 36%;
-  opacity: 0.5074174519;
+  opacity: 0.7;
   -webkit-transform: rotate(255.9837367372deg);
           transform: rotate(255.9837367372deg);
   -webkit-animation: drop-86 4.8634571798s 0.2891726013s infinite;
@@ -2321,7 +2321,7 @@
   background-color: #ffbf00;
   top: -10%;
   left: 8%;
-  opacity: 0.8548465076;
+  opacity: 0.7;
   -webkit-transform: rotate(170.911328887deg);
           transform: rotate(170.911328887deg);
   -webkit-animation: drop-87 4.9682400507s 0.9623424934s infinite;
@@ -2347,7 +2347,7 @@
   background-color: #263672;
   top: -10%;
   left: 33%;
-  opacity: 1.0270750953;
+  opacity: 0.7;
   -webkit-transform: rotate(68.2359686416deg);
           transform: rotate(68.2359686416deg);
   -webkit-animation: drop-88 4.1849272195s 0.2613712837s infinite;
@@ -2373,7 +2373,7 @@
   background-color: #ffbf00;
   top: -10%;
   left: 96%;
-  opacity: 1.1835350955;
+  opacity: 0.7;
   -webkit-transform: rotate(99.6996197868deg);
           transform: rotate(99.6996197868deg);
   -webkit-animation: drop-89 4.0026651545s 0.0989018223s infinite;
@@ -2399,9 +2399,9 @@
   background-color: #d13447;
   top: -10%;
   left: 76%;
-  opacity: 1.2352600138;
-  -webkit-transform: rotate(92.117669285deg);
-          transform: rotate(92.117669285deg);
+  opacity: 0.7;
+  -webkit-transform: rotate(92.117669275deg);
+          transform: rotate(92.117669275deg);
   -webkit-animation: drop-90 4.3195350061s 0.9352747535s infinite;
           animation: drop-90 4.3195350061s 0.9352747535s infinite;
 }
@@ -2425,7 +2425,7 @@
   background-color: #263672;
   top: -10%;
   left: 89%;
-  opacity: 0.5888484972;
+  opacity: 0.7;
   -webkit-transform: rotate(40.0166949457deg);
           transform: rotate(40.0166949457deg);
   -webkit-animation: drop-91 4.4857562056s 0.6579634532s infinite;
@@ -2451,7 +2451,7 @@
   background-color: #d13447;
   top: -10%;
   left: 100%;
-  opacity: 1.0080707865;
+  opacity: 0.7;
   -webkit-transform: rotate(29.9078806635deg);
           transform: rotate(29.9078806635deg);
   -webkit-animation: drop-92 4.2000537608s 0.8501956042s infinite;
@@ -2477,7 +2477,7 @@
   background-color: #d13447;
   top: -10%;
   left: 78%;
-  opacity: 0.5541590573;
+  opacity: 0.7;
   -webkit-transform: rotate(316.8789681534deg);
           transform: rotate(316.8789681534deg);
   -webkit-animation: drop-93 4.592112149s 0.0411134014s infinite;
@@ -2503,7 +2503,7 @@
   background-color: #263672;
   top: -10%;
   left: 70%;
-  opacity: 1.1269721467;
+  opacity: 0.7;
   -webkit-transform: rotate(353.71426155deg);
           transform: rotate(353.71426155deg);
   -webkit-animation: drop-94 4.015036751s 0.591301784s infinite;
@@ -2529,7 +2529,7 @@
   background-color: #d13447;
   top: -10%;
   left: 25%;
-  opacity: 1.0930494469;
+  opacity: 0.7;
   -webkit-transform: rotate(174.9873696849deg);
           transform: rotate(174.9873696849deg);
   -webkit-animation: drop-95 4.8981397118s 0.6100968009s infinite;
@@ -2555,7 +2555,7 @@
   background-color: #263672;
   top: -10%;
   left: 84%;
-  opacity: 0.5934104268;
+  opacity: 0.7;
   -webkit-transform: rotate(326.8869044717deg);
           transform: rotate(326.8869044717deg);
   -webkit-animation: drop-96 4.3754479955s 0.6741569117s infinite;
@@ -2581,7 +2581,7 @@
   background-color: #ffbf00;
   top: -10%;
   left: 2%;
-  opacity: 1.4537532299;
+  opacity: 0.7;
   -webkit-transform: rotate(275.334773769deg);
           transform: rotate(275.334773769deg);
   -webkit-animation: drop-97 4.6167133424s 0.513826735s infinite;
@@ -2607,7 +2607,7 @@
   background-color: #ffbf00;
   top: -10%;
   left: 72%;
-  opacity: 1.1337335804;
+  opacity: 0.7;
   -webkit-transform: rotate(80.7558803339deg);
           transform: rotate(80.7558803339deg);
   -webkit-animation: drop-98 4.6581875414s 0.1102050823s infinite;
@@ -2633,7 +2633,7 @@
   background-color: #d13447;
   top: -10%;
   left: 22%;
-  opacity: 1.0654360627;
+  opacity: 0.7;
   -webkit-transform: rotate(73.9877024101deg);
           transform: rotate(73.9877024101deg);
   -webkit-animation: drop-99 4.2785609927s 0.5687473872s infinite;
@@ -2659,7 +2659,7 @@
   background-color: #ffbf00;
   top: -10%;
   left: 22%;
-  opacity: 1.404603537;
+  opacity: 0.7;
   -webkit-transform: rotate(29.3991936785deg);
           transform: rotate(29.3991936785deg);
   -webkit-animation: drop-100 4.6053402422s 0.7997897014s infinite;
@@ -2685,7 +2685,7 @@
   background-color: #ffbf00;
   top: -10%;
   left: 78%;
-  opacity: 1.1779585554;
+  opacity: 0.7;
   -webkit-transform: rotate(348.6641083487deg);
           transform: rotate(348.6641083487deg);
   -webkit-animation: drop-101 4.4556571786s 0.2760184443s infinite;
@@ -2711,7 +2711,7 @@
   background-color: #263672;
   top: -10%;
   left: 20%;
-  opacity: 0.882912755;
+  opacity: 0.7;
   -webkit-transform: rotate(4.6947538253deg);
           transform: rotate(4.6947538253deg);
   -webkit-animation: drop-102 4.4499676825s 0.7958804823s infinite;
@@ -2737,7 +2737,7 @@
   background-color: #d13447;
   top: -10%;
   left: 44%;
-  opacity: 1.3580472872;
+  opacity: 0.7;
   -webkit-transform: rotate(151.3507309196deg);
           transform: rotate(151.3507309196deg);
   -webkit-animation: drop-103 4.0410068902s 0.0699293818s infinite;
@@ -2763,7 +2763,7 @@
   background-color: #263672;
   top: -10%;
   left: 74%;
-  opacity: 0.76109165;
+  opacity: 0.7;
   -webkit-transform: rotate(108.5823051032deg);
           transform: rotate(108.5823051032deg);
   -webkit-animation: drop-104 4.0469154195s 0.4016424696s infinite;
@@ -2789,7 +2789,7 @@
   background-color: #d13447;
   top: -10%;
   left: 56%;
-  opacity: 1.1684221108;
+  opacity: 0.7;
   -webkit-transform: rotate(11.5579373029deg);
           transform: rotate(11.5579373029deg);
   -webkit-animation: drop-105 4.5700756262s 0.8993016928s infinite;
@@ -2815,7 +2815,7 @@
   background-color: #ffbf00;
   top: -10%;
   left: 40%;
-  opacity: 1.3029572679;
+  opacity: 0.7;
   -webkit-transform: rotate(117.5479472305deg);
           transform: rotate(117.5479472305deg);
   -webkit-animation: drop-106 4.9331693906s 0.4141961091s infinite;
@@ -2841,7 +2841,7 @@
   background-color: #ffbf00;
   top: -10%;
   left: 100%;
-  opacity: 0.5109155962;
+  opacity: 0.7;
   -webkit-transform: rotate(143.3296254837deg);
           transform: rotate(143.3296254837deg);
   -webkit-animation: drop-107 4.8597982259s 0.9379819893s infinite;
@@ -2867,7 +2867,7 @@
   background-color: #ffbf00;
   top: -10%;
   left: 45%;
-  opacity: 1.0894770419;
+  opacity: 0.7;
   -webkit-transform: rotate(200.1801628985deg);
           transform: rotate(200.1801628985deg);
   -webkit-animation: drop-108 4.6111532294s 0.0201713199s infinite;
@@ -2893,7 +2893,7 @@
   background-color: #ffbf00;
   top: -10%;
   left: 48%;
-  opacity: 1.0150811561;
+  opacity: 0.7;
   -webkit-transform: rotate(138.5620493025deg);
           transform: rotate(138.5620493025deg);
   -webkit-animation: drop-109 4.5198478774s 0.2901925947s infinite;
@@ -2919,7 +2919,7 @@
   background-color: #d13447;
   top: -10%;
   left: 52%;
-  opacity: 1.1438290091;
+  opacity: 0.7;
   -webkit-transform: rotate(264.7500170614deg);
           transform: rotate(264.7500170614deg);
   -webkit-animation: drop-110 4.3068653116s 0.8442490275s infinite;
@@ -2945,7 +2945,7 @@
   background-color: #263672;
   top: -10%;
   left: 59%;
-  opacity: 0.7572567826;
+  opacity: 0.7;
   -webkit-transform: rotate(41.0786034084deg);
           transform: rotate(41.0786034084deg);
   -webkit-animation: drop-111 4.341761489s 0.747491s infinite;
@@ -2971,7 +2971,7 @@
   background-color: #ffbf00;
   top: -10%;
   left: 40%;
-  opacity: 0.8727710629;
+  opacity: 0.7;
   -webkit-transform: rotate(271.9994687047deg);
           transform: rotate(271.9994687047deg);
   -webkit-animation: drop-112 4.9347256676s 0.51528624s infinite;
@@ -2997,7 +2997,7 @@
   background-color: #263672;
   top: -10%;
   left: 94%;
-  opacity: 0.9422130283;
+  opacity: 0.7;
   -webkit-transform: rotate(17.4282335932deg);
           transform: rotate(17.4282335932deg);
   -webkit-animation: drop-113 4.000414101s 0.1177230095s infinite;
@@ -3023,7 +3023,7 @@
   background-color: #263672;
   top: -10%;
   left: 28%;
-  opacity: 1.261780508;
+  opacity: 0.7;
   -webkit-transform: rotate(76.7009552272deg);
           transform: rotate(76.7009552272deg);
   -webkit-animation: drop-114 4.7476060561s 0.5225078738s infinite;
@@ -3049,7 +3049,7 @@
   background-color: #263672;
   top: -10%;
   left: 76%;
-  opacity: 0.5015771992;
+  opacity: 0.7;
   -webkit-transform: rotate(254.3592120271deg);
           transform: rotate(254.3592120271deg);
   -webkit-animation: drop-115 4.4297785396s 0.3268569085s infinite;
@@ -3075,7 +3075,7 @@
   background-color: #d13447;
   top: -10%;
   left: 48%;
-  opacity: 1.4554584007;
+  opacity: 0.7;
   -webkit-transform: rotate(184.4969980519deg);
           transform: rotate(184.4969980519deg);
   -webkit-animation: drop-116 4.0468921025s 0.8023942429s infinite;
@@ -3101,7 +3101,7 @@
   background-color: #ffbf00;
   top: -10%;
   left: 34%;
-  opacity: 1.1138385547;
+  opacity: 0.7;
   -webkit-transform: rotate(128.3694796762deg);
           transform: rotate(128.3694796762deg);
   -webkit-animation: drop-117 4.4239476629s 0.5835055857s infinite;
@@ -3127,7 +3127,7 @@
   background-color: #d13447;
   top: -10%;
   left: 27%;
-  opacity: 0.9188543779;
+  opacity: 0.7;
   -webkit-transform: rotate(112.4251881555deg);
           transform: rotate(112.4251881555deg);
   -webkit-animation: drop-118 4.7922531129s 0.8466100894s infinite;
@@ -3153,7 +3153,7 @@
   background-color: #d13447;
   top: -10%;
   left: 73%;
-  opacity: 1.0270029879;
+  opacity: 0.7;
   -webkit-transform: rotate(353.2798191881deg);
           transform: rotate(353.2798191881deg);
   -webkit-animation: drop-119 4.4414429887s 0.828462071s infinite;
@@ -3179,7 +3179,7 @@
   background-color: #263672;
   top: -10%;
   left: 76%;
-  opacity: 0.8307222671;
+  opacity: 0.7;
   -webkit-transform: rotate(170.3159849441deg);
           transform: rotate(170.3159849441deg);
   -webkit-animation: drop-120 4.8634481619s 0.5297335547s infinite;
@@ -3205,7 +3205,7 @@
   background-color: #263672;
   top: -10%;
   left: 25%;
-  opacity: 0.7544853098;
+  opacity: 0.7;
   -webkit-transform: rotate(347.8442481996deg);
           transform: rotate(347.8442481996deg);
   -webkit-animation: drop-121 4.7933101369s 0.3152965464s infinite;
@@ -3231,7 +3231,7 @@
   background-color: #d13447;
   top: -10%;
   left: 24%;
-  opacity: 0.8019303679;
+  opacity: 0.7;
   -webkit-transform: rotate(127.3797449083deg);
           transform: rotate(127.3797449083deg);
   -webkit-animation: drop-122 4.3271379101s 0.616011307s infinite;
@@ -3257,7 +3257,7 @@
   background-color: #ffbf00;
   top: -10%;
   left: 92%;
-  opacity: 1.2701512181;
+  opacity: 0.7;
   -webkit-transform: rotate(58.2270481867deg);
           transform: rotate(58.2270481867deg);
   -webkit-animation: drop-123 4.1471744168s 0.3920596851s infinite;
@@ -3283,7 +3283,7 @@
   background-color: #ffbf00;
   top: -10%;
   left: 61%;
-  opacity: 1.1692214845;
+  opacity: 0.7;
   -webkit-transform: rotate(103.5513177803deg);
           transform: rotate(103.5513177803deg);
   -webkit-animation: drop-124 4.7710139114s 0.8842239921s infinite;
@@ -3309,9 +3309,9 @@
   background-color: #263672;
   top: -10%;
   left: 8%;
-  opacity: 1.3895854996;
-  -webkit-transform: rotate(320.1428587036deg);
-          transform: rotate(320.1428587036deg);
+  opacity: 0.7;
+  -webkit-transform: rotate(320.1427587036deg);
+          transform: rotate(320.1427587036deg);
   -webkit-animation: drop-125 4.7668177107s 0.1887646816s infinite;
           animation: drop-125 4.7668177107s 0.1887646816s infinite;
 }
@@ -3335,7 +3335,7 @@
   background-color: #263672;
   top: -10%;
   left: 33%;
-  opacity: 1.119936094;
+  opacity: 0.7;
   -webkit-transform: rotate(170.1485808416deg);
           transform: rotate(170.1485808416deg);
   -webkit-animation: drop-126 4.4186017034s 0.248389044s infinite;
@@ -3361,7 +3361,7 @@
   background-color: #d13447;
   top: -10%;
   left: 80%;
-  opacity: 1.1323746717;
+  opacity: 0.7;
   -webkit-transform: rotate(342.6482338215deg);
           transform: rotate(342.6482338215deg);
   -webkit-animation: drop-127 4.4553066564s 0.1590259077s infinite;
@@ -3387,7 +3387,7 @@
   background-color: #d13447;
   top: -10%;
   left: 40%;
-  opacity: 0.9805262714;
+  opacity: 0.7;
   -webkit-transform: rotate(204.820405435deg);
           transform: rotate(204.820405435deg);
   -webkit-animation: drop-128 4.6940477547s 0.900827013s infinite;
@@ -3413,7 +3413,7 @@
   background-color: #d13447;
   top: -10%;
   left: 55%;
-  opacity: 1.3598916553;
+  opacity: 0.7;
   -webkit-transform: rotate(358.4566693949deg);
           transform: rotate(358.4566693949deg);
   -webkit-animation: drop-129 4.3132767996s 0.3060577697s infinite;
@@ -3439,7 +3439,7 @@
   background-color: #d13447;
   top: -10%;
   left: 29%;
-  opacity: 0.908238143;
+  opacity: 0.7;
   -webkit-transform: rotate(8.3087252038deg);
           transform: rotate(8.3087252038deg);
   -webkit-animation: drop-130 4.9031521458s 0.4670216467s infinite;
@@ -3465,7 +3465,7 @@
   background-color: #d13447;
   top: -10%;
   left: 96%;
-  opacity: 0.6310651914;
+  opacity: 0.7;
   -webkit-transform: rotate(119.4850011009deg);
           transform: rotate(119.4850011009deg);
   -webkit-animation: drop-131 4.0765420799s 0.686355794s infinite;
@@ -3491,7 +3491,7 @@
   background-color: #d13447;
   top: -10%;
   left: 91%;
-  opacity: 1.299617445;
+  opacity: 0.7;
   -webkit-transform: rotate(189.5243156445deg);
           transform: rotate(189.5243156445deg);
   -webkit-animation: drop-132 4.5839429216s 0.7714683802s infinite;
@@ -3517,7 +3517,7 @@
   background-color: #d13447;
   top: -10%;
   left: 49%;
-  opacity: 0.570735566;
+  opacity: 0.7;
   -webkit-transform: rotate(160.0263838862deg);
           transform: rotate(160.0263838862deg);
   -webkit-animation: drop-133 4.4389560417s 0.6234178457s infinite;
@@ -3543,7 +3543,7 @@
   background-color: #ffbf00;
   top: -10%;
   left: 60%;
-  opacity: 1.2806748672;
+  opacity: 0.7;
   -webkit-transform: rotate(65.843447661deg);
           transform: rotate(65.843447661deg);
   -webkit-animation: drop-134 4.2317552988s 0.2096876769s infinite;
@@ -3569,7 +3569,7 @@
   background-color: #d13447;
   top: -10%;
   left: 92%;
-  opacity: 0.9454409276;
+  opacity: 0.7;
   -webkit-transform: rotate(158.5608170306deg);
           transform: rotate(158.5608170306deg);
   -webkit-animation: drop-135 4.8234414146s 0.3982665611s infinite;
@@ -3595,7 +3595,7 @@
   background-color: #263672;
   top: -10%;
   left: 58%;
-  opacity: 0.9035863999;
+  opacity: 0.7;
   -webkit-transform: rotate(61.6208500142deg);
           transform: rotate(61.6208500142deg);
   -webkit-animation: drop-136 4.1186081148s 0.119207985s infinite;
@@ -3621,7 +3621,7 @@
   background-color: #ffbf00;
   top: -10%;
   left: 39%;
-  opacity: 0.7534744267;
+  opacity: 0.7;
   -webkit-transform: rotate(261.4105337996deg);
           transform: rotate(261.4105337996deg);
   -webkit-animation: drop-137 4.0922299618s 0.1151947541s infinite;
@@ -3647,7 +3647,7 @@
   background-color: #263672;
   top: -10%;
   left: 29%;
-  opacity: 1.2063184015;
+  opacity: 0.7;
   -webkit-transform: rotate(57.8677891413deg);
           transform: rotate(57.8677891413deg);
   -webkit-animation: drop-138 4.7978030627s 0.0445200805s infinite;
@@ -3673,7 +3673,7 @@
   background-color: #d13447;
   top: -10%;
   left: 91%;
-  opacity: 1.472710944;
+  opacity: 0.7;
   -webkit-transform: rotate(87.7012943428deg);
           transform: rotate(87.7012943428deg);
   -webkit-animation: drop-139 4.9104361961s 0.3050644104s infinite;
@@ -3699,7 +3699,7 @@
   background-color: #263672;
   top: -10%;
   left: 42%;
-  opacity: 1.3008561492;
+  opacity: 0.7;
   -webkit-transform: rotate(136.2160498625deg);
           transform: rotate(136.2160498625deg);
   -webkit-animation: drop-140 4.2694706979s 0.1759368186s infinite;
@@ -3725,7 +3725,7 @@
   background-color: #263672;
   top: -10%;
   left: 11%;
-  opacity: 0.7667788517;
+  opacity: 0.7;
   -webkit-transform: rotate(17.7363228789deg);
           transform: rotate(17.7363228789deg);
   -webkit-animation: drop-141 4.2680475896s 0.9678742143s infinite;
@@ -3751,7 +3751,7 @@
   background-color: #ffbf00;
   top: -10%;
   left: 55%;
-  opacity: 1.2146403764;
+  opacity: 0.7;
   -webkit-transform: rotate(353.4766952932deg);
           transform: rotate(353.4766952932deg);
   -webkit-animation: drop-142 4.3447173027s 0.5382065935s infinite;
@@ -3777,7 +3777,7 @@
   background-color: #263672;
   top: -10%;
   left: 14%;
-  opacity: 1.4944794059;
+  opacity: 0.7;
   -webkit-transform: rotate(277.6977112207deg);
           transform: rotate(277.6977112207deg);
   -webkit-animation: drop-143 4.329252308s 0.540945448s infinite;
@@ -3803,7 +3803,7 @@
   background-color: #263672;
   top: -10%;
   left: 67%;
-  opacity: 0.9266575505;
+  opacity: 0.7;
   -webkit-transform: rotate(52.7198892408deg);
           transform: rotate(52.7198892408deg);
   -webkit-animation: drop-144 4.5813667262s 0.6739287767s infinite;
@@ -3829,7 +3829,7 @@
   background-color: #ffbf00;
   top: -10%;
   left: 84%;
-  opacity: 0.8608250032;
+  opacity: 0.7;
   -webkit-transform: rotate(120.3892292273deg);
           transform: rotate(120.3892292273deg);
   -webkit-animation: drop-145 4.4486086172s 0.0481379103s infinite;
@@ -3855,7 +3855,7 @@
   background-color: #ffbf00;
   top: -10%;
   left: 60%;
-  opacity: 0.6031653829;
+  opacity: 0.7;
   -webkit-transform: rotate(135.4414255684deg);
           transform: rotate(135.4414255684deg);
   -webkit-animation: drop-146 4.9181870626s 0.8026542589s infinite;
@@ -3881,7 +3881,7 @@
   background-color: #ffbf00;
   top: -10%;
   left: 31%;
-  opacity: 0.5503200757;
+  opacity: 0.7;
   -webkit-transform: rotate(288.9855700857deg);
           transform: rotate(288.9855700857deg);
   -webkit-animation: drop-147 4.9132683262s 0.4617201674s infinite;
@@ -3907,7 +3907,7 @@
   background-color: #ffbf00;
   top: -10%;
   left: 52%;
-  opacity: 0.5525518156;
+  opacity: 0.7;
   -webkit-transform: rotate(174.8777968525deg);
           transform: rotate(174.8777968525deg);
   -webkit-animation: drop-148 4.7373329047s 0.9539270972s infinite;
@@ -3933,7 +3933,7 @@
   background-color: #d13447;
   top: -10%;
   left: 46%;
-  opacity: 1.0099660129;
+  opacity: 0.7;
   -webkit-transform: rotate(204.7670974319deg);
           transform: rotate(204.7670974319deg);
   -webkit-animation: drop-149 4.8040403591s 0.9704974267s infinite;
@@ -3959,7 +3959,7 @@
   background-color: #d13447;
   top: -10%;
   left: 39%;
-  opacity: 1.2341541985;
+  opacity: 0.7;
   -webkit-transform: rotate(331.4975372231deg);
           transform: rotate(331.4975372231deg);
   -webkit-animation: drop-150 4.3348570724s 0.0398111194s infinite;
