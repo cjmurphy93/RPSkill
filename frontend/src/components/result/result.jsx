@@ -81,7 +81,7 @@ const Result = ({winner}) => {
                     <div className="conf-82"></div>
                     <div className="conf-81"></div> */}
                     {/* <div className="conf-80"></div> */}
-                    <div className="conf-79"></div>
+                    {/* <div className="conf-79"></div>
                     <div className="conf-78"></div>
                     <div className="conf-77"></div>
                     <div className="conf-76"></div>
@@ -109,7 +109,7 @@ const Result = ({winner}) => {
                     <div className="conf-54"></div>
                     <div className="conf-53"></div>
                     <div className="conf-52"></div>
-                    <div className="conf-51"></div>
+                    <div className="conf-51"></div> */}
                     <div className="conf-50"></div>
                     <div className="conf-49"></div>
                     <div className="conf-48"></div>
