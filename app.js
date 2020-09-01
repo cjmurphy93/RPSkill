@@ -24,24 +24,6 @@ app.use(bodyParser.json());
 
 const port = process.env.PORT || 5000;
 
-// app.get("/", (req, res) => res.send("Hello World"));
-// server.on('error', err => {
-//     console.log('Server error:', err);
-// });
-
-// io.on('connection', socket => {
-//     console.log("socket connection made", socket.id)
-
-//     socket.on("disconnect", () => {
-//         console.log("Disconnected")
-//     })
-// })
-
-
-// server.listen(8080, () => {
-//     console.log('RPS started on 8080')
-// })
-
 server.listen(port, () => console.log(`Server is running on port ${port}`));
 
 // if (process.env.NODE_ENV === "production") {
@@ -52,28 +34,29 @@ server.listen(port, () => console.log(`Server is running on port ${port}`));
 // } else {
 // }
 
-// app.use(express.static("chat"))
-// app.get("/", (req, res) => {
-//     res.sendFile(__dirname + "frontend/public/index.html")
-// })
 const connections = [];
 const gameRooms = {};
+const standbyUsers = [];
 
 io.on("connect", (socket) => {
   console.log('made socket connection', socket.id); 
-
+  
   connections.push(socket.id);
   console.log(`${connections.length} connections`)
-
-  socket.on('chat message', data => {
-    console.log(data);
-    // const { id } = socket.id;
-    io.emit('chat message', data);
-    // socket.broadcast.emit('chat message', msg);
-  })
-
+  
+  
   socket.on("join", ({username, game}, callback) => {
+    standbyUsers.push(username);
     console.log(username, "joined the room")
+    
+    socket.on('chat message', data => {
+      console.log(data);
+      // const { id } = socket.id;
+      io.emit('chat message', (data));
+      io.emit('join', {standbyUsers});
+      // socket.broadcast.emit('chat message', msg);
+    })
+
     User.findOne({ username: username })
       .then((user) => {
         socket.join(game);
@@ -90,7 +73,10 @@ io.on("connect", (socket) => {
         });
 
         if (gameRooms[game].players.length === 2) {
-          io.to(game).emit("game start");
+          io.to(game).emit("game start", {
+            game,
+            players: [gameRooms[game].players[0].username, gameRooms[game].players[1].username]
+          });
         }
 
       });

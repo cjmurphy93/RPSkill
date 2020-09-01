@@ -71,6 +71,12 @@
     font-size: 13px;
 }
 
+.announcement {
+    text-align: left;
+    color: hsla(178, 0%, 100%, 0.48);
+    padding-bottom: 3px;
+}
+
 /* #username {
     font-weight: bold;
 } */

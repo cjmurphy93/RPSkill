@@ -19,11 +19,14 @@
 }
 
 
-.center-container {
+#center-container {
     grid-area: 2 / 2 / 2 / 5;
     border: white 1px solid;
     margin: 0;
     font-size: 28px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .result-message {
@@ -39,6 +42,7 @@
     align-items: center;
     font-size: 13px;
 }
+
 
 .playerOne {
 
@@ -2133,7 +2137,7 @@
     left: 28%;
   }
 }
-.conf-80 {
+/* .conf-80 {
   width: 3px;
   height: 1.2px;
   background-color: #263672;
@@ -2144,9 +2148,9 @@
           transform: rotate(25.1924021592deg);
   -webkit-animation: drop-80 4.677013631s 0.4322837824s infinite;
           animation: drop-80 4.677013631s 0.4322837824s infinite;
-}
+} */
 
-@-webkit-keyframes drop-80 {
+/* @-webkit-keyframes drop-80 {
   100% {
     top: 110%;
     left: 24%;
@@ -2652,8 +2656,8 @@
     top: 110%;
     left: 30%;
   }
-}
-.conf-100 {
+} */
+/* .conf-100 {
   width: 4px;
   height: 1.6px;
   background-color: #ffbf00;
@@ -3979,4 +3983,4 @@
     top: 110%;
     left: 40%;
   }
-}
+} */
