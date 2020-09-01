@@ -57,32 +57,12 @@ io.on("connect", (socket) => {
 
     socket.on("add points", username => {
       console.log(username);
-
       User.updateOne({ username: username },
         { $inc: { elo: 200 } }
       )
       .then(user => {
         console.log(`points added to ${username}`)
-      })      
-    });
-
-    Game.findOne({ name: game }).then(gameResponse => {
-      if (gameResponse) {
-        console.log(gameResponse);
-      } else {
-
-        const newGame = new Game({
-          playerOne: username,
-          playerTwo: null,
-          name: game,
-          winner: null,
-        });
-
-        newGame.save()
-        .then(game => {
-          console.log(game)
-        })
-      }
+      })
     })
 
     User.findOne({ username: username })
@@ -93,6 +73,7 @@ io.on("connect", (socket) => {
           gameRoom.addPlayer(user);
         } else {
           gameRooms[game] = new Game(game, user);
+          console.log(gameRooms);
         }
 
         socket.emit("gameData", {
@@ -106,8 +87,7 @@ io.on("connect", (socket) => {
             players: [gameRooms[game].players[0].username, gameRooms[game].players[1].username]
           });
         }
-
-      });
+      }).catch(err => console.log(err))
     
         // const { player, error } = addPlayer({ id: socket.id, username, game });
         // if (error) return callback(error);
