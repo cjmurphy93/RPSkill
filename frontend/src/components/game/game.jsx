@@ -54,7 +54,7 @@ class GameRoom extends React.Component {
       })
 
       this.socket.on('join', data => {
-        console.log(data);
+        // console.log(data);
       })
 
       this.socket.on("gameData", (gameData) => {
@@ -72,15 +72,17 @@ class GameRoom extends React.Component {
       this.socket.on("player 1 wins", (moves) => {
         
         const winner = moves[0]["player"];
+
         this.setState({winner: winner, stage: 5});
+        this.socket.emit("add points", moves[0]["player"]);
       });
       this.socket.on("player 2 wins", (moves) => {
-        
         const winner = moves[1]["player"];
         this.setState({winner: winner, stage: 5});
+        this.socket.emit("add points", moves[1]["player"]);
+
       });
       this.socket.on("tie", (moves) => {
-        
         const winner = "tie";
         this.setState({winner: winner, stage: 5});
       });
@@ -143,7 +145,7 @@ class GameRoom extends React.Component {
   handleJoin(e){
     e.preventDefault();
 
-    const username = this.state.user.username
+    const username = this.state.user.username;
     const game = this.state.gameName;
     const users = this.state.users;
     ;
@@ -171,10 +173,12 @@ class GameRoom extends React.Component {
         } else if (stage===3) {
              display = <LiveGame users={users} chatLines={chatLines} user={user} message={message} messages={messages} handleChange={this.handleChange} handleSubmit={this.handleSubmit} handleRock={this.handleRock} handlePaper={this.handlePaper} handleScissors={this.handleScissors}/>
         } else if (stage===4) {
+
           
             display = <WaitingOpponent />
         } else if (stage===5) {
-          display = <Result winner={winner} />
+          display = <Result winner={winner} players={users.players} loser={users.players.filter(user => user !== winner)} />
+
         }
     return (
       <div>
