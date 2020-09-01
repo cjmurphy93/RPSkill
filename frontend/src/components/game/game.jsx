@@ -29,8 +29,6 @@ class GameRoom extends React.Component {
     this.handleScissors = this.handleScissors.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleChange = this.handleChange.bind(this);
-    // this.handleMessage = this.handleMessage.bind(this);
-    // this.handleChange = this.handleChange.bind(this);
   }
 
   componentDidMount() {
@@ -44,11 +42,12 @@ class GameRoom extends React.Component {
     this.socket.on("connect", (socket) => {
 
       this.socket.on('chat message', data => {
-        console.log(data.messages, data.user, "this came through")
+        // console.log(data.messages, data.user, "this came through")
         this.setState({
           messages: [...this.state.messages, data.messages[data.messages.length - 1]],
           user: data.username,
-          chatLines: [...this.state.chatLines, `${data.username}: ${data.messages[data.messages.length - 1]}`]
+          chatLines: [...this.state.chatLines, `${data.username}: ${data.messages[data.messages.length - 1]} ~@$ ${new Date(parseInt(Date.now())).toLocaleTimeString()}`],
+          time: data.time,
         })
       })
 
@@ -77,31 +76,10 @@ class GameRoom extends React.Component {
     })
     //emit "join" username
   }
-
-  // handleMessage(e) {
-  //   debugger
-  //   e.preventDefault();
-  //   const username = this.state.user.username;
-  //   const game = this.state.gameName;
-  //   this.socket.emit('sendMessage', {
-  //     username,
-  //     message: this.state.message,
-  //   })
-  //   this.setState({message: ""});
-  // }
-
-  // handleChange(e) {
-  //   this.setState({
-  //     message: e.currentTarget.value,
-  //   })
-  // }
   
   handleChange(type) {
     return e => {
-      // if (e.keyCode === 13) {
-        // this.setState({[type]: [...this.state.messages, e.currentTarget.value]});
-        this.setState({[type]: e.currentTarget.value, user: this.state.user});
-      // }
+      this.setState({ [type]: e.currentTarget.value, user: this.state.user, time: new Date(parseInt(Date.now())).toLocaleTimeString()});
     }
   }
   
@@ -113,15 +91,13 @@ class GameRoom extends React.Component {
       user: this.props.user.username,
       username: this.props.user.username,
       message: "",
-      chatLines: [...this.state.chatLines, `${this.props.user.username}: ${this.state.message}`]
+      chatLines: [...this.state.chatLines, `${this.props.user.username}: ${this.state.message} ~@$ ${new Date(parseInt(Date.now())).toLocaleTimeString()}`],
+      time: new Date(parseInt(Date.now())).toLocaleTimeString(),
     })
     this.setState({message: ""});
     // console.log(this.state.message, this.state.user, 'client side');
     // console.log(this.state.messages, this.state.user, 'client side');
     // console.log(this.state.messages);
-    // return e => {
-    //   this.setState({messages: [...this.state.messages, this.state.message]});
-    // }
   }
 
   handleRock(e) {
@@ -171,7 +147,7 @@ class GameRoom extends React.Component {
   }
 
   render() {
-      const { stage, gameName, winner, message, messages, user, chatLines} = this.state;
+      const { stage, gameName, winner, message, messages, user, chatLines, time} = this.state;
 
 
       let display;
@@ -180,7 +156,7 @@ class GameRoom extends React.Component {
         } else if (stage===2) {
              display = <WaitingRoom />
         } else if (stage===3) {
-             display = <LiveGame chatLines={chatLines} user={user} message={message} messages={messages} handleChange={this.handleChange} handleSubmit={this.handleSubmit} handleRock={this.handleRock} handlePaper={this.handlePaper} handleScissors={this.handleScissors}/>
+             display = <LiveGame time={time} chatLines={chatLines} user={user} message={message} messages={messages} handleChange={this.handleChange} handleSubmit={this.handleSubmit} handleRock={this.handleRock} handlePaper={this.handlePaper} handleScissors={this.handleScissors}/>
         } else if (stage===4) {
           display = <Result winner={winner} />
         }

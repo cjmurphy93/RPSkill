@@ -2,7 +2,7 @@ import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHandRock, faHandPaper, faHandScissors } from '@fortawesome/free-solid-svg-icons';
 
-const LiveGame = ({ handleRock, handlePaper, handleScissors, handleSubmit, handleChange, messages, message, user, chatLines}) => {
+const LiveGame = ({ handleRock, handlePaper, handleScissors, handleSubmit, handleChange, message, chatLines, time}) => {
 
 
         // if some condition (e.g 2 moves received)
@@ -20,11 +20,17 @@ const LiveGame = ({ handleRock, handlePaper, handleScissors, handleSubmit, handl
                             <div className="chat-lines">
                                 {
                                     chatLines.map((message, i) => {
-                                        
+                                        // console.log(message)
+                                        // console.log(chatLines)
                                         return (
-                                            <li key={i}>
-                                                {`${message}`}
-                                            </li>
+                                            <div key={i} className="line">
+                                                <li>
+                                                    {`${message.split("~@$")[0]}`}
+                                                </li>
+                                                <li id="time-stamp">
+                                                    {`${message.split("~@$")[1]}`}
+                                                </li>
+                                            </div>
                                         )
                                     })
                                 }
