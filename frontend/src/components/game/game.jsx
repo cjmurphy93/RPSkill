@@ -71,14 +71,14 @@ class GameRoom extends React.Component {
       this.socket.on("player 1 wins", (moves) => {
         const winner = moves[0]["player"];
         this.setState({winner: winner, stage: 4});
+        this.socket.emit("add points", winner);
       });
       this.socket.on("player 2 wins", (moves) => {
         const winner = moves[1]["player"];
-        
         this.setState({winner: winner, stage: 4});
+        this.socket.emit("add points", winner);
       });
       this.socket.on("tie", (moves) => {
-        
         const winner = "tie";
         this.setState({winner: winner, stage: 4});
       });

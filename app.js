@@ -57,6 +57,10 @@ io.on("connect", (socket) => {
       // socket.broadcast.emit('chat message', msg);
     })
 
+    socket.on("add points", username => {
+      console.log(username);
+    })
+
     User.findOne({ username: username })
       .then((user) => {
         socket.join(game);
