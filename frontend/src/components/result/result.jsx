@@ -9,12 +9,11 @@ const Result = ({winner}) => {
         const message = winner === "tie" ? "It's a Tie!" : `${winner} Wins!`;
       
         return (
+            <>
                 <section>
                     <div className="result-section">
                         <div className="center-container">
-                            <p>
-                                Game Results
-                            </p>
+                            <h1>Game Results</h1>
                         </div>
                         <div className="players">
                             <div className="playerOne">
@@ -29,6 +28,7 @@ const Result = ({winner}) => {
                         </div>
                     </div>
                 </section>
+            </>
         )
     }
 

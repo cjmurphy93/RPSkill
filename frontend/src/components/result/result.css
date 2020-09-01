@@ -9,6 +9,10 @@
 }
 
 .center-container {
-    grid-area: 3 / 3 / 3 / 4;
+    grid-area: 3 / 4 / 3 / 4;
     background-color: rosybrown;
+}
+
+.players {
+    grid-area: 4 / 4 / 4 / 5;
 }
