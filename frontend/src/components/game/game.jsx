@@ -53,7 +53,7 @@ class GameRoom extends React.Component {
       })
 
       this.socket.on('join', data => {
-        console.log(data);
+        // console.log(data);
       })
 
       this.socket.on("gameData", (gameData) => {
