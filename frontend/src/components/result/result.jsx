@@ -162,7 +162,7 @@ const Result = ({winner}) => {
                     <div className="conf-1"></div>
                     <div className="conf-0"></div>
                     <div className="inner-container">
-                        <div className="center-container">
+                        <div id="center-container">
                             Game Results
                         </div>
                         <div className="result-message">{message}</div>
