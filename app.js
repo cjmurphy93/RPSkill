@@ -66,7 +66,7 @@ io.on("connect", (socket) => {
   console.log(`${connections.length} connections`)
 
   socket.on('chat message', data => {
-    console.log(data);
+    // console.log(data);
     // const { id } = socket.id;
     io.emit('chat message', data);
     // socket.broadcast.emit('chat message', msg);
@@ -74,6 +74,7 @@ io.on("connect", (socket) => {
 
   socket.on("join", ({username, game}, callback) => {
     console.log(username, "joined the room")
+    io.emit('announce entry', ({username, game}));
     User.findOne({ username: username })
       .then((user) => {
         socket.join(game);
