@@ -1,6 +1,7 @@
 import React from "react";
 import WaitingRoom from './waitingroom';
 import LiveGame from './livegame';
+import WaitingOpponent from './waitingopponent';
 import JoinGame from './join_game';
 import Result from '../result/result';
 import io from 'socket.io-client';
@@ -60,18 +61,19 @@ class GameRoom extends React.Component {
       });
 
       this.socket.on("player 1 wins", (moves) => {
+        
         const winner = moves[0]["player"];
-        this.setState({winner: winner, stage: 4});
+        this.setState({winner: winner, stage: 5});
       });
       this.socket.on("player 2 wins", (moves) => {
-        const winner = moves[1]["player"];
         
-        this.setState({winner: winner, stage: 4});
+        const winner = moves[1]["player"];
+        this.setState({winner: winner, stage: 5});
       });
       this.socket.on("tie", (moves) => {
         
         const winner = "tie";
-        this.setState({winner: winner, stage: 4});
+        this.setState({winner: winner, stage: 5});
       });
     })
     //emit "join" username
@@ -85,7 +87,7 @@ class GameRoom extends React.Component {
   
   handleSubmit(e) {
     e.preventDefault();
-    debugger
+    
     this.socket.emit('chat message', {
       messages: [...this.state.messages, this.state.message],
       user: this.props.user.username,
@@ -105,21 +107,22 @@ class GameRoom extends React.Component {
     const username = this.props.user.username
     const game = this.state.gameName;
     this.socket.emit('move', {username, move: "rock", game });
-    this.setState({stage: 2});
+    this.setState({ stage: 4 });
   };
   handlePaper(e) {
+    
     e.preventDefault();
     const username = this.props.user.username
     const game = this.state.gameName;
     this.socket.emit('move', {username, move: "paper", game });
-    this.setState({ stage: 2 });
+    this.setState({ stage: 4 });
   };
   handleScissors(e) {
     e.preventDefault();
     const username = this.props.user.username
     const game = this.state.gameName;
     this.socket.emit('move', {username, move: "scissors", game });
-    this.setState({ stage: 2 });
+    this.setState({ stage: 4 });
   };
 
   update(type) {
@@ -158,6 +161,9 @@ class GameRoom extends React.Component {
         } else if (stage===3) {
              display = <LiveGame time={time} chatLines={chatLines} user={user} message={message} messages={messages} handleChange={this.handleChange} handleSubmit={this.handleSubmit} handleRock={this.handleRock} handlePaper={this.handlePaper} handleScissors={this.handleScissors}/>
         } else if (stage===4) {
+          
+            display = <WaitingOpponent />
+        } else if (stage===5) {
           display = <Result winner={winner} />
         }
     return (

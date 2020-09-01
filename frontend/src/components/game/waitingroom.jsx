@@ -8,6 +8,7 @@ class WaitingRoom extends React.Component {
         super(props)
     }
     render(){
+      
         //if (player counter === 2) {
             //return null
         // }
