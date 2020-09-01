@@ -11,6 +11,10 @@
     margin-left: 3%;
 }
 
+.home-btn:hover {
+    background-color: hsla(178, 18%, 51%, 0.23);
+}
+
 .login, .logout-btn{
     position: relative;
     color: white;
@@ -18,7 +22,13 @@
     margin-right: 10%;
     width:  200px;
     text-align: center;
+    cursor: pointer;
 }
+
+.login, .logout-btn:hover {
+    background-color: hsla(178, 18%, 51%, 0.23);
+}
+
 .login:visited{
     color: white;
 }

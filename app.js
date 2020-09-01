@@ -16,15 +16,18 @@ const games = require("./routes/api/games");
 
 const User = require('./models/User');
 
+app.use("/", express.static(path.join(__dirname, "/client/build")));
+
+
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 const port = process.env.PORT || 5000;
 
-app.get("/", (req, res) => res.send("Hello World"));
-server.on('error', err => {
-    console.log('Server error:', err);
-});
+// app.get("/", (req, res) => res.send("Hello World"));
+// server.on('error', err => {
+//     console.log('Server error:', err);
+// });
 
 // io.on('connection', socket => {
 //     console.log("socket connection made", socket.id)
@@ -49,7 +52,7 @@ server.listen(port, () => console.log(`Server is running on port ${port}`));
 // } else {
 // }
 
-app.use(express.static("chat"))
+// app.use(express.static("chat"))
 // app.get("/", (req, res) => {
 //     res.sendFile(__dirname + "frontend/public/index.html")
 // })
@@ -60,24 +63,17 @@ io.on("connect", (socket) => {
   console.log('made socket connection', socket.id); 
 
   connections.push(socket.id);
-  if (connections.length % 2 !== 0 ){ //&& youre the last person to connect?
-    const game_id = Math.floor(Math.random() * 1000) 
-    io.emit('connected', {socket_id: socket.id, game_id: game_id})
-  } else {
-    io.emit("start_game") //should this be on odd numbers? e.g start game can provide componnent state obj 'if your game id is 'x', 
-    //trigger re-render to game input child component
-    
-    //on game emit component, both players emit move with game id
-    //once moves queue with respect to that game id === 2, run
-    //rps function that determines winner
-    //using winner / loser state, modify currently logged in users points
-    //render result page (elo gain / loss + win / loss may will need to be provided to reroute) componentDidDismount will cover removing
-    //players from connections, preserving functionality of "connect"
-  
-  }
+  console.log(`${connections.length} connections`)
 
+  socket.on('chat message', data => {
+    console.log(data);
+    // const { id } = socket.id;
+    io.emit('chat message', data);
+    // socket.broadcast.emit('chat message', msg);
+  })
 
   socket.on("join", ({username, game}, callback) => {
+    console.log(username, "joined the room")
     User.findOne({ username: username })
       .then((user) => {
         socket.join(game);
@@ -104,7 +100,7 @@ io.on("connect", (socket) => {
         // socket.join(game);
 
         // socket.emit("id", socket.id);
-        // debugger;
+        // ;
 
         // socket.emit("gameData", {
         //     game: player.game,
@@ -138,47 +134,48 @@ io.on("connect", (socket) => {
       //   callback();
       // });
 
-    let moves = [];
-    socket.on('move', function (username, move) {
+    
+    socket.on('move', ({username, move, game}) => {
+      let moves = gameRooms[game].moves;
         moves.push({'player': username, 'move': move});
 
         if (moves.length === 2) {
             switch (moves[0]["move"]) {
               case "rock": {
                 if (moves[1]["move"] === "rock") {
-                  io.emit("tie", moves);
+                  io.to(game).emit("tie", moves);
                 }
                 if (moves[1]["move"] === "paper") {
-                  io.emit("player 2 wins", moves);
+                  io.to(game).emit("player 2 wins", moves);
                 }
                 if (moves[1]["move"] === "scissors") {
-                  io.emit("player 1 wins", moves);
+                  io.to(game).emit("player 1 wins", moves);
                 }
                 moves = [];
                 break;
               }
               case "paper": {
                 if (moves[1]["move"] === "rock") {
-                  io.emit("player 1 wins", moves);
+                  io.to(game).emit("player 1 wins", moves);
                 }
                 if (moves[1]["move"] === "paper") {
-                  io.emit("tie", moves);
+                  io.to(game).emit("tie", moves);
                 }
                 if (moves[1]["move"] === "scissors") {
-                  io.emit("player 2 wins", moves);
+                  io.to(game).emit("player 2 wins", moves);
                 }
                 moves = [];
                 break;
               }
               case "scissors": {
                 if (moves[1]["move"] === "rock") {
-                  io.emit("player 2 wins", moves);
+                  io.to(game).emit("player 2 wins", moves);
                 }
                 if (moves[1]["move"] === "paper") {
-                  io.emit("player 1 wins", moves);
+                  io.to(game).emit("player 1 wins", moves);
                 }
                 if (moves[1]["move"] === "scissors") {
-                  io.emit("tie", moves);
+                  io.to(game).emit("tie", moves);
                 }
                 moves = [];
                 break;
@@ -188,7 +185,9 @@ io.on("connect", (socket) => {
     });
 
     socket.on("disconnect", () => {
-      console.log('disconnected')        
+      console.log('disconnected')
+      connections.pop();
+      console.log(`${connections.length} connections`)
       const player = removePlayer(socket.id);
         if (player){
             io.to(player.game).emit("gameData", {
@@ -198,9 +197,12 @@ io.on("connect", (socket) => {
         }
     });
   
-      socket.on('chat', (data) => {
-        io.sockets.emit('chat', data);
-    });
+    //   socket.on('chat', (data) => {
+    //     io.sockets.emit('chat', data);
+    // });
+    // socket.on("sendMessage", data => {
+    //   io.socket.emit('receiveMessage', data)
+    // })
 });
 
 if (process.env.NODE_ENV === "production") {
@@ -209,8 +211,6 @@ if (process.env.NODE_ENV === "production") {
         res.sendFile(path.resolve(__dirname, "frontend", "build", "index.html"));
     });
 }
-
-
 
 mongoose
 .connect(db, { useNewUrlParser: true, useUnifiedTopology: true })

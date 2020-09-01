@@ -65,6 +65,10 @@ h1{
     text-decoration: none;
 }
 
+.play-btn:hover {
+    background-color: hsla(178, 0%, 100%, 0.1);
+}
+
 .hiscores-btn{
     font-size: 1.5rem;
     text-transform: uppercase;
@@ -75,6 +79,11 @@ h1{
     margin-bottom: 20px;
     color: white;
     text-decoration: none;
+}
+
+.hiscores-btn:hover {
+    background-color: hsla(178, 0%, 100%, 0.1);
+    /* transition:  1.5s ease-in-out 1.5s; */
 }
 
 .navbar {

@@ -6,13 +6,19 @@ const JoinGame = ({ gameName, update, handleJoin}) => {
       <div>
         <div>
           <form>
-            <input
-              type="text"
-              placeholder="Game Name"
-              value={gameName}
-              onChange={update("gameName")}
-            />
-            <button onClick={handleJoin}>Join</button>
+            <section>
+              <div className="game-name-container">
+                <input
+                  className="game-name-input"
+                  type="text"
+                  placeholder="Game Name"
+                  value={gameName}
+                  onChange={update("gameName")}
+                  autoFocus
+                />
+                <button className="game-name-button" onClick={handleJoin}>Join</button>
+              </div>
+            </section>
           </form>
         </div>
       </div>

@@ -73,9 +73,9 @@ const App = () => {
           component={LogIn}
         />
         <AuthRoute exact path="/signup" component={SignUp} />
-        <Route
+        <ProtectedRoute
           path="/gameroom/"
-          render={() => <GameRoom setupSocket={setupSocket} />}
+          component={GameRoom}
           exact
         />
       </Switch>
