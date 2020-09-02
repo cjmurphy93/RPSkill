@@ -16,7 +16,7 @@ const JoinGame = ({ gameName, rounds, update, handleJoin, handleNumber, openRoom
                       return (
                         <div key={i} className={`open-room`}>
                           <div onClick={() => {
-                            updateOnClick("gameName", openRoom);
+                            // updateOnClick("gameName", openRoom);
                             handleJoin(openRoom);
                           }}>{openRoom}</div>
                           {/* <div>{creator}</div> */}
