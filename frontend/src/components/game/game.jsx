@@ -17,6 +17,7 @@ class GameRoom extends React.Component {
       socket: null,
       gameName: "",
       rounds: 1,
+      currentRound: 1,
       stage: 1,
       winner: "",
       champ: "",
@@ -76,15 +77,15 @@ class GameRoom extends React.Component {
 
       this.socket.on("player 1 wins", (moves) => {
         
-        const winner = moves[0]["player"];
+        const winner = moves[this.state.currentRound][0]["player"];
 
         this.setState({winner: winner, stage: 5});
-        this.socket.emit("add points", moves[0]["player"]);
+        // this.socket.emit("add points", moves[0]["player"]);
       });
       this.socket.on("player 2 wins", (moves) => {
-        const winner = moves[1]["player"];
+        const winner = moves[this.state.currentRound][1]["player"];
         this.setState({winner: winner, stage: 5});
-        this.socket.emit("add points", moves[1]["player"]);
+        // this.socket.emit("add points", moves[1]["player"]);
 
       });
       this.socket.on("tie", (moves) => {
@@ -179,7 +180,8 @@ class GameRoom extends React.Component {
 
   handleNext(e){
     e.preventDefault();
-    this.setState({stage: 3});
+    const nextRound = this.state.currentRound + 1;
+    this.setState({stage: 3, currentRound: nextRound});
   }
 
   componentWillUnmount() {

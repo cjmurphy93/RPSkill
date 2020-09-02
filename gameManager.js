@@ -35,8 +35,8 @@ class Game {
     this.playerTwo = null;
     this.p1Wins = 0;
     this.p2Wins = 0;
-    this.setRounds = rounds - 1;
-    this.playedRounds = 0;
+    this.setRounds = rounds;
+    this.currentRound = 1;
     this.winner = null;
     this.moves = {};
   }

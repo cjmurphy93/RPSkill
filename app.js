@@ -93,10 +93,10 @@ io.on("connect", (socket) => {
     socket.on('move', ({username, move, game}) => {
       let gr = gameRooms[game];
       let moves = gameRooms[game].moves;
-      let round = gameRooms[game].playedRounds;
+      let round = gameRooms[game].currentRound;
       moves[round] = moves[round] || [];
         moves[round].push({'player': username, 'move': move});
-
+      console.log(moves);
         if (moves[round].length === 2) {
             switch (moves[round][0]["move"]) {
               case "rock": {
@@ -128,6 +128,7 @@ io.on("connect", (socket) => {
                   io.to(game).emit("player 1 wins", moves);
                   }
                 }
+                gr.currentRound += 1;
                 break;
               }
               case "paper": {
@@ -158,6 +159,7 @@ io.on("connect", (socket) => {
                     io.to(game).emit("player 2 wins", moves);
                   }
                 }
+                gr.currentRound += 1;
                 break;
               }
               case "scissors": {
@@ -188,10 +190,11 @@ io.on("connect", (socket) => {
                 if (moves[round][1]["move"] === "scissors") {
                   io.to(game).emit("tie", moves);
                 }
+                gr.currentRound += 1;
                 break;
               }
             }
-            round += 1;
+
         }
     });
 

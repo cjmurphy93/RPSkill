@@ -1,9 +1,9 @@
 import React from 'react';
-import Odometer from "react-odometerjs";
+// import Odometer from "react-odometerjs";
 import './result.css';
 // import "./odometer-theme-default.css";
 
-const Result = ({ winner, loser, players, handleNext }) => {
+const RoundResult = ({ winner, loser, players, handleNext }) => {
     //if (player counter === 2) {
     //return null
     // }
