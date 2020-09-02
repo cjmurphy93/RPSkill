@@ -12,7 +12,7 @@ const JoinGame = ({ gameName, update, handleJoin, openRooms, creator}) => {
                   {
                     openRooms.map((openRoom, i) => {
                       return (
-                        <div key={i} className="open-roooms">
+                        <div key={i} className={`open-room-${i}`}>
                           <li>{openRoom}</li>
                           <li>{creator}</li>
                         </div>
