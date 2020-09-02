@@ -1,6 +1,6 @@
 import React from 'react';
 
-const JoinGame = ({ gameName, update, handleJoin}) => {
+const JoinGame = ({ gameName, rounds, update, handleJoin, handleNumber}) => {
 
     return (
       <div>
@@ -16,6 +16,14 @@ const JoinGame = ({ gameName, update, handleJoin}) => {
                   onChange={update("gameName")}
                   autoFocus
                 />
+                <label for="rounds">Rounds</label>
+                <select name="rounds" id="rounds" value={rounds} onChange={handleNumber("rounds")}>
+                  <option value="1">1</option>
+                  <option value="3">3</option>
+                  <option value="5">5</option>
+                  <option value="7">7</option>
+                  <option value="9">9</option>
+                </select>
                 <button className="game-name-button" onClick={handleJoin}>Join</button>
               </div>
             </section>
