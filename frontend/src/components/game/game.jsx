@@ -25,6 +25,8 @@ class GameRoom extends React.Component {
       messages: [],
       chatLines: [],
       users: {},
+      openRooms: [],
+      creator: "",
     };
     this.scoket = null;
     this.testSocket = null;
@@ -44,9 +46,9 @@ class GameRoom extends React.Component {
       process.env.NODE_ENV === "production"
         ? "https://rpskill.herokuapp.com/"
         : "http://localhost:5000/";
-        
+
     this.socket = io(HOST);
-    
+
     this.socket.on("connect", (socket) => {
 
       this.socket.on('chat message', data => {
@@ -60,7 +62,8 @@ class GameRoom extends React.Component {
       })
 
       this.socket.on('join', data => {
-        // console.log(data);
+        console.log(data);
+        this.setState({ openRooms: [...this.state.openRooms, data.gameName], creator: data.creator })
       })
 
       this.socket.on("gameData", (gameData) => {
@@ -76,6 +79,7 @@ class GameRoom extends React.Component {
       });
 
       this.socket.on("player 1 wins", (moves) => {
+
         
         const winner = moves[this.state.currentRound][0]["player"];
 
@@ -87,10 +91,11 @@ class GameRoom extends React.Component {
         this.setState({winner: winner, stage: 5});
         // this.socket.emit("add points", moves[1]["player"]);
 
+
       });
       this.socket.on("tie", (moves) => {
         const winner = "tie";
-        this.setState({winner: winner, stage: 5});
+        this.setState({ winner: winner, stage: 5 });
       });
 
       this.socket.on("game over", (data) => {
@@ -100,17 +105,19 @@ class GameRoom extends React.Component {
     })
     //emit "join" username
   }
-  
+
   handleChange(type) {
     return e => {
+
       // this.setState({ [type]: e.currentTarget.value, user: this.state.user, time: new Date(parseInt(Date.now())).toLocaleTimeString()});
       this.setState({ [type]: e.currentTarget.value, time: new Date(parseInt(Date.now())).toLocaleTimeString()});
+
     }
   }
-  
+
   handleSubmit(e) {
     e.preventDefault();
-    
+
     this.socket.emit('chat message', {
       messages: [...this.state.messages, this.state.message],
       // user: this.props.user.username,
@@ -119,7 +126,7 @@ class GameRoom extends React.Component {
       chatLines: [...this.state.chatLines, `${this.state.user.username}: ${this.state.message} ~@$ ${new Date(parseInt(Date.now())).toLocaleTimeString()}`],
       time: new Date(parseInt(Date.now())).toLocaleTimeString(),
     })
-    this.setState({message: ""});
+    this.setState({ message: "" });
     // console.log(this.state.message, this.state.user, 'client side');
     // console.log(this.state.messages, this.state.user, 'client side');
     // console.log(this.state.messages);
@@ -129,22 +136,22 @@ class GameRoom extends React.Component {
     e.preventDefault();
     const username = this.state.user.username
     const game = this.state.gameName;
-    this.socket.emit('move', {username, move: "rock", game });
+    this.socket.emit('move', { username, move: "rock", game });
     this.setState({ stage: 4 });
   };
   handlePaper(e) {
-    
+
     e.preventDefault();
     const username = this.state.user.username
     const game = this.state.gameName;
-    this.socket.emit('move', {username, move: "paper", game });
+    this.socket.emit('move', { username, move: "paper", game });
     this.setState({ stage: 4 });
   };
   handleScissors(e) {
     e.preventDefault();
     const username = this.state.user.username
     const game = this.state.gameName;
-    this.socket.emit('move', {username, move: "scissors", game });
+    this.socket.emit('move', { username, move: "scissors", game });
     this.setState({ stage: 4 });
   };
 
@@ -153,6 +160,7 @@ class GameRoom extends React.Component {
       this.setState({ [type]: e.currentTarget.value });
     };
   }
+
 
   handleNumber(type) {
     return (e) => {
@@ -168,12 +176,13 @@ class GameRoom extends React.Component {
     // const users = this.state.users;
     const rounds = this.state.rounds;
     ;
+
     this.socket.emit("join", {username, game, rounds}, (error) => {
         if (error) {
             alert(error);
         }
     });
-    this.setState({stage: 2});
+    this.setState({ stage: 2 });
   }
 
 
@@ -189,12 +198,13 @@ class GameRoom extends React.Component {
   }
 
   render() {
-      const { stage, gameName, rounds, winner, message, messages, user, chatLines, users, champ} = this.state;
+
+      const { stage, gameName, rounds, winner, message, messages, user, chatLines, users, champ,  openRooms, creator} = this.state;
 
 
       let display;
         if (stage === 1){
-             display = <JoinGame gameName={gameName} rounds={rounds} update={this.update} handleNumber={this.handleNumber} handleJoin={this.handleJoin}/>
+             display = <JoinGame creator={creator} openRooms={openRooms} gameName={gameName} rounds={rounds} update={this.update} handleNumber={this.handleNumber} handleJoin={this.handleJoin}/>
         } else if (stage===2) {
              display = <WaitingRoom />
         } else if (stage===3) {
@@ -206,14 +216,14 @@ class GameRoom extends React.Component {
         } else if (stage===6) {
           display = <Result winner={champ} players={users.players} loser={users.players.filter(user => user !== winner)} />
 
-        }
+
+    }
     return (
       <div>
-     {display}
+        {display}
       </div>
     );
   }
 }
 
 export default GameRoom;
-

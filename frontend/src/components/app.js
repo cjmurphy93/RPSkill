@@ -16,46 +16,6 @@ import io from "socket.io-client";
 
 
 const App = () => {
-  const [socket, setSocket] = React.useState(null);
-  // const setupSocket = () => {
-  //   const userToken = localStorage.getItem('userToken');
-  //   if (userToken && !socket) {
-  //     const newSocket = io("http://localhost:5000");
-  //     newSocket.on('connect', () => {
-  //       console.log('newSocket connected');
-  //     })
-  //   }
-  // };
-
-  const setupSocket = () => {
-    const userToken = localStorage.getItem("jwtToken");
-    if (userToken && !socket) {
-      const newSocket = io.connect("http://localhost:5000", {
-        query: {
-          token: localStorage.getItem("userToken"),
-        },
-      });
-
-      newSocket.on("disconnect", () => {
-        setSocket(null);
-        setTimeout(setupSocket, 2000);
-        console.log("socket disconnected");
-      });
-
-      newSocket.on("connect", () => {
-        console.log("socket connected!");
-      });
-
-      setSocket(newSocket);
-      return newSocket;
-    }
-  };
-
-  // React.useEffect(() => {
-  //   setupSocket();
-  //   //eslint-disable-next-line
-  // }, []);
-
   return (
     <div>
       <NavBar />

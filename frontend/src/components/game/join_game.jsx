@@ -1,13 +1,30 @@
 import React from 'react';
 
-const JoinGame = ({ gameName, rounds, update, handleJoin, handleNumber}) => {
+
+const JoinGame = ({ gameName, rounds, update, handleJoin, handleNumber, openRooms, creator}) => {
+
 
     return (
       <div>
         <div>
           <form>
             <section>
-              <div className="game-name-container">
+
+              <div className="join-room-container">
+                <div className="available-rooms">
+                  {
+                    openRooms.map((openRoom, i) => {
+                      return (
+                        <div key={i} className={`open-room-${i}`}>
+                          <li>{openRoom}</li>
+                          <li>{creator}</li>
+                        </div>
+                      )
+                    })
+                  }
+                </div>
+     
+             {/* <div className="game-name-container"> */}
                 <input
                   className="game-name-input"
                   type="text"
@@ -26,7 +43,8 @@ const JoinGame = ({ gameName, rounds, update, handleJoin, handleNumber}) => {
                 </select>
                 </label>
                 <button className="game-name-button" onClick={handleJoin}>Join</button>
-              </div>
+
+               {/* </div> */}
             </section>
           </form>
         </div>

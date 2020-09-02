@@ -8,13 +8,14 @@ const path = require("path");
 const server = require('http').createServer(app);
 const socketio = require("socket.io");
 const io = socketio(server);
-const {addPlayer, removePlayer, getPlayer, getPlayersInGame, Game} = require("./gameManager");
+const { addPlayer, removePlayer, getPlayer, getPlayersInGame, Game } = require("./gameManager");
 
 const users = require("./routes/api/users");
 const leaderboard = require("./routes/api/leaderboard");
 const games = require("./routes/api/games");
 
 const User = require('./models/User');
+const GameModel = require('./models/Game');
 
 app.use("/", express.static(path.join(__dirname, "/client/build")));
 
@@ -39,33 +40,76 @@ const gameRooms = {};
 const standbyUsers = [];
 
 io.on("connect", (socket) => {
-  console.log('made socket connection', socket.id); 
+  console.log('made socket connection', socket.id);
   connections.push(socket.id);
   // console.log(`${connections.length} connections`)  
+
   
   socket.on("join", ({username, game, rounds}, callback) => {
+
     standbyUsers.push(username);
-    console.log(username, "joined the room")
-    
+    console.log(username, "joined the room");
+
+    GameModel.findOne( { name: game }, err => {
+      if (err) {
+        console.log(err);
+      } else {
+        console.log('found existing game!');
+      }
+    } )
+      .then(gameDocument => {
+        if (!gameDocument) {
+          const newGame = new GameModel({
+            playerOne: username,
+            playerTwo: null,
+            winner: null,
+            name: game,
+          });
+          newGame.save()
+            .then(newGame => {
+              // console.log(newGame);
+              io.emit('join', {gameName: newGame.name, creator: username})
+              console.log(`${newGame.name} is open now`);
+
+            }).catch(err => console.log(err));
+        } else {
+          GameModel.updateOne({ name: game }, { playerTwo: username }, err => {
+            if (err) {
+              console.log(err)
+            } else {
+              console.log('found game and updating!')
+            }
+          })
+        }
+      })
+
     socket.on('chat message', data => {
       console.log(data);
       // const { id } = socket.id;
       io.emit('chat message', (data));
-      io.emit('join', {standbyUsers});
+      // io.emit('join', { standbyUsers });
       // socket.broadcast.emit('chat message', msg);
     })
 
     socket.on("add points", username => {
       console.log(username);
       User.updateOne({ username: username },
-        { $inc: { elo: 200 } }
+        { $inc: { elo: 200 } }, err => {
+          if (err) {
+            console.log(err);
+          }
+        }
       )
-      .then(user => {
-        console.log(`points added to ${username}`)
-      })
+        .then(user => {
+          console.log(`points added to ${username}`)
+        })
     })
 
-    User.findOne({ username: username })
+    User.findOne({ username: username }, err => {
+      if (err) {
+        console.log(err)
+      }
+    })
       .then((user) => {
         socket.join(game);
         const gameRoom = gameRooms[game];
@@ -88,6 +132,7 @@ io.on("connect", (socket) => {
         }
 
       });
+
     });
 
     socket.on('move', ({username, move, game}) => {
@@ -195,41 +240,42 @@ io.on("connect", (socket) => {
               }
             }
 
-        }
-    });
 
-    socket.on("disconnect", () => {
-      console.log('disconnected')
-      connections.pop();
-      console.log(`${connections.length} connections`)
-      const player = removePlayer(socket.id);
-        if (player){
-            io.to(player.game).emit("gameData", {
-              game: player.game,
-              players: getPlayersInGame(player.game),
-            });
         }
-    });
-  
-    //   socket.on('chat', (data) => {
-    //     io.sockets.emit('chat', data);
-    // });
-    // socket.on("sendMessage", data => {
-    //   io.socket.emit('receiveMessage', data)
-    // })
+ 
+
+  socket.on("disconnect", () => {
+    console.log('disconnected')
+    connections.pop();
+    console.log(`${connections.length} connections`)
+    const player = removePlayer(socket.id);
+    if (player) {
+      io.to(player.game).emit("gameData", {
+        game: player.game,
+        players: getPlayersInGame(player.game),
+      });
+    }
+  });
+
+  //   socket.on('chat', (data) => {
+  //     io.sockets.emit('chat', data);
+  // });
+  // socket.on("sendMessage", data => {
+  //   io.socket.emit('receiveMessage', data)
+  // })
 });
 
 if (process.env.NODE_ENV === "production") {
-    app.use(express.static("frontend/build"));
-    app.get("/", (req, res) => {
-        res.sendFile(path.resolve(__dirname, "frontend", "build", "index.html"));
-    });
+  app.use(express.static("frontend/build"));
+  app.get("/", (req, res) => {
+    res.sendFile(path.resolve(__dirname, "frontend", "build", "index.html"));
+  });
 }
 
 mongoose
-.connect(db, { useNewUrlParser: true, useUnifiedTopology: true })
-.then(() => console.log("Connected to MongoDB successfully"))
-.catch((err) => console.log(err));
+  .connect(db, { useNewUrlParser: true, useUnifiedTopology: true })
+  .then(() => console.log("Connected to MongoDB successfully"))
+  .catch((err) => console.log(err));
 
 app.use(passport.initialize());
 require("./config/passport")(passport);
@@ -237,6 +283,3 @@ require("./config/passport")(passport);
 app.use("/api/users/", users);
 app.use("/api/leaderboard/", leaderboard);
 app.use("/api/games/", games);
-
-
-

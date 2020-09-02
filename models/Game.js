@@ -8,17 +8,20 @@ const gameSchema = new Schema(
       type: String
     },
     playerOne: {
-      type: Schema.Types.ObjectId,
-      ref: "users",
+      // type: Schema.Types.ObjectId,
+      // ref: "users",
+      type: String,
       required: true
     },
     playerTwo: {
-      type: Schema.Types.ObjectId,
-      ref: "users",
+      // type: Schema.Types.ObjectId,
+      // ref: "users",
+      type: String,
       default: null,
     },
     winner: {
-      type: Schema.Types.ObjectId,
+      // type: Schema.Types.ObjectId,
+      type: String,
       default: null,
     },
   },
