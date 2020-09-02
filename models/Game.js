@@ -31,9 +31,9 @@ const gameSchema = new Schema(
 );
 
 // still working on it
-gameSchema.statics.leaderboardTop = function(callback, num) {
-    const sorted = this.find({}).sort({})
-}
+// gameSchema.statics.leaderboardTop = function(callback, num) {
+//     const sorted = this.find({}).sort({})
+// }
 
 
 const Game = mongoose.model('Game', gameSchema);
