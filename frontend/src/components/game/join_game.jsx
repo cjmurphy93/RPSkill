@@ -1,6 +1,6 @@
 import React from 'react';
 
-const JoinGame = ({ gameName, update, handleJoin}) => {
+const JoinGame = ({ gameName, update, handleJoin, openRooms, creator}) => {
 
     return (
       <div>
@@ -9,7 +9,16 @@ const JoinGame = ({ gameName, update, handleJoin}) => {
             <section>
               <div className="join-room-container">
                 <div className="available-rooms">
-
+                  {
+                    openRooms.map((openRoom, i) => {
+                      return (
+                        <div key={i} className="open-roooms">
+                          <li>{openRoom}</li>
+                          <li>{creator}</li>
+                        </div>
+                      )
+                    })
+                  }
                 </div>
                 {/* <div className="game-name-container"> */}
                   <input

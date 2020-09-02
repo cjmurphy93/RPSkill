@@ -21,6 +21,8 @@ class GameRoom extends React.Component {
       messages: [],
       chatLines: [],
       users: {},
+      openRooms: [],
+      creator: "",
     };
     this.scoket = null;
     this.testSocket = null;
@@ -54,7 +56,8 @@ class GameRoom extends React.Component {
       })
 
       this.socket.on('join', data => {
-        // console.log(data);
+        console.log(data);
+        this.setState({ openRooms: [...this.state.openRooms, data.gameName], creator: data.creator })
       })
 
       this.socket.on("gameData", (gameData) => {
@@ -162,12 +165,12 @@ class GameRoom extends React.Component {
   }
 
   render() {
-    const { stage, gameName, winner, message, messages, user, chatLines, users } = this.state;
+    const { stage, gameName, winner, message, messages, user, chatLines, users, openRooms, creator } = this.state;
 
 
     let display;
     if (stage === 1) {
-      display = <JoinGame gameName={gameName} update={this.update} handleJoin={this.handleJoin} />
+      display = <JoinGame creator={creator} openRooms={openRooms} gameName={gameName} update={this.update} handleJoin={this.handleJoin} />
     } else if (stage === 2) {
       display = <WaitingRoom />
     } else if (stage === 3) {

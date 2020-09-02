@@ -66,8 +66,8 @@ io.on("connect", (socket) => {
           newGame.save()
             .then(newGame => {
               // console.log(newGame);
-              
-              console.log(newGame.name);
+              io.emit('join', {gameName: newGame.name, creator: username})
+              console.log(`${newGame.name} is open now`);
 
             }).catch(err => console.log(err));
         } else {
@@ -85,7 +85,7 @@ io.on("connect", (socket) => {
       console.log(data);
       // const { id } = socket.id;
       io.emit('chat message', (data));
-      io.emit('join', { standbyUsers });
+      // io.emit('join', { standbyUsers });
       // socket.broadcast.emit('chat message', msg);
     })
 

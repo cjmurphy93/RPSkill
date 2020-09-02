@@ -110,7 +110,12 @@
 
 .available-rooms {
     grid-area: 2 / 2 / 7 / 11;
-    background-color: hsla(178, 0%, 100%, 0.06);
+    background-color: hsla(178, 0%, 100%, 0.03);
+    border-radius: 5px;
+    list-style: none;
+    font-size: 22px;
+    text-align: left;
+    padding: 10px 15px;
 }
 
 .game-name-input{
@@ -138,7 +143,6 @@
     font-size: 30px;
     letter-spacing: 3px;
 }
-
 
 .spinner-icon-waiting {
   animation: 2s linear infinite svg-animation;
