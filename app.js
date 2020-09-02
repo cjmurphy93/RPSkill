@@ -15,6 +15,7 @@ const leaderboard = require("./routes/api/leaderboard");
 const games = require("./routes/api/games");
 
 const User = require('./models/User');
+const GameModel = require('./models/Game');
 
 app.use("/", express.static(path.join(__dirname, "/client/build")));
 
@@ -45,7 +46,36 @@ io.on("connect", (socket) => {
 
   socket.on("join", ({ username, game }, callback) => {
     standbyUsers.push(username);
-    console.log(username, "joined the room")
+    console.log(username, "joined the room");
+
+    GameModel.findOne( { name: game }, err => {
+      if (err) {
+        console.log(err);
+      } else {
+        console.log('found user');
+      }
+    } )
+      .then(gameDocument => {
+        if (!gameDocument) {
+          const newGame = new GameModel({
+            playerOne: username,
+            playerTwo: null,
+            winner: null,
+            name: game,
+          });
+
+          newGame.save()
+            .then(newGame => {
+              console.log(newGame, "created");
+            }).catch(err => console.log(err));
+        } else {
+          GameModel.updateOne({ name: game }, { playerTwo: username }, err => {
+            if (err) {
+              console.log(err)
+            }
+          })
+        }
+      })
 
     socket.on('chat message', data => {
       console.log(data);
@@ -58,14 +88,22 @@ io.on("connect", (socket) => {
     socket.on("add points", username => {
       console.log(username);
       User.updateOne({ username: username },
-        { $inc: { elo: 200 } }
+        { $inc: { elo: 200 } }, err => {
+          if (err) {
+            console.log(err);
+          }
+        }
       )
         .then(user => {
           console.log(`points added to ${username}`)
         })
     })
 
-    User.findOne({ username: username })
+    User.findOne({ username: username }, err => {
+      if (err) {
+        console.log(err)
+      }
+    })
       .then((user) => {
         socket.join(game);
         const gameRoom = gameRooms[game];
