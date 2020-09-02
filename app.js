@@ -103,6 +103,7 @@ io.on("connect", (socket) => {
                   io.to(game).emit("tie", moves);
                 }
                 if (moves[round][1]["move"] === "paper") {
+                  
                   io.to(game).emit("player 2 wins", moves);
                 }
                 if (moves[round][1]["move"] === "scissors") {
@@ -135,6 +136,7 @@ io.on("connect", (socket) => {
                 break;
               }
             }
+            round += 1;
         }
     });
 
