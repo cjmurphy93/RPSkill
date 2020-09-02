@@ -63,10 +63,12 @@ io.on("connect", (socket) => {
             winner: null,
             name: game,
           });
-
           newGame.save()
             .then(newGame => {
-              console.log(newGame, "created");
+              // console.log(newGame);
+              
+              console.log(newGame.name);
+
             }).catch(err => console.log(err));
         } else {
           GameModel.updateOne({ name: game }, { playerTwo: username }, err => {
