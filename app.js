@@ -91,6 +91,7 @@ io.on("connect", (socket) => {
     });
 
     socket.on('move', ({username, move, game}) => {
+      let gr = gameRooms[game];
       let moves = gameRooms[game].moves;
       let round = gameRooms[game].playedRounds;
       moves[round] = moves[round] || [];
@@ -103,32 +104,86 @@ io.on("connect", (socket) => {
                   io.to(game).emit("tie", moves);
                 }
                 if (moves[round][1]["move"] === "paper") {
-                  
-                  io.to(game).emit("player 2 wins", moves);
+                  if (moves[round][1]["player"] === gr.playerOne.username) gr.p1Wins += 1;
+                  if (moves[round][1]["player"] === gr.playerTwo.username) gr.p2Wins += 1;
+
+                  if (gr.p1Wins > (gr.setRounds / 2)) {
+                    io.to(game).emit("game over", {winner: gr.playerOne, loser: gr.playerTwo})
+                  } else if (gr.p2Wins > (gr.setRounds / 2)) {
+                    io.to(game).emit("game over", { winner: gr.playerTwo, loser: gr.playerOne })
+                  } else {
+                    io.to(game).emit("player 2 wins", moves);
+                  }
                 }
+
                 if (moves[round][1]["move"] === "scissors") {
+                  if (moves[round][0]["player"] === gr.playerOne.username) gr.p1Wins += 1;
+                  if (moves[round][0]["player"] === gr.playerTwo.username) gr.p2Wins += 1;
+
+                  if (gr.p1Wins > (gr.setRounds / 2)) {
+                    io.to(game).emit("game over", { winner: gr.playerOne, loser: gr.playerTwo })
+                  } else if (gr.p2Wins > (gr.setRounds / 2)) {
+                    io.to(game).emit("game over", { winner: gr.playerTwo, loser: gr.playerOne })
+                  } else {
                   io.to(game).emit("player 1 wins", moves);
+                  }
                 }
                 break;
               }
               case "paper": {
                 if (moves[round][1]["move"] === "rock") {
-                  io.to(game).emit("player 1 wins", moves);
+                  if (moves[round][0]["player"] === gr.playerOne.username) gr.p1Wins += 1;
+                  if (moves[round][0]["player"] === gr.playerTwo.username) gr.p2Wins += 1;
+
+                  if (gr.p1Wins > (gr.setRounds / 2)) {
+                    io.to(game).emit("game over", { winner: gr.playerOne, loser: gr.playerTwo })
+                  } else if (gr.p2Wins > (gr.setRounds / 2)) {
+                    io.to(game).emit("game over", { winner: gr.playerTwo, loser: gr.playerOne })
+                  } else {
+                    io.to(game).emit("player 1 wins", moves);
+                  }
                 }
                 if (moves[round][1]["move"] === "paper") {
                   io.to(game).emit("tie", moves);
                 }
                 if (moves[round][1]["move"] === "scissors") {
-                  io.to(game).emit("player 2 wins", moves);
+                  if (moves[round][1]["player"] === gr.playerOne.username) gr.p1Wins += 1;
+                  if (moves[round][1]["player"] === gr.playerTwo.username) gr.p2Wins += 1;
+
+                  if (gr.p1Wins > (gr.setRounds / 2)) {
+                    io.to(game).emit("game over", { winner: gr.playerOne, loser: gr.playerTwo })
+                  } else if (gr.p2Wins > (gr.setRounds / 2)) {
+                    io.to(game).emit("game over", { winner: gr.playerTwo, loser: gr.playerOne })
+                  } else {
+                    io.to(game).emit("player 2 wins", moves);
+                  }
                 }
                 break;
               }
               case "scissors": {
                 if (moves[round][1]["move"] === "rock") {
-                  io.to(game).emit("player 2 wins", moves);
+                  if (moves[round][1]["player"] === gr.playerOne.username) gr.p1Wins += 1;
+                  if (moves[round][1]["player"] === gr.playerTwo.username) gr.p2Wins += 1;
+
+                  if (gr.p1Wins > (gr.setRounds / 2)) {
+                    io.to(game).emit("game over", { winner: gr.playerOne, loser: gr.playerTwo })
+                  } else if (gr.p2Wins > (gr.setRounds / 2)) {
+                    io.to(game).emit("game over", { winner: gr.playerTwo, loser: gr.playerOne })
+                  } else {
+                    io.to(game).emit("player 2 wins", moves);
+                  }
                 }
                 if (moves[round][1]["move"] === "paper") {
-                  io.to(game).emit("player 1 wins", moves);
+                  if (moves[round][0]["player"] === gr.playerOne.username) gr.p1Wins += 1;
+                  if (moves[round][0]["player"] === gr.playerTwo.username) gr.p2Wins += 1;
+
+                  if (gr.p1Wins > (gr.setRounds / 2)) {
+                    io.to(game).emit("game over", { winner: gr.playerOne, loser: gr.playerTwo })
+                  } else if (gr.p2Wins > (gr.setRounds / 2)) {
+                    io.to(game).emit("game over", { winner: gr.playerTwo, loser: gr.playerOne })
+                  } else {
+                    io.to(game).emit("player 1 wins", moves);
+                  }
                 }
                 if (moves[round][1]["move"] === "scissors") {
                   io.to(game).emit("tie", moves);
