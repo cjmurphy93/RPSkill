@@ -240,8 +240,8 @@ io.on("connect", (socket) => {
               }
             }
 
-
-        }
+          }
+        })
  
 
   socket.on("disconnect", () => {

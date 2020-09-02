@@ -5,9 +5,6 @@ const JoinGame = ({ gameName, rounds, update, handleJoin, handleNumber, openRoom
 
 
     return (
-      <div>
-        <div>
-          <form>
             <section>
 
               <div className="join-room-container">
@@ -44,11 +41,9 @@ const JoinGame = ({ gameName, rounds, update, handleJoin, handleNumber, openRoom
                 </label>
                 <button className="game-name-button" onClick={handleJoin}>Join</button>
 
-               {/* </div> */}
+               </div>
             </section>
-          </form>
-        </div>
-      </div>
+
     );
 }
 
