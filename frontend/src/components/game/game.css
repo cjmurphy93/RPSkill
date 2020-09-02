@@ -131,6 +131,11 @@ header {
     height: 8px;
 }
 
+label {
+    grid-area: 8 / 10 / 8 / 11;
+    align-self: center;
+}
+
 .open-room {
     display: flex;
     justify-content: space-evenly;
