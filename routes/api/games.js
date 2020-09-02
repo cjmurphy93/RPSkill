@@ -36,12 +36,12 @@ router.post('/', (req, res) => {
     }
     games.push(newGame);
     res.status(200).send(newGame);
-})
+});
 
 router.patch('/:id', (req, res) => {
     const game = games.find((gameObj) => gameObj.id === Number(req.params.id));
     Object.assign(game, req.query);
     res.status(200).send(game);
-})
+});
 
 module.exports = router;

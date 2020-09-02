@@ -20,7 +20,7 @@ router.get('/current', passport.authenticate('jwt', { session: false }), (req, r
     email: req.user.email,
     elo: req.user.elo
   });
-})
+});
 
 // get all users
 router.get('/', (req, res) => {
@@ -31,7 +31,7 @@ router.get('/', (req, res) => {
       })
       .catch(err => res.status(404).json({ nousersfound: "No users found"}))
       // res.status(200).send(users);
-})
+});
 
 // get specific user
 router.get('/:username', (req, res) => {
@@ -42,7 +42,7 @@ router.get('/:username', (req, res) => {
       res.json(user);
     })
     .catch((err) => res.status(404).json({ nouserfound: "No user found" }));
-})
+});
 
 // get friend list of specific user
 // router.get('/:id/friends', (req, res) => {
