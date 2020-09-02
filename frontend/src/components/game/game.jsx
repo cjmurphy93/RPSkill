@@ -47,7 +47,7 @@ class GameRoom extends React.Component {
         // console.log(data.messages, data.user, "this came through")
         this.setState({
           messages: [...this.state.messages, data.messages[data.messages.length - 1]],
-          user: data.username,
+          user: data.username, //this.state.user
           chatLines: [...this.state.chatLines, `${data.username}: ${data.messages[data.messages.length - 1]} ~@$ ${new Date(parseInt(Date.now())).toLocaleTimeString()}`],
           time: data.time,
         })
