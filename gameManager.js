@@ -28,17 +28,24 @@ const players = [];
 //     };
 
 class Game {
-  constructor(name, player) {
+  constructor(name, player, rounds) {
     this.name = name;
     this.players = [player];
-    // this.playerOne = player;
-    // this.playerTwo = null;
+    this.playerOne = player;
+    this.playerTwo = null;
+    this.p1Wins = 0;
+    this.p2Wins = 0;
+    this.setRounds = rounds;
+    this.currentRound = 1;
     this.winner = null;
-    this.moves = [];
+    this.moves = {};
   }
 
   addPlayer(player) {
-    this.players.push(player);
+    if (this.players.length < 2) {
+      this.players.push(player);
+      this.playerTwo = player;
+    }
   }
 }
 

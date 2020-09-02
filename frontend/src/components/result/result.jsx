@@ -1,5 +1,5 @@
 import React from 'react';
-import Odometer from "react-odometerjs";
+// import Odometer from "react-odometerjs";
 import './result.css';
 // import "./odometer-theme-default.css";
 
