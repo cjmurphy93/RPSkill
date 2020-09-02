@@ -108,6 +108,11 @@
     
 }
 
+.available-rooms {
+    grid-area: 2 / 2 / 7 / 11;
+    background-color: hsla(178, 0%, 100%, 0.06);
+}
+
 .game-name-input{
     /* margin-right: 20px; */
     grid-area: 8 / 3 / 8 / 8;
@@ -118,6 +123,10 @@
     /* padding-left: 50px; */
     text-align: center;
     font-size: 30px;
+}
+
+.game-name-input::placeholder {
+    color: lightgray;
 }
 
 .game-name-button{

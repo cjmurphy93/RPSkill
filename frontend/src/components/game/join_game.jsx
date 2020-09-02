@@ -8,6 +8,9 @@ const JoinGame = ({ gameName, update, handleJoin}) => {
           <form>
             <section>
               <div className="join-room-container">
+                <div className="available-rooms">
+
+                </div>
                 {/* <div className="game-name-container"> */}
                   <input
                     className="game-name-input"
