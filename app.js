@@ -52,7 +52,7 @@ io.on("connect", (socket) => {
       if (err) {
         console.log(err);
       } else {
-        console.log('found user');
+        console.log('found existing game!');
       }
     } )
       .then(gameDocument => {
@@ -72,6 +72,8 @@ io.on("connect", (socket) => {
           GameModel.updateOne({ name: game }, { playerTwo: username }, err => {
             if (err) {
               console.log(err)
+            } else {
+              console.log('found game and updating!')
             }
           })
         }
