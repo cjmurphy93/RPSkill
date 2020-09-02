@@ -1,7 +1,7 @@
 import React from 'react';
 
 
-const JoinGame = ({ gameName, rounds, update, handleJoin, handleNumber, openRooms, creator}) => {
+const JoinGame = ({ gameName, rounds, update, handleJoin, handleNumber, openRooms, creator, updateOnClick}) => {
 
 
     return (
@@ -15,7 +15,10 @@ const JoinGame = ({ gameName, rounds, update, handleJoin, handleNumber, openRoom
                     openRooms.map((openRoom, i) => {
                       return (
                         <div key={i} className={`open-room`}>
-                          <div>{openRoom}</div>
+                          <div onClick={() => {
+                            updateOnClick("gameName", openRoom);
+                            handleJoin(openRoom);
+                          }}>{openRoom}</div>
                           {/* <div>{creator}</div> */}
                         </div>
                       )
