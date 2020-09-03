@@ -63,8 +63,11 @@ class GameRoom extends React.Component {
       })
 
       this.socket.on('join', data => {
+        this.setState({ openRooms: [...this.state.openRooms, data.gameName],
+          gameName: data.gameName,
+        })
         console.log(data);
-        this.setState({ openRooms: [...this.state.openRooms, data.gameName], creator: data.creator })
+        console.log(this.state.gameName)
       })
 
       this.socket.on("gameData", (gameData) => {
@@ -128,9 +131,6 @@ class GameRoom extends React.Component {
       time: new Date(parseInt(Date.now())).toLocaleTimeString(),
     })
     this.setState({ message: "" });
-    // console.log(this.state.message, this.state.user, 'client side');
-    // console.log(this.state.messages, this.state.user, 'client side');
-    // console.log(this.state.messages);
   }
 
   handleRock(e) {
@@ -139,6 +139,8 @@ class GameRoom extends React.Component {
     const game = this.state.gameName;
     this.socket.emit('move', { username, move: "rock", game });
     this.setState({ stage: 4 });
+    console.log(this.state.gameName)
+
   };
   handlePaper(e) {
 
@@ -221,8 +223,6 @@ class GameRoom extends React.Component {
           display = <RoundResult winner={winner} players={users.players} loser={users.players.filter(user => user !== winner)} handleNext={this.handleNext} />
         } else if (stage===6) {
           display = <Result winner={champ} players={users.players} loser={users.players.filter(user => user !== winner)} />
-
-
     }
     return (
       <div>
