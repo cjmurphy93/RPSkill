@@ -32,6 +32,7 @@ class GameRoom extends React.Component {
     this.testSocket = null;
     this.handleJoin = this.handleJoin.bind(this);
     this.update = this.update.bind(this);
+    // this.updateOnClick = this.updateOnClick.bind(this);
     this.handleRock = this.handleRock.bind(this);
     this.handlePaper = this.handlePaper.bind(this);
     this.handleScissors = this.handleScissors.bind(this);
@@ -62,8 +63,11 @@ class GameRoom extends React.Component {
       })
 
       this.socket.on('join', data => {
+        this.setState({ openRooms: [...this.state.openRooms, data.gameName],
+          gameName: data.gameName,
+        })
         console.log(data);
-        this.setState({ openRooms: [...this.state.openRooms, data.gameName], creator: data.creator })
+        console.log(this.state.gameName)
       })
 
       this.socket.on("gameData", (gameData) => {
@@ -127,9 +131,6 @@ class GameRoom extends React.Component {
       time: new Date(parseInt(Date.now())).toLocaleTimeString(),
     })
     this.setState({ message: "" });
-    // console.log(this.state.message, this.state.user, 'client side');
-    // console.log(this.state.messages, this.state.user, 'client side');
-    // console.log(this.state.messages);
   }
 
   handleRock(e) {
@@ -138,6 +139,8 @@ class GameRoom extends React.Component {
     const game = this.state.gameName;
     this.socket.emit('move', { username, move: "rock", game });
     this.setState({ stage: 4 });
+    console.log(this.state.gameName)
+
   };
   handlePaper(e) {
 
@@ -161,6 +164,9 @@ class GameRoom extends React.Component {
     };
   }
 
+  // updateOnClick(type, openRoom) {
+  //   this.setState({ [type]: openRoom });
+  // }
 
   handleNumber(type) {
     return (e) => {
@@ -169,10 +175,12 @@ class GameRoom extends React.Component {
   }
 
   handleJoin(e){
-    e.preventDefault();
+    if (typeof e !== "string") {
+      e.preventDefault();
+    }
 
     const username = this.state.user.username;
-    const game = this.state.gameName;
+    const game = typeof e === "string" ? e : this.state.gameName
     // const users = this.state.users;
     const rounds = this.state.rounds;
     ;
@@ -204,7 +212,7 @@ class GameRoom extends React.Component {
 
       let display;
         if (stage === 1){
-             display = <JoinGame creator={creator} openRooms={openRooms} gameName={gameName} rounds={rounds} update={this.update} handleNumber={this.handleNumber} handleJoin={this.handleJoin}/>
+             display = <JoinGame updateOnClick={this.updateOnClick} creator={creator} openRooms={openRooms} gameName={gameName} rounds={rounds} update={this.update} handleNumber={this.handleNumber} handleJoin={this.handleJoin}/>
         } else if (stage===2) {
              display = <WaitingRoom />
         } else if (stage===3) {
@@ -215,8 +223,6 @@ class GameRoom extends React.Component {
           display = <RoundResult winner={winner} players={users.players} loser={users.players.filter(user => user !== winner)} handleNext={this.handleNext} />
         } else if (stage===6) {
           display = <Result winner={champ} players={users.players} loser={users.players.filter(user => user !== winner)} />
-
-
     }
     return (
       <div>
