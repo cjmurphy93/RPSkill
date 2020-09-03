@@ -77,6 +77,8 @@ io.on("connect", (socket) => {
             if (err) {
               console.log(err)
             } else {
+              io.emit('join', { gameName: game })
+              console.log(`${game} is open now`);
               console.log('found game and updating!')
             }
           })
@@ -139,6 +141,7 @@ io.on("connect", (socket) => {
       let gr = gameRooms[game];
       let moves = gameRooms[game].moves;
       let round = gameRooms[game].currentRound;
+      console.log(game, move)
       moves[round] = moves[round] || [];
         moves[round].push({'player': username, 'move': move});
       console.log(moves);
