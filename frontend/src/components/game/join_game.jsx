@@ -1,32 +1,36 @@
 import React from 'react';
-
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faQuestionCircle } from '@fortawesome/free-solid-svg-icons'
 
 const JoinGame = ({ gameName, rounds, update, handleJoin, handleNumber, openRooms, creator, updateOnClick}) => {
 
 
     return (
             <section>
-
-              <div className="join-room-container">
-                <div className="available-rooms">
-                  <header>Lobby</header>
-                  <div id="spacer1"></div>
-                  {
-                    openRooms.map((openRoom, i) => {
-                      return (
-                        <div key={i} className={`open-room`}>
-                          <div onClick={() => {
-                            // updateOnClick("gameName", openRoom);
-                            handleJoin(openRoom);
-                          }}>{openRoom}</div>
-                          {/* <div>{creator}</div> */}
+                <div className="join-room-container">
+                    <div className="available-rooms">
+                      <header>Lobby
+                        <div className="tooltip">
+                        <span className="tooltiptext">Create a lobby by entering a lobby name below, or join one by clicking one in the list.</span>
+                          <FontAwesomeIcon style={{ marginLeft: 8, cursor: "pointer" }} icon={faQuestionCircle} className="questioncircle-img">
+                          </FontAwesomeIcon>
                         </div>
-                      )
-                    })
-                  }
-                </div>
+                      </header>
+                      <div id="spacer1"></div>
+                      {
+                        openRooms.map((openRoom, i) => {
+                          return (
+                            <div key={i} className={`open-room`}>
+                              <div onClick={() => {
+                                // updateOnClick("gameName", openRoom);
+                                handleJoin(openRoom);
+                              }}>{openRoom}</div>
+                            </div>
+                          )
+                        })
+                      }
+                    </div>
      
-             {/* <div className="game-name-container"> */}
                 <input
                   className="game-name-input"
                   type="text"
@@ -46,7 +50,7 @@ const JoinGame = ({ gameName, rounds, update, handleJoin, handleNumber, openRoom
                 </label>
                 <button className="game-name-button" onClick={handleJoin}>Join</button>
 
-               </div>
+              </div>
             </section>
 
     );
