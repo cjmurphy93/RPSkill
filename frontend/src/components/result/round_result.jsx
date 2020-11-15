@@ -80,7 +80,7 @@ const RoundResult = ({ winner, loser, players, handleNext }) => {
                         </div>
                     </div>
                 </div>
-                <button onClick={handleNext}>Next Round</button>
+                <button className="next-round-button" onClick={handleNext}>Next Round</button>
             </section>
         </>
     );
