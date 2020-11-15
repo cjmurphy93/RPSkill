@@ -3,13 +3,13 @@ import React from 'react';
 import './result.css';
 // import "./odometer-theme-default.css";
 
-const Result = ({winner, loser, players}) => {
+const Result = ({winner, loser, players, users}) => {
         //if (player counter === 2) {
         //return null
         // }
         
         const message = winner === "tie" ? "It's a Tie!" : `${winner} Wins!`;
-      
+        debugger
         return (
           <>
             <section className="section-container conf-wrap">
@@ -74,7 +74,7 @@ const Result = ({winner, loser, players}) => {
                         <h2 id="winner-points">{winner === "tie" ? 0 : "+400"}</h2>
                   </div>
                   <div className="playerTwo">
-                        <h2>{winner === "tie" ? players[1] : loser}</h2>
+                        <h2>{winner === "tie" ? players[1] : users.players.filter(user => user !== winner)}</h2>
                         <h2>ELO Change</h2>
                         <h2 id="loser-points">0</h2>
                   </div>

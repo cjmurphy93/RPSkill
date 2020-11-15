@@ -222,7 +222,7 @@ class GameRoom extends React.Component {
         } else if (stage===5) {
           display = <RoundResult winner={winner} players={users.players} loser={users.players.filter(user => user !== winner)} handleNext={this.handleNext} />
         } else if (stage===6) {
-          display = <Result winner={champ} players={users.players} loser={users.players.filter(user => user !== winner)} />
+          display = <Result winner={champ} players={users.players} loser={users.players.filter(user => user !== winner)} users={users} />
     }
     return (
       <div>
