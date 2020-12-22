@@ -1,117 +1,119 @@
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-button{
-    background: none;
-    color: white;
+button {
+  background: none;
+  color: white;
 }
 
-html{
-    font-size: 10px;
-    font-family: "Lato", Arial, sans-serif;
+html {
+  font-size: 10px;
+  font-family: "Lato", Arial, sans-serif;
 }
 
-section{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    width: 100%;
-    height: 100vh;
-    color: #fff;
-    background: linear-gradient(-45deg, #EE7752, #E73C7E, #23A6D5, #23D5AB);
-    background-size: 400% 400%;
-    position: relative;
-    animation: change 20s ease-in-out infinite;
+section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  height: calc(100vh - 100px);
+  color: #fff;
+  background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+  background-size: 400% 400%;
+  position: relative;
+  animation: change 20s ease-in-out infinite;
 }
 
-.center-container{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    margin: auto;
-    align-items: center;
-    vertical-align: center;
+.center-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: auto;
+  align-items: center;
+  vertical-align: center;
 }
 
-.flex-container{
-    width: 100%;
-    display: flex;
-    justify-content: space-around;
+.flex-container {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
 }
 
-h1{
-    font-size: 2.5rem;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    border: 3px solid #fff;
-    position: relative;
-    padding: 5rem 10rem;
-    margin-bottom: 20px;
+h1 {
+  font-size: 2.5rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  border: 3px solid #fff;
+  position: relative;
+  padding: 5rem 10rem;
+  margin-bottom: 20px;
 }
 
-.play-btn{
-    font-size: 1.5rem;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    border: 3px solid #fff;
-    position: relative;
-    padding: 2.5rem 5rem;
-    margin-bottom: 20px;
-    cursor: pointer;
-    color: white;
-    text-decoration: none;
+.play-btn {
+  font-size: 1.5rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  border: 3px solid #fff;
+  position: relative;
+  padding: 2.5rem 5rem;
+  margin-bottom: 20px;
+  cursor: pointer;
+  color: white;
+  text-decoration: none;
+  border-radius: 3em;
 }
 
 .play-btn:hover {
-    background-color: hsla(178, 0%, 100%, 0.1);
+  background-color: hsla(178, 0%, 100%, 0.1);
 }
 
-.hiscores-btn{
-    font-size: 1.5rem;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    border: 3px solid #fff;
-    position: relative;
-    padding: 2.5rem 5rem;
-    margin-bottom: 20px;
-    color: white;
-    text-decoration: none;
+.hiscores-btn {
+  font-size: 1.5rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  border: 3px solid #fff;
+  position: relative;
+  padding: 2.5rem 5rem;
+  margin-bottom: 20px;
+  color: white;
+  text-decoration: none;
+  border-radius: 3em;
 }
 
 .hiscores-btn:hover {
-    background-color: hsla(178, 0%, 100%, 0.1);
-    /* transition:  1.5s ease-in-out 1.5s; */
+  background-color: hsla(178, 0%, 100%, 0.1);
+  /* transition:  1.5s ease-in-out 1.5s; */
 }
 
 .navbar {
-    height: 100px;
-    background-color: black;
+  height: 100px;
+  background-color: black;
 }
 
-.white-btn{
-    font-size: 1.5rem;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    border: 3px solid #fff;
-    position: relative;
-    padding: 2rem 4rem;
+.white-btn {
+  font-size: 1.5rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  border: 3px solid #fff;
+  position: relative;
+  padding: 2rem 4rem;
 }
-.white-btn:hover{
-    background: black;
-    color: white;
-    transition: ease-in 0.2s;
+.white-btn:hover {
+  background: black;
+  color: white;
+  transition: ease-in 0.2s;
 }
 @keyframes change {
-    0%{
+  0% {
     background-position: 0 50%;
-    }
-    50%{
-        background-position: 100% 50%;
-    }
-    110%{
-        background-position: 0 50%;
-    }
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  110% {
+    background-position: 0 50%;
+  }
 }

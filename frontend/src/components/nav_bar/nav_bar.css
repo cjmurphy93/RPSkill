@@ -1,45 +1,49 @@
-.navbar{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
-.home-btn{
-    position: relative;
-    color: white;
-    text-decoration: none;
-    margin-left: 3%;
+.home-btn {
+  position: relative;
+  color: white;
+  text-decoration: none;
+  margin-left: 25px;
+  border-radius: 1em;
 }
 
 .home-btn:hover {
-    background-color: hsla(178, 18%, 51%, 0.23);
+  background-color: hsla(178, 18%, 51%, 0.23);
 }
 
-.login, .logout-btn{
-    position: relative;
-    color: white;
-    text-decoration: none;
-    margin-right: 10%;
-    width:  200px;
-    text-align: center;
-    cursor: pointer;
+.login,
+.logout-btn {
+  position: relative;
+  color: white;
+  text-decoration: none;
+  margin-right: 25px;
+  width: 200px;
+  text-align: center;
+  cursor: pointer;
+  border-radius: 1em;
 }
 
-.login, .logout-btn:hover {
-    background-color: hsla(178, 18%, 51%, 0.23);
+.login,
+.logout-btn:hover {
+  background-color: hsla(178, 18%, 51%, 0.23);
 }
 
-.login:visited{
-    color: white;
+.login:visited {
+  color: white;
 }
 
-.linkedin{
-    /* height: 20%; */
-    margin-right: 20px;
+.linkedin {
+  /* height: 20%; */
+  margin-right: 20px;
 }
 
-.linkedin-img{
-    height: 100%;
-    color: white;
-    font-size: 40px;
+.linkedin-img {
+  height: 100%;
+  color: white;
+  font-size: 40px;
 }
