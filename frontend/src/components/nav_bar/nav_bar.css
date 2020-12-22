@@ -28,7 +28,7 @@
   border-radius: 1em;
 }
 
-.login,
+.login:hover,
 .logout-btn:hover {
   background-color: hsla(178, 18%, 51%, 0.23);
 }
