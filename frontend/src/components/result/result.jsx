@@ -12,13 +12,11 @@ const Result = ({ winner, loser, players, users }) => {
         // }
 
         useEffect(() => {
-          debugger
           dispatch(updateScore(winner));
         }, [updateScore])
 
         
         const message = winner === "tie" ? "It's a Tie!" : `${winner} Wins!`;
-        debugger
         return (
           <>
             <section className="section-container conf-wrap">

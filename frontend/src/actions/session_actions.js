@@ -82,7 +82,6 @@ export const clearErrors = () => dispatch => {
 export const scores = () => dispatch => (
     LeaderboardUtil.users()
         .then((res) => {
-            debugger
             dispatch(receiveUsers(res.data));
         }).catch((err) => {
             dispatch(receiveErrors(err.response.data));
@@ -90,9 +89,8 @@ export const scores = () => dispatch => (
 );
 
 export const updateScore = username => dispatch => {
-    debugger
     LeaderboardUtil.updateUserScore(username)
         .then(res => {
             console.log("update score");
-        })
+        });
 }
