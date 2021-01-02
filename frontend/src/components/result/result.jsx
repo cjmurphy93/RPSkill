@@ -5,8 +5,7 @@ import { updateScore } from '../../actions/session_actions';
 import './result.css';
 // import "./odometer-theme-default.css";
 
-const Result = (props) => {
-        const { winner, loser, players, users } = props;
+const Result = ({ winner, loser, players, users }) => {
         const dispatch = useDispatch();
         //if (player counter === 2) {
         //return null
