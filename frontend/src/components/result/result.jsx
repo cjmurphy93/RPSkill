@@ -15,7 +15,7 @@ const Result = (props) => {
         useEffect(() => {
           debugger
           dispatch(updateScore(winner));
-        }, [props.updateScore])
+        }, [updateScore])
 
         
         const message = winner === "tie" ? "It's a Tie!" : `${winner} Wins!`;

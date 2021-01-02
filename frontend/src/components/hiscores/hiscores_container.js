@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { scores, updateScore } from '../../actions/session_actions';
+import { scores } from '../../actions/session_actions';
 import Hiscores from './hiscores';
 
 const msp = state => {
@@ -10,8 +10,7 @@ const msp = state => {
 
 const mdp = dispatch => {
     return {
-        scores: () => dispatch(scores()),
-        updateScore: username => dispatch(updateScore(username)),
+        scores: () => dispatch(scores())
     }
 }
 
