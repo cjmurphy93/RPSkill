@@ -50,7 +50,6 @@ router.get('/:username', (req, res) => {
 // update attribute (performance or friend)
 router.patch("/:username", (req, res) => {
   console.log(req.params);
-  // User.findOne({ _username: req.query.username }).then((user) => userId = user._id);
     User.findOneAndUpdate({ username: req.params.username },
       { $inc: { elo: req.query.score }} // query string to be requested as ?score=score
     )
