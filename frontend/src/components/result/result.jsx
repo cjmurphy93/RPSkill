@@ -1,12 +1,22 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import { updateScore } from '../../actions/session_actions';
 // import Odometer from "react-odometerjs";
 import './result.css';
 // import "./odometer-theme-default.css";
 
-const Result = ({winner, loser, players, users}) => {
+const Result = (props) => {
+        const { winner, loser, players, users } = props;
+        const dispatch = useDispatch();
         //if (player counter === 2) {
         //return null
         // }
+
+        useEffect(() => {
+          debugger
+          dispatch(updateScore(winner));
+        }, [props.updateScore])
+
         
         const message = winner === "tie" ? "It's a Tie!" : `${winner} Wins!`;
         debugger

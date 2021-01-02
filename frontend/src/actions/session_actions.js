@@ -7,6 +7,7 @@ export const RECEIVE_CURRENT_USER = "RECEIVE_CURRENT_USER";
 export const RECEIVE_SESSION_ERRORS = "RECEIVE_SESSION_ERRORS";
 export const REMOVE_ERRORS = "REMOVE_ERRORS";
 export const RECEIVE_USERS = "RECEIVE_USERS";
+export const RECEIVE_SCORE = "RECEIVE_SCORE";
 
 
 
@@ -35,6 +36,13 @@ export const receiveUsers = (users) => {
         users
     }
 };
+
+export const receiveScore = username => {
+    return {
+        type: RECEIVE_SCORE,
+        username
+    }
+}
 
 export const signup = (user) => dispatch => (
     APIUtil.signup(user).then((res) => {
@@ -74,8 +82,21 @@ export const clearErrors = () => dispatch => {
 export const scores = () => dispatch => (
     LeaderboardUtil.users()
         .then((res) => {
+            debugger
             dispatch(receiveUsers(res.data));
         }).catch((err) => {
             dispatch(receiveErrors(err.response.data));
         })
 );
+
+export const updateScore = username => dispatch => {
+    debugger
+    LeaderboardUtil.updateUserScore(username)
+        .then(res => {
+        debugger
+        console.log(res)
+        dispatch(receiveScore(res)).catch(err => [
+            dispatch(receiveErrors(err.response.data))
+        ]);
+    })
+}
