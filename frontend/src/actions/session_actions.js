@@ -93,10 +93,6 @@ export const updateScore = username => dispatch => {
     debugger
     LeaderboardUtil.updateUserScore(username)
         .then(res => {
-        debugger
-        console.log(res)
-        dispatch(receiveScore(res)).catch(err => [
-            dispatch(receiveErrors(err.response.data))
-        ]);
-    })
+            console.log("update score");
+        })
 }

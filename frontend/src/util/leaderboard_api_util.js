@@ -7,7 +7,7 @@ export const users = () => {
 
 export const updateUserScore = username => {
     debugger
-    return axios.patch(`/api/users/${username}`);
+    return axios.patch(`/api/users/${username}?score=200`);
 
     // return axios.patch(`http://localhost:5000/api/users/${username}`, username, {
     //     headers: {
