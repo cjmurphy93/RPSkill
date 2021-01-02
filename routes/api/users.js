@@ -57,7 +57,10 @@ router.patch("/:username", (req, res) => {
     .then(user => {
       res.status(200).json({msg: "points added to user"});
     })
-    .catch((err) => res.status(404).json({ msg: "update errors"}))
+    .catch((err) => {
+      res.status(404).json({ msg: "update errors"});
+      console,log(err.response.request._response);
+    })
   }
 );
 // router.patch("/:id/", (req, res) => {

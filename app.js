@@ -8,6 +8,7 @@ const path = require("path");
 const server = require('http').createServer(app);
 const socketio = require("socket.io");
 const io = socketio(server);
+// const cors = require('cors');
 const { addPlayer, removePlayer, getPlayer, getPlayersInGame, Game } = require("./gameManager");
 
 const users = require("./routes/api/users");
@@ -18,6 +19,12 @@ const User = require('./models/User');
 const GameModel = require('./models/Game');
 
 app.use("/", express.static(path.join(__dirname, "/client/build")));
+// app.use(cors());
+// app.use(function(req, res, next) {
+//    res.header('Access-Control-Allow-Methods', 'POST, PATCH, OPTIONS');
+//       next();
+// });
+// app.use("/:username", express.static(path.join(__dirname, "/client/build")));
 
 
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -273,6 +280,9 @@ if (process.env.NODE_ENV === "production") {
   app.get("/", (req, res) => {
     res.sendFile(path.resolve(__dirname, "frontend", "build", "index.html"));
   });
+  // app.post("/api/users", (req, res) => {
+  //   res.sendFile(path.resolve(__dirname, "frontend", "build", "index.html"));
+  // });
 }
 
 mongoose
