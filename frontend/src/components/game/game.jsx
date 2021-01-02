@@ -203,6 +203,9 @@ class GameRoom extends React.Component {
 
   componentWillUnmount() {
     //disconnect socket
+    const { users, winner, champ } = this.state;
+
+    
   }
 
   render() {

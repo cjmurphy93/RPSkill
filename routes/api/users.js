@@ -35,10 +35,8 @@ router.get('/', (req, res) => {
 
 // get specific user
 router.get('/:username', (req, res) => {
-   
   User.findOne({ username: req.params.username })
     .then((user) => {
-       ;
       res.json(user);
     })
     .catch((err) => res.status(404).json({ nouserfound: "No user found" }));
@@ -50,24 +48,30 @@ router.get('/:username', (req, res) => {
 // })
 
 // update attribute (performance or friend)
-router.patch("/:id/", (req, res) => {
-    User.updateOne({ _id: req.params.id },
+router.patch("/:username", (req, res) => {
+  console.log(req.params);
+    User.findOneAndUpdate({ username: req.params.username },
       { $inc: { elo: req.query.score }} // query string to be requested as ?score=score
     )
-    .then(() => {
-      res.status(200).json({msg: "points added to user"})
+    .then(user => {
+      res.status(200).json({msg: "points added to user"});
     })
-    .catch((err) => res.status(404).json({ msg: "update errors"}))
-    // else if (req.params.friend) {
-    //   User.updateOne(
-    //     { _id: req.params.id },
-    //     { $addToSet: { friends: req.query.friend } } // query string ?friend=id
-    //   ).then(() => {
-    //     res.status(200).send();
-    //   });
-    // }
+    .catch((err) => {
+      res.status(404).json({ msg: "update errors"});
+      console,log(err.response.request._response);
+    })
   }
 );
+// router.patch("/:id/", (req, res) => {
+//     User.updateOne({ _id: req.params.id },
+//       { $inc: { elo: req.query.score }} // query string to be requested as ?score=score
+//     )
+//     .then(() => {
+//       res.status(200).json({msg: "points added to user"})
+//     })
+//     .catch((err) => res.status(404).json({ msg: "update errors"}))
+//   }
+// );
 
 // // add friend route
 // router.patch('/:id/', (req, res) => {
