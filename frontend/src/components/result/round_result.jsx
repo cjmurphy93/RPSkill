@@ -1,6 +1,6 @@
-import React from 'react';
+import React from 'react'
 // import Odometer from "react-odometerjs";
-import './result.css';
+import './result.css'
 // import "./odometer-theme-default.css";
 
 const RoundResult = ({ winner, loser, players, handleNext }) => {
@@ -8,7 +8,7 @@ const RoundResult = ({ winner, loser, players, handleNext }) => {
     //return null
     // }
 
-    const message = winner === "tie" ? "It's a Tie!" : `${winner} Wins!`;
+    const message = winner === 'tie' ? "It's a Tie!" : `${winner} Wins!`
 
     return (
         <>
@@ -69,22 +69,25 @@ const RoundResult = ({ winner, loser, players, handleNext }) => {
                     <div className="result-message">{message}</div>
                     <div className="players">
                         <div className="playerOne">
-                            <h2>{winner === "tie" ? players[0] : winner}</h2>
+                            <h2>{winner === 'tie' ? players[0] : winner}</h2>
                             <h2>Score</h2>
-                            <h2 id="winner-points">{winner === "tie" ? 0 : "+400"}</h2>
+                            <h2 id="winner-points">
+                                {winner === 'tie' ? 0 : '+400'}
+                            </h2>
                         </div>
                         <div className="playerTwo">
-                            <h2>{winner === "tie" ? players[1] : loser}</h2>
+                            <h2>{winner === 'tie' ? players[1] : loser}</h2>
                             <h2>Score</h2>
                             <h2 id="loser-points">0</h2>
                         </div>
                     </div>
                 </div>
-                <button className="next-round-button" onClick={handleNext}>Next Round</button>
+                <button className="next-round-button" onClick={handleNext}>
+                    Next Round
+                </button>
             </section>
         </>
-    );
+    )
 }
 
-
-export default RoundResult;
+export default RoundResult

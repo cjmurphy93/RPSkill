@@ -1,29 +1,29 @@
 .user {
-  display: inline-block;
-  width: 300px;
-  height: 300px;
-  border-radius: 50%;
-  cursor: pointer;
+    display: inline-block;
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    cursor: pointer;
 
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
 }
 
-.about-container{
+.about-container {
     display: flex;
     justify-content: space-evenly;
 }
 .nara {
-  background-image: url('https://i.imgur.com/k2qgHVE.png');
+    background-image: url('https://i.imgur.com/k2qgHVE.png');
 }
 
 .connor {
-  background-image: url('https://angel.co/cdn-cgi/image/width=400,height=400,format=auto,fit=cover/https://photos.angel.co/users/11735563-original?1602018249');
+    background-image: url('https://angel.co/cdn-cgi/image/width=400,height=400,format=auto,fit=cover/https://photos.angel.co/users/11735563-original?1602018249');
 }
 
 .austin {
-  background-image: url('https://i.imgur.com/znMe2Xe.jpeg');
+    background-image: url('https://i.imgur.com/znMe2Xe.jpeg');
 }
 
 .about-title {

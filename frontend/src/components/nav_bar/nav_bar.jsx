@@ -1,63 +1,69 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import './nav_bar.css';
+import React from 'react'
+import { Link } from 'react-router-dom'
+import './nav_bar.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faLinkedin } from '@fortawesome/free-brands-svg-icons'
 
 class NavBar extends React.Component {
     constructor(props) {
-        super(props);
-        this.logoutUser = this.logoutUser.bind(this);
-    };
+        super(props)
+        this.logoutUser = this.logoutUser.bind(this)
+    }
 
     logoutUser(e) {
-        e.preventDefault();
-        this.props.logout();
+        e.preventDefault()
+        this.props.logout()
     }
-    
+
     render() {
         const display = !this.props.loggedIn ? (
-          <div className="navbar">
             <div className="navbar">
-              <Link className="white-btn home-btn" to="/">
-                Home
-              </Link>
+                <div className="navbar">
+                    <Link className="white-btn home-btn" to="/">
+                        Home
+                    </Link>
+                </div>
+                <div className="navbar">
+                    <Link className="linkedin" to="/aboutus">
+                        <FontAwesomeIcon
+                            icon={faLinkedin}
+                            className="linkedin-img"
+                        />
+                    </Link>
+                    <Link className="white-btn login" to="/login">
+                        Log In
+                    </Link>
+                </div>
             </div>
-            <div className="navbar">
-              <Link className="linkedin" to="/aboutus">
-                <FontAwesomeIcon icon={faLinkedin} className="linkedin-img" />
-              </Link>
-              <Link className="white-btn login" to="/login">
-                Log In
-              </Link>
-            </div>
-          </div>
         ) : (
-          <div className="navbar">
             <div className="navbar">
-              <Link className="white-btn home-btn" to="/">
-                Home
-              </Link>
+                <div className="navbar">
+                    <Link className="white-btn home-btn" to="/">
+                        Home
+                    </Link>
+                </div>
+                <div className="navbar">
+                    <Link className="linkedin" to="/aboutus">
+                        <FontAwesomeIcon
+                            icon={faLinkedin}
+                            className="linkedin-img"
+                        />
+                    </Link>
+                    <button
+                        onClick={this.logoutUser}
+                        className="white-btn logout-btn"
+                    >
+                        Logout
+                    </button>
+                </div>
             </div>
-            <div className="navbar">
-              <Link className="linkedin" to="/aboutus">
-                <FontAwesomeIcon icon={faLinkedin} className="linkedin-img" />
-              </Link>
-              <button
-                onClick={this.logoutUser}
-                className="white-btn logout-btn"
-              >
-                Logout
-              </button>
-            </div>
-          </div>
-        );
-    return <>
-        <nav>
-            {display}
-        </nav> 
-    </>
-    } 
+        )
+        return (
+            <>
+                <nav>{display}</nav>
+            </>
+        )
+    }
 }
 
-export default NavBar;
+export default NavBar
